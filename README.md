@@ -13,7 +13,7 @@ Go to our [github repo](https://github.com/GeekyAnts/flutter-starter) and create
 https://github.com/GeekyAnts/flutter-starter/generate
 ```
 
-To the project run
+To run the project run
 `bash run_script.sh`
 
 **Motivation**
