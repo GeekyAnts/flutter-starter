@@ -1,4 +1,4 @@
-# flutter-starter
+# Flutter starter
 
 
 The Flutter starter is a kit in which you will find all the code for starting any production level app, with API configurations, State management and common UI widgets for Flutter projects.
@@ -7,11 +7,13 @@ You can read all about Flutter Framework [on the official documentation.](https:
 
 Go to [Flutter Docs](https://flutter.dev/docs/get-started/install) and install Flutter in your system. 
 
-Then clone our project:
+Go to our [github repo](https://github.com/GeekyAnts/flutter-starter) and create a template.
+
 ```
-git clone https://github.com/GeekyAnts/flutter-starter.git
+https://github.com/GeekyAnts/flutter-starter/generate
 ```
-Change directory to that folder and run
+
+To the project run
 `bash run_script.sh`
 
 **Motivation**
