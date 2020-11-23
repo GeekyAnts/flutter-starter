@@ -1,4 +1,4 @@
-# flutter-starter-kit
+# flutter-starter
 
 
 The Flutter starter is a kit in which you will find all the code for starting any production level app, with API configurations, State management and common UI widgets for Flutter projects.
@@ -9,7 +9,7 @@ Go to [Flutter Docs](https://flutter.dev/docs/get-started/install) and install F
 
 Then clone our project:
 ```
-git clone https://github.com/GeekyAnts/flutter-starter-kit.git
+git clone https://github.com/GeekyAnts/flutter-starter.git
 ```
 Change directory to that folder and run
 `bash run_script.sh`
