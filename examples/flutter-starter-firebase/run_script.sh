@@ -21,4 +21,4 @@ flutter clean
 echo "+++++Main app pub get+++++"
 flutter pub get
 echo "+++++Main app run+++++"
-# flutter run
+flutter run

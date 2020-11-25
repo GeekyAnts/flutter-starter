@@ -1,5 +1,6 @@
 // home screen contents
 import 'package:app/src/config/image_constants.dart';
+import 'package:app/src/screens/products/product_card.dart';
 
 import 'package:app/src/utils/app_state_notifier.dart';
 import 'package:app/src/widgets/cache_image_widget.dart';
@@ -8,14 +9,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:shared/main.dart';
 import 'package:app/src/config/string_constants.dart' as string_constants;
+import 'package:shared/modules/products/models/product_model.dart';
 
 class HomeScreen extends StatelessWidget {
   // ignore: close_sinks
   final AuthenticationBloc authenticationBloc =
       AuthenticationBlocController().authenticationBloc;
-
+  List<Product> products;
   @override
   Widget build(BuildContext context) {
+    final productProvider = Provider.of<FirebaseCRUDoperations>(context);
     authenticationBloc.add(GetUserData());
     return WillPopScope(
         onWillPop: () async => false,
@@ -34,12 +37,34 @@ class HomeScreen extends StatelessWidget {
                       IconButton(
                           icon: Icon(Icons.logout),
                           onPressed: () {
-                            authenticationBloc.add(UserLogOut());
+                            productProvider.fetchProducts();
+                            // authenticationBloc.add(UserLogOut());
+                          }),
+                      IconButton(
+                          icon: Icon(Icons.add),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/addProduct');
                           }),
                     ],
                   ),
-                  body: Center(
-                    child: Text('/home'),
+                  body: Container(
+                    child: FutureBuilder<List<Product>>(
+                      future: productProvider.fetchProducts(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<List<Product>> snapshot) {
+                        if (snapshot.hasData) {
+                          print('hello ${snapshot.data}');
+                          products = snapshot.data;
+                          return ListView.builder(
+                            itemCount: products.length,
+                            itemBuilder: (buildContext, index) =>
+                                ProductCard(productDetails: products[index]),
+                          );
+                        } else {
+                          return Text('fetching');
+                        }
+                      },
+                    ),
                   ),
                   drawer: Drawer(
                     child: ListView(

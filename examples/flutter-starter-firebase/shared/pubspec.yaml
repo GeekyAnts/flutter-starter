@@ -33,6 +33,7 @@ dependencies:
   rxdart: ^0.24.1
   bloc: ^6.0.3
   flutter_bloc: ^6.0.6
+  get_it: ^1.0.3+2
   equatable: ^1.0.2
   shared_preferences: ^0.5.12+4
   api_sdk:
