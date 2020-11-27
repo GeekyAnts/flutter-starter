@@ -13,7 +13,6 @@ class _SignUpFormState extends State<SignUpForm> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
   final _emailController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Form(

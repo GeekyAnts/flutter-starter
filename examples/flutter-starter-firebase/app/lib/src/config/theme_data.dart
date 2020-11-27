@@ -151,8 +151,8 @@ class ThemeConfig {
           fontWeight: FontWeight.w300,
         ),
         overline: baseTextTheme.overline.copyWith(
-          color: secondaryText,
-          fontSize: 11.0,
+          color: primaryText,
+          fontSize: 12.0,
           fontWeight: FontWeight.w500,
         ),
         subtitle1: baseTextTheme.subtitle1.copyWith(

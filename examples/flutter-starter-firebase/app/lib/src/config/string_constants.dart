@@ -13,4 +13,4 @@ const String tab3 = "Tab 3";
 const String screen_util = "Screen";
 
 //home
-const String app_bar_title = 'Flutter Starter';
+const String app_bar_title = 'Book store';
