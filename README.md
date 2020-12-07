@@ -21,3 +21,9 @@ To run the project run
 The idea of Flutter starter came from the fact that whenever we install flutter it gives us a simple counter app which is good if you are just starting, but when it comes to building a production-level app we need everything from state-management to API calls to Styleguide to common widgets, and most often we repeat these code again and again in every project we make so we thought of writing all the code and creating all folders and files which you will need in every project so that you don't have to rewrite it again.
 
 <img style="float: left;" src="/flutter_starter_kit.gif"  height="500"/>
+
+**Contributors**
+
+<a href="https://github.com/raj2611">
+  <img src="https://avatars0.githubusercontent.com/u/23263053?s=40&v=4">
+</a>
