@@ -24,6 +24,8 @@ The idea of Flutter starter came from the fact that whenever we install flutter 
 
 **Contributors**
 
+Thanks to all those who contribute.
+
 <a href="https://github.com/raj2611">
-  <img src="https://avatars0.githubusercontent.com/u/23263053?s=40&v=4">
+  <img src="https://avatars0.githubusercontent.com/u/23263053?s=40&v=4" alt="Avatar">
 </a>
