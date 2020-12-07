@@ -25,7 +25,7 @@ class _WeatherPageState extends State<WeatherPage> {
       ),
       child: ListView(
         children: [
-          TextField(
+          TextFormField(
             keyboardType: TextInputType.text,
             style: Theme.of(context).textTheme.headline6,
             autofocus: false,
@@ -49,7 +49,7 @@ class _WeatherPageState extends State<WeatherPage> {
                 weatherBloc.add(
                   SearchClickedEvent(city: _cityNameController.text),
                 );
-                FocusScope.of(context).unfocus();
+                FocusScope.of(context).requestFocus(new FocusNode());
               },
               child: Text(string_constants.search),
             ),
