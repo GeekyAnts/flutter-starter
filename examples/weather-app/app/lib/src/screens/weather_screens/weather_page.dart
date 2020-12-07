@@ -1,57 +1,63 @@
+import 'package:app/src/screens/weather_screens/widgets/build_weather.dart';
 import 'package:app/src/utils/size_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared/main.dart';
+import 'package:app/src/config/string_constants.dart' as string_constants;
 
-// ignore: must_be_immutable
-class WeatherPage extends StatelessWidget {
+class WeatherPage extends StatefulWidget {
+  @override
+  _WeatherPageState createState() => _WeatherPageState();
+}
+
+class _WeatherPageState extends State<WeatherPage> {
   WeatherBloc weatherBloc;
+
   @override
   Widget build(BuildContext context) {
     weatherBloc = BlocProvider.of<WeatherBloc>(context);
-    TextEditingController cityNameController = TextEditingController();
+    TextEditingController _cityNameController = TextEditingController();
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(
         horizontal: 20.toWidth,
         vertical: 18.toHeight,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: ListView(
         children: [
           TextField(
             keyboardType: TextInputType.text,
             style: Theme.of(context).textTheme.headline6,
             autofocus: false,
             textAlign: TextAlign.left,
-            controller: cityNameController,
+            controller: _cityNameController,
             autocorrect: false,
             cursorColor: Theme.of(context).colorScheme.primary,
             decoration: InputDecoration(
-              labelText: 'Enter City Name Here',
+              labelText: string_constants.enter_city_name,
               filled: true,
               isDense: true,
             ),
           ),
           SizedBox(height: 42.toHeight),
           SizedBox(
-            height: 80.toHeight,
+            height: 100.toHeight,
             width: 250.toWidth,
             child: RaisedButton(
               elevation: 3,
               onPressed: () {
                 weatherBloc.add(
-                  SearchClickedEvent(city: cityNameController.text),
+                  SearchClickedEvent(city: _cityNameController.text),
                 );
+                FocusScope.of(context).unfocus();
               },
-              child: Text("Search"),
+              child: Text(string_constants.search),
             ),
           ),
           SizedBox(height: 40.toHeight),
           BlocBuilder<WeatherBloc, WeatherStates>(builder: (context, state) {
             if (state is SearchSuccessState)
-              return _buildWeather(
-                context: context,
+              return BuildWeather(
                 weatherModel: state.weatherModel,
               );
             else if (state is InitialSuccessState)
@@ -63,78 +69,6 @@ class WeatherPage extends StatelessWidget {
             else
               return Container();
           }),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildWeather({BuildContext context, WeatherModel weatherModel}) {
-    return Container(
-      width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "${weatherModel.cityName}, ${weatherModel.countryCode}",
-            style: Theme.of(context)
-                .textTheme
-                .bodyText2
-                .copyWith(fontSize: 50.toFont),
-          ),
-          SizedBox(height: 40.toHeight),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "${weatherModel.mainWeather}",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2
-                    .copyWith(fontSize: 70.toFont),
-              ),
-              Image.network(
-                  "http://openweathermap.org/img/wn/${weatherModel.icon}@2x.png"),
-            ],
-          ),
-          Text(
-            "${weatherModel.description}",
-            style: Theme.of(context)
-                .textTheme
-                .bodyText2
-                .copyWith(fontSize: 30.toFont),
-          ),
-          SizedBox(height: 40.toHeight),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                "${weatherModel.temp}°",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText2
-                    .copyWith(fontSize: 110.toFont),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    "Min: ${weatherModel.minTemp}°",
-                    style: Theme.of(context).textTheme.bodyText2,
-                  ),
-                  Text(
-                    "Max: ${weatherModel.maxTemp}°",
-                    style: Theme.of(context).textTheme.bodyText2,
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 30.toHeight),
-          Text(
-            "Wind Speed : ${weatherModel.windSpeed}",
-            style: Theme.of(context).textTheme.bodyText2,
-          ),
         ],
       ),
     );

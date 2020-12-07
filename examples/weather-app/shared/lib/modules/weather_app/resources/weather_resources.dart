@@ -4,6 +4,5 @@ class WeatherApiProvider {
   Future fetchWeather(String city) async {
     final response = await ApiSdk.getWeatherforCity(city);
     return response;
-    // return WeatherModel.fromJson(response);
   }
 }

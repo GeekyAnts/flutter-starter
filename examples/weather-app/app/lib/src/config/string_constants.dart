@@ -14,3 +14,9 @@ const String screen_util = "Screen";
 
 //home
 const String app_bar_title = 'Weather App';
+
+//Weather Screens
+const String enter_city_name = 'Enter City Name Here';
+const String search = 'Search';
+const String weather_image_const_1 = "http://openweathermap.org/img/wn/";
+const String weather_image_const_2 = "@2x.png";

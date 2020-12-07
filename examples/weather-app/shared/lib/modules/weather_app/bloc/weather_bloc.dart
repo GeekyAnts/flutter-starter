@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:shared/main.dart';
-import 'package:shared/modules/weather_app/resources/weather_api_provider.dart';
+import 'package:shared/modules/weather_app/resources/weather_resources.dart';
 
 class WeatherBloc extends Bloc<WeatherEvents, WeatherStates> {
   WeatherBloc() : super(InitialSuccessState());
