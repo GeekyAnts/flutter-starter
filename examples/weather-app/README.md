@@ -1,23 +1,20 @@
 # Flutter starter
 
 
-The Flutter starter is a kit in which you will find all the code for starting any production level app, with API configurations, State management and common UI widgets for Flutter projects.
-
-You can read all about Flutter Framework [on the official documentation.](https://flutter.dev/).
-
-Go to [Flutter Docs](https://flutter.dev/docs/get-started/install) and install Flutter in your system. 
-
-Go to our [github repo](https://github.com/GeekyAnts/flutter-starter) and create a template.
-
+To see this example go to flutter-starter-kit/examples/weather-app
+The api url is in `api-constants.dart`
+We have used an open source [weather api](https://openweathermap.org/current).
+```dart
+Map<String, String> apiConstants = {
+  "openweather": "https://api.openweathermap.org/data/2.5",
+  "auth": "https://reqres.in/api"
+};
 ```
-https://github.com/GeekyAnts/flutter-starter/generate
+To Login use this credantials:
 ```
+Email "eve.holt@reqres.in",
+Password "pistol"
+```
+The demo for the app looks like this:
 
-To run the project run
-`bash run_script.sh`
-
-**Motivation**
-
-The idea of Flutter starter came from the fact that whenever we install flutter it gives us a simple counter app which is good if you are just starting, but when it comes to building a production-level app we need everything from state-management to API calls to Styleguide to common widgets, and most often we repeat these code again and again in every project we make so we thought of writing all the code and creating all folders and files which you will need in every project so that you don't have to rewrite it again.
-
-<img style="float: left;" src="/flutter_starter_kit.gif"  height="500"/>
+<img style="float: left;" src="./weather-app.gif"  height="500"/>
