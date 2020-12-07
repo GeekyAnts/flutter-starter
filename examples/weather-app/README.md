@@ -3,13 +3,14 @@
 
 To see this example go to flutter-starter-kit/examples/weather-app
 The api url is in `api-constants.dart`
-We have used an open source [weather api](https://openweathermap.org/current).
+
 ```dart
 Map<String, String> apiConstants = {
   "openweather": "https://api.openweathermap.org/data/2.5",
   "auth": "https://reqres.in/api"
 };
 ```
+We have used an open source [weather api](https://openweathermap.org/current).
 To Login use this credantials:
 ```
 Email "eve.holt@reqres.in",
