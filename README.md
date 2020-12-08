@@ -1,9 +1,5 @@
 # Flutter starter
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
 
 The Flutter starter is a kit in which you will find all the code for starting any production level app, with API configurations, State management and common UI widgets for Flutter projects.
 
@@ -26,22 +22,5 @@ The idea of Flutter starter came from the fact that whenever we install flutter 
 
 <img style="float: left;" src="/flutter_starter_kit.gif"  height="500"/>
 
-
-## Contributors ✨
-
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/madhav23bansal"><img src="https://avatars0.githubusercontent.com/u/52946553?v=4" width="100px;" alt=""/><br /><sub><b>madhav23bansal</b></sub></a><br /><a href="https://github.com/GeekyAnts/flutter-starter/commits?author=madhav23bansal" title="Code">💻</a></td>
-    <td align="center"><a href="https://geekyants.com/"><img src="https://avatars1.githubusercontent.com/u/23263053?v=4" width="100px;" alt=""/><br /><sub><b>Sumant Raj</b></sub></a><br /><a href="https://github.com/GeekyAnts/flutter-starter/commits?author=raj2611" title="Code">💻</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 
