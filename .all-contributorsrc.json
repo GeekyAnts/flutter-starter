@@ -3,7 +3,7 @@
   "imageSize": 20,
   "contributorsPerLine": 35,
   "contributorsSortAlphabetically": false,
-  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?)]",
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",
   "contributorTemplate": "<a href=\"<%= https://github.com/GeekyAnts/flutter-starter/graphs/contributors %>\"><img src=\"<%= contributor.avatar_url %>\" width=\"<%= options.imageSize %>px;\" alt=\"\"/><br /></a>",
   "skipCi": "true",
   "contributors": []
