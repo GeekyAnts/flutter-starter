@@ -2,7 +2,11 @@
   "files": [
     "README.md"
   ],
+<<<<<<< HEAD
+  "imageSize": 20,
+=======
   "imageSize": 100,
+>>>>>>> 3fc4147c2b3ce5d7cdf4d7c16908d91baffdb4fb
   "commit": false,
   "contributors": [
     {
@@ -24,7 +28,11 @@
       ]
     }
   ],
+<<<<<<< HEAD
+  "contributorsPerLine": 35,
+=======
   "contributorsPerLine": 7,
+>>>>>>> 3fc4147c2b3ce5d7cdf4d7c16908d91baffdb4fb
   "projectName": "flutter-starter",
   "projectOwner": "GeekyAnts",
   "repoType": "github",
