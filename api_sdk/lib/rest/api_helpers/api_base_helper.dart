@@ -59,10 +59,10 @@ dynamic _returnResponse(http.Response response) {
       var responseJson = json.decode(response.body.toString());
       return responseJson;
     case 400:
-      return BadRequestException(response.body.toString());
+      return json.decode(response.body.toString());
     case 401:
     case 403:
-      return UnauthorisedException(response.body.toString());
+      return json.decode(response.body.toString());
     case 500:
     default:
       return FetchDataException(
