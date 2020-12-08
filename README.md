@@ -3,10 +3,6 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
 
 The Flutter starter is a kit in which you will find all the code for starting any production level app, with API configurations, State management and common UI widgets for Flutter projects.
 
@@ -28,6 +24,7 @@ To run the project run
 The idea of Flutter starter came from the fact that whenever we install flutter it gives us a simple counter app which is good if you are just starting, but when it comes to building a production-level app we need everything from state-management to API calls to Styleguide to common widgets, and most often we repeat these code again and again in every project we make so we thought of writing all the code and creating all folders and files which you will need in every project so that you don't have to rewrite it again.
 
 <img style="float: left;" src="/flutter_starter_kit.gif"  height="500"/>
+
 
 
 ## Contributors ✨
@@ -58,5 +55,6 @@ The idea of Flutter starter came from the fact that whenever we install flutter 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
 
 
