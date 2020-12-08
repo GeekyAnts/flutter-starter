@@ -25,16 +25,10 @@ The idea of Flutter starter came from the fact that whenever we install flutter 
 
 <img style="float: left;" src="/flutter_starter_kit.gif"  height="500"/>
 
-**Contributors**
 
-Thanks to all those who contribute.
-
-<a href="https://github.com/raj2611">
-  <img src="https://avatars0.githubusercontent.com/u/23263053?s=40&v=4" alt="Avatar">
-</a>
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks to all those who contribute.
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -49,4 +43,3 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
