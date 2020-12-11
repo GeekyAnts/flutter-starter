@@ -18,7 +18,7 @@ Visit the [issue tracker](https://github.com/GeekyAnts/flutter-starter/issues) t
 
 Go to [Flutter Docs](https://flutter.dev/docs/get-started/install) and install Flutter in your system.
 
-Go to out [github repo](https://github.com/GeekyAnts/flutter-starter) and create a template.
+Go to our [github repo](https://github.com/GeekyAnts/flutter-starter) and create a template.
 
 [`https://github.com/GeekyAnts/flutter-starter/generate`](https://github.com/GeekyAnts/flutter-starter/generate)
 
