@@ -7,12 +7,28 @@ import 'package:flutter/material.dart';
 Route routes(RouteSettings settings) {
   switch (settings.name) {
     case '/':
-      return MaterialPageRoute(builder: (_) => SplashScreen());
+      return MaterialPageRoute(
+        builder: (_) => SplashScreen(),
+        settings:
+            RouteSettings(name: settings.name, arguments: settings.arguments),
+      );
     case '/home':
-      return MaterialPageRoute(builder: (_) => HomeScreen());
+      return MaterialPageRoute(
+        builder: (_) => HomeScreen(),
+        settings:
+            RouteSettings(name: settings.name, arguments: settings.arguments),
+      );
     case '/auth':
-      return MaterialPageRoute(builder: (_) => AuthenticationScreen());
+      return MaterialPageRoute(
+        builder: (_) => AuthenticationScreen(),
+        settings:
+            RouteSettings(name: settings.name, arguments: settings.arguments),
+      );
     default:
-      return MaterialPageRoute(builder: (_) => SplashScreen());
+      return MaterialPageRoute(
+        builder: (_) => SplashScreen(),
+        settings:
+            RouteSettings(name: settings.name, arguments: settings.arguments),
+      );
   }
 }
