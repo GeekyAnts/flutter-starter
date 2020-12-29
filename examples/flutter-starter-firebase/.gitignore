@@ -31,8 +31,6 @@
 .pub/
 /build/
 
-google-services.json
-
 # Web related
 lib/generated_plugin_registrant.dart
 
@@ -41,3 +39,17 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+
+#android Firebase
+.gradle
+/local.properties
+/captures
+google-services.json
+
+#ios Firebase
+Pods/
+xcuserdata/
+*.xcworkspace/
+GoogleService-Info.plist
+Secrets
+Secrets.tar

@@ -89,8 +89,7 @@ class HomeScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(50),
                                         color: Colors.white),
                                     child: CachedImage(
-                                      imageUrl:
-                                          state.currentUserData.data.avatar,
+                                      imageUrl: state.avatar,
                                       fit: BoxFit.fitWidth,
                                       errorWidget: Image.network(
                                         AllImages().kDefaultImage,
@@ -119,16 +118,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         ListTile(
-                          title: Text(
-                              '${state.currentUserData.data.firstName} ${state.currentUserData.data.lastName}',
-                              style: Theme.of(context).textTheme.bodyText2),
-                        ),
-                        ListTile(
-                          title: Text(state.currentUserData.data.email,
-                              style: Theme.of(context).textTheme.bodyText2),
-                        ),
-                        ListTile(
-                          title: Text(state.currentUserData.ad.company,
+                          title: Text(state.email,
                               style: Theme.of(context).textTheme.bodyText2),
                         ),
                       ],

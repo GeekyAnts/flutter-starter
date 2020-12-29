@@ -88,8 +88,6 @@ class _ModifyBooksState extends State<ModifyBooks> {
                             img: widget.bookStore.img),
                         widget.bookStore.id);
                     Navigator.pop(context);
-                  } else {
-                    print('no Validate');
                   }
                 },
                 child: Text(

@@ -34,6 +34,9 @@
 # Web related
 lib/generated_plugin_registrant.dart
 
+#google services
+**/android/app/google-services.json
+
 # Symbolication related
 app.*.symbols
 

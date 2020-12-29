@@ -1,3 +1,4 @@
+import 'package:app/src/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/main.dart';
 
@@ -29,12 +30,7 @@ class _LoginFormState extends State<LoginForm> {
             controller: _emailController,
             keyboardType: TextInputType.emailAddress,
             autocorrect: false,
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Email is required.';
-              }
-              return null;
-            },
+            validator: (value) => Validations.isEmail(value),
           ),
           SizedBox(
             height: 12,
@@ -47,12 +43,7 @@ class _LoginFormState extends State<LoginForm> {
             ),
             obscureText: true,
             controller: _passwordController,
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Password is required.';
-              }
-              return null;
-            },
+            validator: (value) => Validations.checkPassword(value),
           ),
           const SizedBox(
             height: 16,

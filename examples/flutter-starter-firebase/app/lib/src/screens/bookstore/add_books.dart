@@ -102,8 +102,6 @@ class _AddBooksState extends State<AddBooks> {
                       img:
                           '${bookType.replaceAll(' ', '').toLowerCase()}.jpg'));
                   Navigator.pop(context);
-                } else {
-                  print('no Validate');
                 }
               },
               child: Text('Add book'),
