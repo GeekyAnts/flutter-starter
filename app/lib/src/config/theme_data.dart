@@ -38,7 +38,7 @@ class ThemeConfig {
         clipBehavior: Clip.antiAliasWithSaveLayer,
       ),
       backgroundColor: background,
-      primaryColor: accentColor,
+      primaryColor: primaryColor,
       accentColor: accentColor,
       textSelectionColor: accentColor,
       textSelectionHandleColor: accentColor,
