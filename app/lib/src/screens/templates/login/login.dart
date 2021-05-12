@@ -92,6 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Theme(
                       data: ThemeData(
@@ -106,26 +107,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         child: Row(
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.green,
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: _value
-                                    ? Icon(
-                                        Icons.check,
-                                        size: 18.0,
-                                        color: Colors.white,
-                                      )
-                                    : Icon(
-                                        Icons.check_box_outline_blank,
-                                        size: 18.0,
-                                        color: Colors.green,
-                                      ),
-                              ),
-                            ),
+                            _value
+                                ? Icon(Icons.check_box, color: Colors.grey)
+                                : Icon(Icons.check_box_outline_blank,
+                                    color: Colors.grey),
                             SizedBox(width: 5),
                             Text(
                               'Remember Me',
@@ -162,7 +147,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 10),
+              Align(
+                alignment: Alignment.centerRight,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "/enter-number");
+                  },
+                  child: Text(
+                    "Login With Number",
+                    style: Theme.of(context).textTheme.headline6.copyWith(
+                          fontSize: 13,
+                          color: Colors.grey,
+                        ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
               Container(
                 width: double.infinity,
                 child: Column(
