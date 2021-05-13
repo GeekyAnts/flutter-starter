@@ -1,4 +1,5 @@
 // routes for the app
+import 'package:app/src/screens/chat/chat_list.dart';
 import 'package:app/src/screens/home/index.dart';
 import 'package:app/src/screens/onboarding/authentication_screen.dart';
 import 'package:app/src/screens/templates/cards/add_card.dart';
@@ -89,6 +90,10 @@ Route routes(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => ShowCards());
     case '/add-card':
       return MaterialPageRoute(builder: (_) => AddCard());
+
+    //Chat
+    case '/chat-list':
+      return MaterialPageRoute(builder: (_) => ChatList());
 
     default:
       return MaterialPageRoute(builder: (_) => SplashScreen());

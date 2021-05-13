@@ -53,6 +53,11 @@ class _AddCardState extends State<AddCard> {
                           height: 30,
                           width: 30,
                         ),
+                        Image.network(
+                          'https://img.favpng.com/4/21/8/visa-debit-card-credit-card-logo-mastercard-png-favpng-F1N2V7uXBDyLr2VKwfUmRpad9.jpg',
+                          height: 35,
+                          width: 35,
+                        ),
                       ],
                     ),
                     SizedBox(height: 10),

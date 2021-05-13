@@ -99,7 +99,7 @@ class _ProductState extends State<Product> {
         width: MediaQuery.of(context).size.width / 2,
         child: FloatingActionButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/cart', arguments: {
+            Navigator.pushNamed(context, '/bag', arguments: {
               'id': widget.id,
               'name': widget.name,
               'image': widget.image,
