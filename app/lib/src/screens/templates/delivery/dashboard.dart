@@ -1,4 +1,4 @@
-import 'package:app/src/screens/templates/shopping/widgets/food_items_grid.dart';
+import 'package:app/src/screens/templates/delivery/widgets/food_items_grid.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {

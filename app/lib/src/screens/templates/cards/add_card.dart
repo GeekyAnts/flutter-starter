@@ -24,222 +24,224 @@ class _AddCardState extends State<AddCard> {
         elevation: 0,
         backgroundColor: Colors.white,
       ),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-        width: double.infinity,
-        child: Column(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.26,
-              width: double.infinity,
-              padding: EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                gradient: LinearGradient(
-                  colors: [Colors.black, Colors.black54],
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          width: double.infinity,
+          child: Column(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.27,
+                width: double.infinity,
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  gradient: LinearGradient(
+                    colors: [Colors.black, Colors.black54],
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.network(
+                          'https://cdn.freebiesupply.com/logos/large/2x/chip-1-logo-png-transparent.png',
+                          height: 30,
+                          width: 30,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      cardNumberOnCard,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline2
+                          .copyWith(color: Colors.white),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      "Expiry",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline3
+                          .copyWith(color: Colors.white),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          expiryOnCard,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline3
+                              .copyWith(color: Colors.white),
+                        ),
+                        Text(
+                          nameOfPerson,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline3
+                              .copyWith(color: Colors.white),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.network(
-                        'https://cdn.freebiesupply.com/logos/large/2x/chip-1-logo-png-transparent.png',
-                        height: 30,
-                        width: 30,
-                      ),
-                    ],
+              SizedBox(height: 20),
+              TextField(
+                onChanged: (value) {
+                  setState(() {
+                    if (value.length > 0)
+                      nameOfPerson = value;
+                    else
+                      nameOfPerson = "Name of Person";
+                  });
+                },
+                maxLength: 15,
+                keyboardType: TextInputType.text,
+                controller: nameOnCard,
+                autofocus: true,
+                autocorrect: false,
+                textAlign: TextAlign.left,
+                style: Theme.of(context).textTheme.headline5.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
+                decoration: InputDecoration(
+                  counterText: "",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                  SizedBox(height: 10),
-                  Text(
-                    cardNumberOnCard,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline2
-                        .copyWith(color: Colors.white),
+                  labelText: 'Name on card',
+                  prefixIcon: Icon(
+                    Icons.person_outline_outlined,
+                    size: 25,
                   ),
-                  SizedBox(height: 20),
-                  Text(
-                    "Expiry",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline3
-                        .copyWith(color: Colors.white),
+                  filled: false,
+                ),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                onChanged: (value) {
+                  setState(() {
+                    if (value.length > 0)
+                      cardNumberOnCard = value;
+                    else
+                      cardNumberOnCard = "**** **** **** ****";
+                  });
+                },
+                controller: cardNumber,
+                inputFormatters: [
+                  MaskedTextInputFormatter(
+                    mask: 'xxxx xxxx xxxx xxxx',
+                    separator: ' ',
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        expiryOnCard,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline3
-                            .copyWith(color: Colors.white),
-                      ),
-                      Text(
-                        nameOfPerson,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline3
-                            .copyWith(color: Colors.white),
-                      ),
-                    ],
-                  )
                 ],
+                keyboardType: TextInputType.number,
+                autocorrect: false,
+                textAlign: TextAlign.left,
+                style: Theme.of(context).textTheme.headline5.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  labelText: 'Card Number',
+                  prefixIcon: Icon(
+                    Icons.credit_card_outlined,
+                    size: 25,
+                  ),
+                  filled: false,
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              onChanged: (value) {
-                setState(() {
-                  if (value.length > 0)
-                    nameOfPerson = value;
-                  else
-                    nameOfPerson = "Name of Person";
-                });
-              },
-              maxLength: 15,
-              keyboardType: TextInputType.text,
-              controller: nameOnCard,
-              autofocus: true,
-              autocorrect: false,
-              textAlign: TextAlign.left,
-              style: Theme.of(context).textTheme.headline5.copyWith(
-                    fontWeight: FontWeight.w500,
+              SizedBox(height: 10),
+              TextField(
+                onChanged: (value) {
+                  setState(() {
+                    if (value.length > 0)
+                      expiryOnCard = value;
+                    else
+                      expiryOnCard = "**/**";
+                  });
+                },
+                controller: expiry,
+                keyboardType: TextInputType.number,
+                autocorrect: false,
+                textAlign: TextAlign.left,
+                inputFormatters: [
+                  MaskedTextInputFormatter(mask: 'xx/xx', separator: '/')
+                ],
+                style: Theme.of(context).textTheme.headline5.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
                   ),
-              decoration: InputDecoration(
-                counterText: "",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  labelText: 'Expiry Date (MM/YY)',
+                  prefixIcon: Icon(
+                    Icons.date_range,
+                    size: 25,
+                  ),
+                  filled: false,
                 ),
-                labelText: 'Name on card',
-                prefixIcon: Icon(
-                  Icons.person_outline_outlined,
-                  size: 25,
-                ),
-                filled: false,
               ),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              onChanged: (value) {
-                setState(() {
-                  if (value.length > 0)
-                    cardNumberOnCard = value;
-                  else
-                    cardNumberOnCard = "**** **** **** ****";
-                });
-              },
-              controller: cardNumber,
-              inputFormatters: [
-                MaskedTextInputFormatter(
-                  mask: 'xxxx xxxx xxxx xxxx',
-                  separator: ' ',
-                ),
-              ],
-              keyboardType: TextInputType.number,
-              autocorrect: false,
-              textAlign: TextAlign.left,
-              style: Theme.of(context).textTheme.headline5.copyWith(
-                    fontWeight: FontWeight.w500,
+              SizedBox(height: 10),
+              TextField(
+                controller: cvv,
+                maxLength: 3,
+                keyboardType: TextInputType.number,
+                obscureText: true,
+                autocorrect: false,
+                textAlign: TextAlign.left,
+                style: Theme.of(context).textTheme.headline5.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
+                decoration: InputDecoration(
+                  counterText: '',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
                   ),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  labelText: 'CVV',
+                  prefixIcon: Icon(
+                    Icons.lock_outline,
+                    size: 25,
+                  ),
+                  filled: false,
                 ),
-                labelText: 'Card Number',
-                prefixIcon: Icon(
-                  Icons.credit_card_outlined,
-                  size: 25,
-                ),
-                filled: false,
               ),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              onChanged: (value) {
-                setState(() {
-                  if (value.length > 0)
-                    expiryOnCard = value;
-                  else
-                    expiryOnCard = "**/**";
-                });
-              },
-              controller: expiry,
-              keyboardType: TextInputType.number,
-              autocorrect: false,
-              textAlign: TextAlign.left,
-              inputFormatters: [
-                MaskedTextInputFormatter(mask: 'xx/xx', separator: '/')
-              ],
-              style: Theme.of(context).textTheme.headline5.copyWith(
-                    fontWeight: FontWeight.w500,
-                  ),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                labelText: 'Expiry Date (MM/YY)',
-                prefixIcon: Icon(
-                  Icons.date_range,
-                  size: 25,
-                ),
-                filled: false,
-              ),
-            ),
-            SizedBox(height: 10),
-            TextField(
-              controller: cvv,
-              maxLength: 3,
-              keyboardType: TextInputType.number,
-              obscureText: true,
-              autocorrect: false,
-              textAlign: TextAlign.left,
-              style: Theme.of(context).textTheme.headline5.copyWith(
-                    fontWeight: FontWeight.w500,
-                  ),
-              decoration: InputDecoration(
-                counterText: '',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                labelText: 'CVV',
-                prefixIcon: Icon(
-                  Icons.lock_outline,
-                  size: 25,
-                ),
-                filled: false,
-              ),
-            ),
-            SizedBox(height: 30),
-            Center(
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  enableFeedback: true,
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                    Theme.of(context).primaryColorDark,
-                  ),
-                  padding: MaterialStateProperty.all(
-                    EdgeInsets.symmetric(horizontal: 80, vertical: 15),
-                  ),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+              SizedBox(height: 30),
+              Center(
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    enableFeedback: true,
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      Theme.of(context).primaryColorDark,
+                    ),
+                    padding: MaterialStateProperty.all(
+                      EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                    ),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
                   ),
-                ),
-                onPressed: () => {},
-                child: Text(
-                  "Add Card",
-                  style: Theme.of(context).textTheme.bodyText1,
+                  onPressed: () => {},
+                  child: Text(
+                    "Add Card",
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

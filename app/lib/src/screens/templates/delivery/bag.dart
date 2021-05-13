@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Cart extends StatefulWidget {
+class Bag extends StatefulWidget {
   final int id;
   final String image;
   final String name;
-  const Cart({Key key, this.id, this.image, this.name}) : super(key: key);
+  const Bag({Key key, this.id, this.image, this.name}) : super(key: key);
 
   @override
-  _CartState createState() => _CartState();
+  _BagState createState() => _BagState();
 }
 
-class _CartState extends State<Cart> {
+class _BagState extends State<Bag> {
   int count = 1;
   double value = 1.21;
 
@@ -27,7 +27,7 @@ class _CartState extends State<Cart> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Cart",
+          "Bag",
           style: Theme.of(context).textTheme.headline4,
         ),
         iconTheme: IconThemeData(
