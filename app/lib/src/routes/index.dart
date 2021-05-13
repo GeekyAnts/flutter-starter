@@ -1,6 +1,8 @@
 // routes for the app
 import 'package:app/src/screens/home/index.dart';
 import 'package:app/src/screens/onboarding/authentication_screen.dart';
+import 'package:app/src/screens/templates/cards/add_card.dart';
+import 'package:app/src/screens/templates/cards/show_cards.dart';
 import 'package:app/src/screens/templates/login/enter_number.dart';
 import 'package:app/src/screens/templates/login/forgot_password.dart';
 import 'package:app/src/screens/templates/login/login.dart';
@@ -11,7 +13,9 @@ import 'package:app/src/screens/templates/news/newsletter.dart';
 import 'package:app/src/screens/templates/news/view_newsletter.dart';
 import 'package:app/src/screens/templates/profile/edit_profile.dart';
 import 'package:app/src/screens/templates/profile/profile.dart';
+import 'package:app/src/screens/templates/shopping/cart.dart';
 import 'package:app/src/screens/templates/shopping/dashboard.dart';
+import 'package:app/src/screens/templates/shopping/product.dart';
 import 'package:app/src/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -61,6 +65,30 @@ Route routes(RouteSettings settings) {
     //Shopping Screens
     case '/dashboard':
       return MaterialPageRoute(builder: (_) => Dashboard());
+    case '/product':
+      Map<String, dynamic> params = settings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        builder: (_) => Product(
+          id: params['id'],
+          name: params['name'],
+          image: params['image'],
+        ),
+      );
+    case '/cart':
+      Map<String, dynamic> params = settings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        builder: (_) => Cart(
+          id: params['id'],
+          name: params['name'],
+          image: params['image'],
+        ),
+      );
+
+    //Cards
+    case '/show-cards':
+      return MaterialPageRoute(builder: (_) => ShowCards());
+    case '/add-card':
+      return MaterialPageRoute(builder: (_) => AddCard());
 
     default:
       return MaterialPageRoute(builder: (_) => SplashScreen());

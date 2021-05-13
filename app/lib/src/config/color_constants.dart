@@ -14,6 +14,7 @@ Color hexToColor(String hex) {
 class ColorConstants {
   static Color lightScaffoldBackgroundColor = hexToColor('#F9F9F9');
   static Color darkScaffoldBackgroundColor = hexToColor('#2F2E2E');
-  static Color secondaryAppColor = hexToColor('#5E92F3');
+  static Color secondaryAppColor =
+      hexToColor('#5E92F3'); // #5E92F3 default #1876d2 // Used in templates
   static Color secondaryDarkAppColor = Colors.white;
 }
