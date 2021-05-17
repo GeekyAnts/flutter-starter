@@ -1,9 +1,10 @@
 // routes for the app
-import 'package:app/src/screens/chat/chat_list.dart';
+
 import 'package:app/src/screens/home/index.dart';
 import 'package:app/src/screens/onboarding/authentication_screen.dart';
 import 'package:app/src/screens/templates/cards/add_card.dart';
 import 'package:app/src/screens/templates/cards/show_cards.dart';
+import 'package:app/src/screens/templates/chat/chat_list.dart';
 import 'package:app/src/screens/templates/delivery/bag.dart';
 import 'package:app/src/screens/templates/delivery/dashboard.dart';
 import 'package:app/src/screens/templates/delivery/product.dart';
