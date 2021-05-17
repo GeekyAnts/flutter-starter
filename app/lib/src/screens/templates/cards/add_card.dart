@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class AddCard extends StatefulWidget {
   @override
@@ -26,12 +27,13 @@ class _AddCardState extends State<AddCard> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          padding: EdgeInsets.symmetric(
+              horizontal: 20.toWidth, vertical: 12.toHeight),
           width: double.infinity,
           child: Column(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.27,
+                height: (MediaQuery.of(context).size.height * 0.27).toHeight,
                 width: double.infinity,
                 padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
@@ -44,23 +46,23 @@ class _AddCardState extends State<AddCard> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 10),
+                    SizedBox(height: 10.toHeight),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Image.network(
                           'https://cdn.freebiesupply.com/logos/large/2x/chip-1-logo-png-transparent.png',
-                          height: 30,
-                          width: 30,
+                          height: 30.toHeight,
+                          width: 30.toWidth,
                         ),
                         Image.network(
                           'https://img.favpng.com/4/21/8/visa-debit-card-credit-card-logo-mastercard-png-favpng-F1N2V7uXBDyLr2VKwfUmRpad9.jpg',
-                          height: 35,
-                          width: 35,
+                          height: 35.toHeight,
+                          width: 35.toWidth,
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 10.toHeight),
                     Text(
                       cardNumberOnCard,
                       style: Theme.of(context)
@@ -68,7 +70,7 @@ class _AddCardState extends State<AddCard> {
                           .headline2
                           .copyWith(color: Colors.white),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.toHeight),
                     Text(
                       "Expiry",
                       style: Theme.of(context)
@@ -98,7 +100,7 @@ class _AddCardState extends State<AddCard> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.toHeight),
               TextField(
                 onChanged: (value) {
                   setState(() {
@@ -130,7 +132,7 @@ class _AddCardState extends State<AddCard> {
                   filled: false,
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.toHeight),
               TextField(
                 onChanged: (value) {
                   setState(() {
@@ -165,7 +167,7 @@ class _AddCardState extends State<AddCard> {
                   filled: false,
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.toHeight),
               TextField(
                 onChanged: (value) {
                   setState(() {
@@ -197,7 +199,7 @@ class _AddCardState extends State<AddCard> {
                   filled: false,
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.toHeight),
               TextField(
                 controller: cvv,
                 maxLength: 3,
@@ -221,7 +223,7 @@ class _AddCardState extends State<AddCard> {
                   filled: false,
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 30.toHeight),
               Center(
                 child: ElevatedButton(
                   style: ButtonStyle(
@@ -230,7 +232,8 @@ class _AddCardState extends State<AddCard> {
                       Theme.of(context).primaryColorDark,
                     ),
                     padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                      EdgeInsets.symmetric(
+                          horizontal: 80.toWidth, vertical: 15.toHeight),
                     ),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class ShowCards extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _ShowCardsState extends State<ShowCards> {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.only(top: 12),
+        padding: EdgeInsets.only(top: 12.toHeight),
         child: Column(
           children: [
             Container(
@@ -57,7 +58,8 @@ class _ShowCardsState extends State<ShowCards> {
                       color: Colors.white,
                       elevation: 5,
                       child: Container(
-                        height: MediaQuery.of(context).size.height * 0.30,
+                        height: (MediaQuery.of(context).size.height * 0.30)
+                            .toHeight,
                         width: double.infinity,
                         padding: EdgeInsets.all(10),
                         child: Column(
@@ -72,9 +74,9 @@ class _ShowCardsState extends State<ShowCards> {
                                     Image.network(
                                       'https://www.logotaglines.com/wp-content/uploads/2016/08/ICICI-Logo-1200x1227.png',
                                       fit: BoxFit.cover,
-                                      width: 30,
+                                      width: 30.toWidth,
                                     ),
-                                    SizedBox(width: 10),
+                                    SizedBox(width: 10.toWidth),
                                     Text(
                                       'ICICI BANK',
                                       style:
@@ -84,18 +86,18 @@ class _ShowCardsState extends State<ShowCards> {
                                 ),
                                 Image.network(
                                   'https://lh3.googleusercontent.com/proxy/BWFN7yobpOM8azRu-gC_WxCPO6LEQa26r2GnlntGRnHVgPh15lPPoRh77vAd_Ta6jQkMRzass6udgREsgtHwEHij_d89z5HVZREJqnRQu7j2NWkRVEdgxzpgxvMSXaS1d7Hh2_3LFw4',
-                                  width: 50,
+                                  width: 50.toWidth,
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 10.toHeight),
                             Text(
                               'CARD NUMBER',
                               style: TextStyle(
                                 color: Colors.black54,
                               ),
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: 5.toHeight),
                             Text('4377 51xx xxxx 1007'),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,34 +105,34 @@ class _ShowCardsState extends State<ShowCards> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    SizedBox(height: 10),
+                                    SizedBox(height: 10.toHeight),
                                     Text(
                                       'NAME ON CARD',
                                       style: TextStyle(
                                         color: Colors.black54,
                                       ),
                                     ),
-                                    SizedBox(height: 5),
+                                    SizedBox(height: 5.toHeight),
                                     Text('EXAMPLE NAME'),
                                   ],
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    SizedBox(height: 10),
+                                    SizedBox(height: 10.toHeight),
                                     Text(
                                       'VALIDITY',
                                       style: TextStyle(
                                         color: Colors.black54,
                                       ),
                                     ),
-                                    SizedBox(height: 5),
+                                    SizedBox(height: 5.toHeight),
                                     Text('XX/XX'),
                                   ],
                                 )
                               ],
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 10.toHeight),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
@@ -154,7 +156,7 @@ class _ShowCardsState extends State<ShowCards> {
                                     child: Text("EDIT"),
                                   ),
                                 ),
-                                SizedBox(width: 20),
+                                SizedBox(width: 20.toWidth),
                                 Expanded(
                                   child: ElevatedButton(
                                     style: ButtonStyle(
