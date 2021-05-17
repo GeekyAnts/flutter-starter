@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class OTP extends StatelessWidget {
   @override
@@ -17,7 +18,8 @@ class OTP extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          padding: EdgeInsets.symmetric(
+              horizontal: 20.toWidth, vertical: 12.toHeight),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,26 +27,27 @@ class OTP extends StatelessWidget {
               Text(
                 "Enter OTP",
                 style: Theme.of(context).textTheme.headline2.copyWith(
-                      fontSize: 28,
+                      fontSize: 28.toFont,
                     ),
               ),
               SizedBox(
-                height: 13,
+                height: 13.toHeight,
               ),
               Text(
                 "Please enter the 6-digit OTP",
-                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 14),
+                style:
+                    TextStyle(fontWeight: FontWeight.w300, fontSize: 14.toFont),
               ),
               SizedBox(
-                height: 30,
+                height: 30.toHeight,
               ),
               OTPTextField(
                 length: 6,
                 width: MediaQuery.of(context).size.width,
                 textFieldAlignment: MainAxisAlignment.spaceAround,
-                fieldWidth: 50,
+                fieldWidth: 50.toWidth,
                 fieldStyle: FieldStyle.underline,
-                style: TextStyle(fontSize: 17),
+                style: TextStyle(fontSize: 17.toFont),
                 onChanged: (pin) {
                   //  will be triggered on change of any OTP field data
                 },
@@ -52,7 +55,7 @@ class OTP extends StatelessWidget {
                   // Will be triggered when user enters the complete OTP
                 },
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 30.toHeight),
               Center(
                 child: ElevatedButton(
                   style: ButtonStyle(
@@ -61,7 +64,8 @@ class OTP extends StatelessWidget {
                       Theme.of(context).primaryColorDark,
                     ),
                     padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 90, vertical: 15),
+                      EdgeInsets.symmetric(
+                          horizontal: 90.toWidth, vertical: 15.toHeight),
                     ),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
@@ -78,7 +82,7 @@ class OTP extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.toHeight),
               Center(
                 child: RichText(
                   text: TextSpan(

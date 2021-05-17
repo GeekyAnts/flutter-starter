@@ -1,6 +1,7 @@
 import 'package:app/src/config/image_constants.dart';
 import 'package:app/src/widgets/cache_image_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -19,26 +20,27 @@ class WelcomeScreen extends StatelessWidget {
               errorWidget: Image.network(
                 AllImages().kDefaultImage,
               ),
-              width: 500,
-              height: 250,
+              width: 500.toWidth,
+              height: 250.toHeight,
               placeholder: CircularProgressIndicator(),
             ),
             SizedBox(
-              height: 20,
+              height: 20.toHeight,
             ),
             Text(
               "Welcome to Flutter Starter",
               style: Theme.of(context).textTheme.headline2,
             ),
             SizedBox(
-              height: 20,
+              height: 20.toHeight,
             ),
             Text(
               "A Flutter starter-kit for production-level apps",
-              style: TextStyle(fontWeight: FontWeight.w300, fontSize: 13),
+              style:
+                  TextStyle(fontWeight: FontWeight.w300, fontSize: 13.toFont),
             ),
             SizedBox(
-              height: 30,
+              height: 30.toHeight,
             ),
             ElevatedButton(
               style: ButtonStyle(
@@ -47,7 +49,8 @@ class WelcomeScreen extends StatelessWidget {
                   Theme.of(context).primaryColorDark,
                 ),
                 padding: MaterialStateProperty.all(
-                  EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                  EdgeInsets.symmetric(
+                      horizontal: 60.toWidth, vertical: 15.toHeight),
                 ),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
@@ -64,7 +67,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 14,
+              height: 14.toHeight,
             ),
             ElevatedButton(
               style: ButtonStyle(
@@ -73,7 +76,8 @@ class WelcomeScreen extends StatelessWidget {
                   Theme.of(context).canvasColor,
                 ),
                 padding: MaterialStateProperty.all(
-                  EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                  EdgeInsets.symmetric(
+                      horizontal: 40.toWidth, vertical: 15.toHeight),
                 ),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(

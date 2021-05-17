@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class EnterNumber extends StatelessWidget {
   @override
@@ -14,7 +15,8 @@ class EnterNumber extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          padding: EdgeInsets.symmetric(
+              horizontal: 20.toWidth, vertical: 12.toHeight),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,18 +24,19 @@ class EnterNumber extends StatelessWidget {
               Text(
                 "Login with Number",
                 style: Theme.of(context).textTheme.headline2.copyWith(
-                      fontSize: 28,
+                      fontSize: 28.toFont,
                     ),
               ),
               SizedBox(
-                height: 13,
+                height: 13.toHeight,
               ),
               Text(
                 "Please enter your registered mobile number.",
-                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 14),
+                style:
+                    TextStyle(fontWeight: FontWeight.w300, fontSize: 14.toFont),
               ),
               SizedBox(
-                height: 30,
+                height: 30.toHeight,
               ),
               TextField(
                 keyboardType: TextInputType.emailAddress,
@@ -55,7 +58,7 @@ class EnterNumber extends StatelessWidget {
                   filled: false,
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 30.toHeight),
               Center(
                 child: ElevatedButton(
                   style: ButtonStyle(
@@ -64,7 +67,8 @@ class EnterNumber extends StatelessWidget {
                       Theme.of(context).primaryColorDark,
                     ),
                     padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 90, vertical: 15),
+                      EdgeInsets.symmetric(
+                          horizontal: 90.toWidth, vertical: 15.toHeight),
                     ),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(

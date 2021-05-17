@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -21,7 +22,8 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          padding: EdgeInsets.symmetric(
+              horizontal: 20.toWidth, vertical: 12.toHeight),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,18 +31,19 @@ class _LoginScreenState extends State<LoginScreen> {
               Text(
                 "Keep Connected",
                 style: Theme.of(context).textTheme.headline2.copyWith(
-                      fontSize: 28,
+                      fontSize: 28.toFont,
                     ),
               ),
               SizedBox(
-                height: 13,
+                height: 13.toHeight,
               ),
               Text(
                 "Enter your email address and password to login into your account.",
-                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 14),
+                style:
+                    TextStyle(fontWeight: FontWeight.w300, fontSize: 14.toFont),
               ),
               SizedBox(
-                height: 30,
+                height: 30.toHeight,
               ),
               Column(
                 children: [
@@ -64,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       filled: false,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 10.toHeight),
                   TextField(
                     keyboardType: TextInputType.text,
                     obscureText: true,
@@ -88,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.toHeight),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -111,14 +114,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ? Icon(Icons.check_box, color: Colors.grey)
                                 : Icon(Icons.check_box_outline_blank,
                                     color: Colors.grey),
-                            SizedBox(width: 5),
+                            SizedBox(width: 5.toWidth),
                             Text(
                               'Remember Me',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6
                                   .copyWith(
-                                    fontSize: 13,
+                                    fontSize: 13.toFont,
                                     color: Colors.grey,
                                   ),
                             ),
@@ -138,7 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           'Forgot Password?',
                           style: Theme.of(context).textTheme.headline6.copyWith(
-                                fontSize: 13,
+                                fontSize: 13.toFont,
                                 color: Colors.grey,
                               ),
                         ),
@@ -147,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.toHeight),
               Align(
                 alignment: Alignment.centerRight,
                 child: InkWell(
@@ -157,13 +160,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     "Login With Number",
                     style: Theme.of(context).textTheme.headline6.copyWith(
-                          fontSize: 13,
+                          fontSize: 13.toFont,
                           color: Colors.grey,
                         ),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.toHeight),
               Container(
                 width: double.infinity,
                 child: Column(
@@ -176,7 +179,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           Theme.of(context).primaryColorDark,
                         ),
                         padding: MaterialStateProperty.all(
-                          EdgeInsets.symmetric(horizontal: 100, vertical: 15),
+                          EdgeInsets.symmetric(
+                              horizontal: 100.toWidth, vertical: 15.toHeight),
                         ),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -194,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: 14,
+                      height: 14.toHeight,
                     ),
                     ElevatedButton(
                       style: ButtonStyle(
@@ -203,7 +207,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           Colors.white,
                         ),
                         padding: MaterialStateProperty.all(
-                          EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                          EdgeInsets.symmetric(
+                              horizontal: 80.toWidth, vertical: 15.toHeight),
                         ),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(

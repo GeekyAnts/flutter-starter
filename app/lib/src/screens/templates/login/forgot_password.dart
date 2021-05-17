@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class ForgotPassword extends StatefulWidget {
   @override
@@ -19,7 +20,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          padding: EdgeInsets.symmetric(
+              horizontal: 20.toWidth, vertical: 12.toHeight),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,18 +29,21 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               Text(
                 "Forgot Password",
                 style: Theme.of(context).textTheme.headline2.copyWith(
-                      fontSize: 28,
+                      fontSize: 28.toFont,
                     ),
               ),
               SizedBox(
-                height: 13,
+                height: 13.toHeight,
               ),
               Text(
                 "Please enter your registered email address.",
-                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 14),
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 14.toFont,
+                ),
               ),
               SizedBox(
-                height: 30,
+                height: 30.toHeight,
               ),
               TextField(
                 keyboardType: TextInputType.emailAddress,
@@ -60,7 +65,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   filled: false,
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(
+                height: 30.toHeight,
+              ),
               Center(
                 child: ElevatedButton(
                   style: ButtonStyle(
@@ -69,7 +76,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       Theme.of(context).primaryColorDark,
                     ),
                     padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 70, vertical: 15),
+                      EdgeInsets.symmetric(
+                          horizontal: 70.toWidth, vertical: 15.toHeight),
                     ),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
