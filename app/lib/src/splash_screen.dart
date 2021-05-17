@@ -1,5 +1,6 @@
 import 'package:app/src/config/color_constants.dart';
 import 'package:app/src/config/image_constants.dart';
+import 'package:app/src/utils/size_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared/main.dart';
@@ -20,13 +21,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       backgroundColor: ColorConstants.secondaryAppColor,
       body: BlocListener<AuthenticationBloc, AuthenticationState>(
         cubit: authenticationBloc,
         listener: (BuildContext context, AuthenticationState state) {
           if (state is AppAutheticated) {
-            Navigator.popAndPushNamed(context, '/chat-list');
+            Navigator.popAndPushNamed(context, '/profile');
           }
           if (state is AuthenticationStart) {
             Navigator.pushNamed(context, '/auth');

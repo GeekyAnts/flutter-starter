@@ -1,3 +1,4 @@
+import 'package:app/src/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app/src/utils/size_utils.dart';
 
@@ -36,16 +37,14 @@ class _SignUpState extends State<SignUp> {
         child: Container(
           width: double.infinity,
           padding: EdgeInsets.symmetric(
-              horizontal: 20.toWidth, vertical: 12.toHeight),
+              horizontal: 30.toWidth, vertical: 15.toHeight),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "Sign Up",
-                style: Theme.of(context).textTheme.headline2.copyWith(
-                      fontSize: 28.toFont,
-                    ),
+                style: Theme.of(context).textTheme.headline2.copyWith(),
               ),
               SizedBox(
                 height: 13.toHeight,
@@ -54,11 +53,10 @@ class _SignUpState extends State<SignUp> {
                 "Please enter the details to create your account.",
                 style: TextStyle(
                   fontWeight: FontWeight.w300,
-                  fontSize: 14.toFont,
                 ),
               ),
               SizedBox(
-                height: 30.toHeight,
+                height: 40.toHeight,
               ),
               Column(
                 children: [
@@ -82,7 +80,7 @@ class _SignUpState extends State<SignUp> {
                       filled: false,
                     ),
                   ),
-                  SizedBox(height: 10.toHeight),
+                  SizedBox(height: 25.toHeight),
                   TextField(
                     onTap: () {
                       _selectDate(context);
@@ -107,7 +105,7 @@ class _SignUpState extends State<SignUp> {
                       filled: false,
                     ),
                   ),
-                  SizedBox(height: 10.toHeight),
+                  SizedBox(height: 25.toHeight),
                   TextField(
                     keyboardType: TextInputType.number,
                     autocorrect: false,
@@ -127,7 +125,7 @@ class _SignUpState extends State<SignUp> {
                       filled: false,
                     ),
                   ),
-                  SizedBox(height: 10.toHeight),
+                  SizedBox(height: 25.toHeight),
                   TextField(
                     keyboardType: TextInputType.emailAddress,
                     autocorrect: false,
@@ -147,7 +145,7 @@ class _SignUpState extends State<SignUp> {
                       filled: false,
                     ),
                   ),
-                  SizedBox(height: 10.toHeight),
+                  SizedBox(height: 25.toHeight),
                   TextField(
                     keyboardType: TextInputType.text,
                     obscureText: true,
@@ -170,29 +168,12 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ],
               ),
-              SizedBox(height: 30.toHeight),
+              SizedBox(height: 40.toHeight),
               Center(
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    enableFeedback: true,
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      Theme.of(context).primaryColorDark,
-                    ),
-                    padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(
-                          horizontal: 70.toWidth, vertical: 15.toHeight),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                  onPressed: () => {},
-                  child: Text(
-                    "Create Account",
-                    style: Theme.of(context).textTheme.bodyText1,
-                  ),
+                child: CustomButton(
+                  isSecondary: false,
+                  onTap: () {},
+                  text: 'Create Account',
                 ),
               ),
             ],

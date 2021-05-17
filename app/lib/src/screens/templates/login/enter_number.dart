@@ -1,3 +1,4 @@
+import 'package:app/src/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app/src/utils/size_utils.dart';
 
@@ -16,27 +17,24 @@ class EnterNumber extends StatelessWidget {
         child: Container(
           width: double.infinity,
           padding: EdgeInsets.symmetric(
-              horizontal: 20.toWidth, vertical: 12.toHeight),
+              horizontal: 30.toWidth, vertical: 15.toHeight),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "Login with Number",
-                style: Theme.of(context).textTheme.headline2.copyWith(
-                      fontSize: 28.toFont,
-                    ),
+                style: Theme.of(context).textTheme.headline2.copyWith(),
               ),
               SizedBox(
                 height: 13.toHeight,
               ),
               Text(
                 "Please enter your registered mobile number.",
-                style:
-                    TextStyle(fontWeight: FontWeight.w300, fontSize: 14.toFont),
+                style: TextStyle(fontWeight: FontWeight.w300),
               ),
               SizedBox(
-                height: 30.toHeight,
+                height: 40.toHeight,
               ),
               TextField(
                 keyboardType: TextInputType.emailAddress,
@@ -60,29 +58,10 @@ class EnterNumber extends StatelessWidget {
               ),
               SizedBox(height: 30.toHeight),
               Center(
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    enableFeedback: true,
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      Theme.of(context).primaryColorDark,
-                    ),
-                    padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(
-                          horizontal: 90.toWidth, vertical: 15.toHeight),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/otp');
-                  },
-                  child: Text(
-                    "Send OTP",
-                    style: Theme.of(context).textTheme.bodyText1,
-                  ),
+                child: CustomButton(
+                  isSecondary: false,
+                  onTap: () => Navigator.pushNamed(context, '/otp'),
+                  text: "Send OTP",
                 ),
               ),
             ],

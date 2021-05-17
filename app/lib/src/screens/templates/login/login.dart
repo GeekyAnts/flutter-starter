@@ -1,3 +1,4 @@
+import 'package:app/src/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app/src/utils/size_utils.dart';
 
@@ -23,27 +24,24 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Container(
           width: double.infinity,
           padding: EdgeInsets.symmetric(
-              horizontal: 20.toWidth, vertical: 12.toHeight),
+              horizontal: 30.toWidth, vertical: 15.toHeight),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "Keep Connected",
-                style: Theme.of(context).textTheme.headline2.copyWith(
-                      fontSize: 28.toFont,
-                    ),
+                style: Theme.of(context).textTheme.headline2.copyWith(),
               ),
               SizedBox(
                 height: 13.toHeight,
               ),
               Text(
                 "Enter your email address and password to login into your account.",
-                style:
-                    TextStyle(fontWeight: FontWeight.w300, fontSize: 14.toFont),
+                style: TextStyle(fontWeight: FontWeight.w300),
               ),
               SizedBox(
-                height: 30.toHeight,
+                height: 40.toHeight,
               ),
               Column(
                 children: [
@@ -67,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       filled: false,
                     ),
                   ),
-                  SizedBox(height: 10.toHeight),
+                  SizedBox(height: 25.toHeight),
                   TextField(
                     keyboardType: TextInputType.text,
                     obscureText: true,
@@ -91,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 10.toHeight),
+              SizedBox(height: 25.toHeight),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,7 +119,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                   .textTheme
                                   .headline6
                                   .copyWith(
-                                    fontSize: 13.toFont,
                                     color: Colors.grey,
                                   ),
                             ),
@@ -141,7 +138,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           'Forgot Password?',
                           style: Theme.of(context).textTheme.headline6.copyWith(
-                                fontSize: 13.toFont,
                                 color: Colors.grey,
                               ),
                         ),
@@ -150,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 10.toHeight),
+              SizedBox(height: 25.toHeight),
               Align(
                 alignment: Alignment.centerRight,
                 child: InkWell(
@@ -160,74 +156,30 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     "Login With Number",
                     style: Theme.of(context).textTheme.headline6.copyWith(
-                          fontSize: 13.toFont,
                           color: Colors.grey,
                         ),
                   ),
                 ),
               ),
-              SizedBox(height: 20.toHeight),
+              SizedBox(height: 40.toHeight),
               Container(
                 width: double.infinity,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        enableFeedback: true,
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                          Theme.of(context).primaryColorDark,
-                        ),
-                        padding: MaterialStateProperty.all(
-                          EdgeInsets.symmetric(
-                              horizontal: 100.toWidth, vertical: 15.toHeight),
-                        ),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                      ),
-                      onPressed: () {
-                        // Navigator.pushNamed(context, '/login');
-                      },
-                      child: Text(
-                        "Login Now",
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
+                    CustomButton(
+                      isSecondary: false,
+                      onTap: () {},
+                      text: "Login Now",
                     ),
                     SizedBox(
                       height: 14.toHeight,
                     ),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        enableFeedback: true,
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                          Colors.white,
-                        ),
-                        padding: MaterialStateProperty.all(
-                          EdgeInsets.symmetric(
-                              horizontal: 80.toWidth, vertical: 15.toHeight),
-                        ),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/signup');
-                      },
-                      child: Text(
-                        "Create Account",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText1
-                            .copyWith(color: Colors.black),
-                      ),
-                    )
+                    CustomButton(
+                      isSecondary: true,
+                      onTap: () => Navigator.pushNamed(context, '/signup'),
+                      text: "Create Account",
+                    ),
                   ],
                 ),
               )

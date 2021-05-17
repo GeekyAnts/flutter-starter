@@ -45,7 +45,6 @@ class _ViewNewsState extends State<ViewNews> {
 
   @override
   Widget build(BuildContext context) {
-    print("Madhav");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,

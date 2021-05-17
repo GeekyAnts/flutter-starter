@@ -4,7 +4,8 @@ import 'package:app/src/screens/home/index.dart';
 import 'package:app/src/screens/onboarding/authentication_screen.dart';
 import 'package:app/src/screens/templates/cards/add_card.dart';
 import 'package:app/src/screens/templates/cards/show_cards.dart';
-import 'package:app/src/screens/templates/chat/chat_list.dart';
+import 'package:app/src/screens/templates/chat/chats.dart';
+import 'package:app/src/screens/templates/chat/messages.dart';
 import 'package:app/src/screens/templates/delivery/bag.dart';
 import 'package:app/src/screens/templates/delivery/dashboard.dart';
 import 'package:app/src/screens/templates/delivery/product.dart';
@@ -92,9 +93,15 @@ Route routes(RouteSettings settings) {
     case '/add-card':
       return MaterialPageRoute(builder: (_) => AddCard());
 
-    //Chat
-    case '/chat-list':
-      return MaterialPageRoute(builder: (_) => ChatList());
+    //Chat App
+    case '/chats':
+      return MaterialPageRoute(builder: (_) => Chats());
+    case '/messages':
+      Map<String, dynamic> params = settings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+          builder: (_) => Messages(
+                chat: params['chat'],
+              ));
 
     default:
       return MaterialPageRoute(builder: (_) => SplashScreen());
