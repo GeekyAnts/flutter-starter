@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class FoodItemGrid extends StatelessWidget {
   final List<Map> data;
@@ -27,13 +28,13 @@ class FoodItemGrid extends StatelessWidget {
                     Image.network(
                       item['image'],
                       fit: BoxFit.cover,
-                      height: MediaQuery.of(context).size.height,
+                      height: (MediaQuery.of(context).size.height).toHeight,
                     ),
                     Positioned(
                       bottom: 0,
                       child: Container(
                         padding: EdgeInsets.only(left: 2),
-                        height: 30,
+                        height: 30.toHeight,
                         width: MediaQuery.of(context).size.width,
                         color: Colors.black45,
                         child: Align(

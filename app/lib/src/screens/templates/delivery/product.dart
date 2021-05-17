@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class Product extends StatefulWidget {
   final int id;
@@ -60,15 +61,15 @@ class _ProductState extends State<Product> {
             children: [
               Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: (MediaQuery.of(context).size.height * 0.3).toHeight,
                 child: Image.network(
                   widget.image,
                   fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.toHeight),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20.toWidth),
                 child: Text(
                   widget.name,
                   style: Theme.of(context)
@@ -77,9 +78,9 @@ class _ProductState extends State<Product> {
                       .copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.toHeight),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20.toWidth),
                 child: Text(
                   products[x]['desc'],
                   style: Theme.of(context)
@@ -88,15 +89,15 @@ class _ProductState extends State<Product> {
                       .copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.toHeight),
             ],
           ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Container(
-        height: 50.0,
-        width: MediaQuery.of(context).size.width / 2,
+        height: 50.toHeight,
+        width: (MediaQuery.of(context).size.width / 2).toWidth,
         child: FloatingActionButton(
           onPressed: () {
             Navigator.pushNamed(context, '/bag', arguments: {
@@ -108,10 +109,18 @@ class _ProductState extends State<Product> {
           backgroundColor: Theme.of(context).primaryColorDark,
           child: Text(
             'Order this',
-            style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 16),
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1
+                .copyWith(fontSize: 16.toFont),
           ),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8.0))),
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                8.0,
+              ),
+            ),
+          ),
         ),
       ),
     );

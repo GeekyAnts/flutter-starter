@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class Bag extends StatefulWidget {
   final int id;
@@ -37,12 +38,13 @@ class _BagState extends State<Bag> {
         backgroundColor: Colors.white,
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        padding:
+            EdgeInsets.symmetric(horizontal: 20.toWidth, vertical: 12.toHeight),
         child: Card(
           elevation: 3,
           color: Colors.white,
           child: Container(
-            height: 110,
+            height: 110.toHeight,
             width: double.infinity,
             padding: EdgeInsets.all(8),
             child: Row(
@@ -54,10 +56,10 @@ class _BagState extends State<Bag> {
                     Image.network(
                       widget.image,
                       fit: BoxFit.cover,
-                      height: 90,
-                      width: 90,
+                      height: 90.toHeight,
+                      width: 90.toWidth,
                     ),
-                    SizedBox(width: 20),
+                    SizedBox(width: 20.toWidth),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -69,18 +71,20 @@ class _BagState extends State<Bag> {
                               .headline4
                               .copyWith(fontWeight: FontWeight.w500),
                         ),
-                        SizedBox(height: 10),
-                        Text("Quantity:",
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline6
-                                .copyWith(fontWeight: FontWeight.w400)),
-                        SizedBox(height: 5),
+                        SizedBox(height: 10.toHeight),
+                        Text(
+                          "Quantity:",
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline6
+                              .copyWith(fontWeight: FontWeight.w400),
+                        ),
+                        SizedBox(height: 5.toHeight),
                         Row(
                           children: [
                             SizedBox(
-                              height: 30,
-                              width: 40,
+                              height: 30.toHeight,
+                              width: 40.toWidth,
                               child: ElevatedButton(
                                 style: ButtonStyle(
                                   enableFeedback: true,
@@ -106,13 +110,13 @@ class _BagState extends State<Bag> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 5),
+                            SizedBox(width: 5.toWidth),
                             Text(count.toString(),
                                 style: Theme.of(context).textTheme.headline5),
-                            SizedBox(width: 5),
+                            SizedBox(width: 5.toWidth),
                             SizedBox(
-                              height: 30,
-                              width: 40,
+                              height: 30.toHeight,
+                              width: 40.toWidth,
                               child: ElevatedButton(
                                 style: ButtonStyle(
                                   enableFeedback: true,
@@ -158,17 +162,25 @@ class _BagState extends State<Bag> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Container(
-        height: 50.0,
-        width: MediaQuery.of(context).size.width / 1.5,
+        height: 50.toHeight,
+        width: (MediaQuery.of(context).size.width / 1.5).toWidth,
         child: FloatingActionButton(
           onPressed: () {},
           backgroundColor: Theme.of(context).primaryColorDark,
           child: Text(
             'Continue to payment',
-            style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 16),
+            style: Theme.of(context)
+                .textTheme
+                .bodyText1
+                .copyWith(fontSize: 16.toFont),
           ),
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8.0))),
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                8.0,
+              ),
+            ),
+          ),
         ),
       ),
     );

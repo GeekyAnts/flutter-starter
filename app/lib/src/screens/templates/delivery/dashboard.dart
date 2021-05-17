@@ -1,5 +1,6 @@
 import 'package:app/src/screens/templates/delivery/widgets/food_items_grid.dart';
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -72,20 +73,20 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
       ),
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.only(top: 12),
+        padding: EdgeInsets.only(top: 12.toHeight),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20.toWidth),
               child: Text(
                 "Bolton Burgers &",
                 style: Theme.of(context).textTheme.headline1,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20.toWidth),
               child: Text(
                 "Pizza",
                 style: Theme.of(context).textTheme.headline1.copyWith(
@@ -94,7 +95,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                     ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.toHeight),
             TabBar(
               controller: _tabController,
               indicatorSize: TabBarIndicatorSize.tab,
