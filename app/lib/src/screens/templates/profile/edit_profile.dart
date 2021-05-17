@@ -1,5 +1,6 @@
 import 'package:app/src/screens/templates/profile/widgets/editable_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class EditProfile extends StatelessWidget {
   @override
@@ -30,7 +31,8 @@ class EditProfile extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        padding:
+            EdgeInsets.symmetric(horizontal: 12.toWidth, vertical: 12.toHeight),
         width: double.infinity,
         color: Colors.white,
         child: Column(
@@ -47,27 +49,29 @@ class EditProfile extends StatelessWidget {
                     ),
                     child: Image.network(
                       'https://cultivatedculture.com/wp-content/uploads/2019/12/LinkedIn-Profile-Picture-Example-Tynan-Allan.jpeg',
-                      height: 120,
-                      width: 120,
+                      height: 120.toHeight,
+                      width: 120.toWidth,
                     ),
                   ),
                 ),
                 Positioned(
                   child: Container(
-                    height: 25,
-                    width: 25,
+                    height: 25.toHeight,
+                    width: 25.toWidth,
                     decoration: BoxDecoration(
                       color: Colors.green,
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(Icons.edit),
+                    child: Icon(
+                      Icons.edit,
+                    ),
                   ),
                   top: 10,
                   right: 3,
                 ),
               ],
             ),
-            SizedBox(height: 50),
+            SizedBox(height: 50.toHeight),
             EditableTile(
               icon: Icons.public,
               text: bio,
@@ -84,11 +88,12 @@ class EditProfile extends StatelessWidget {
               icon: Icons.email,
               text: email,
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 10.toHeight),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: Theme.of(context).primaryColorDark,
-                padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                padding: EdgeInsets.symmetric(
+                    horizontal: 60.toWidth, vertical: 15.toHeight),
               ),
               onPressed: () {
                 // Navigator.pushNamed(context, '/edit-profile');

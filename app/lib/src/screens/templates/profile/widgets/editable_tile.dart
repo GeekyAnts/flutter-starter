@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class EditableTile extends StatelessWidget {
   final IconData icon;
@@ -7,8 +8,8 @@ class EditableTile extends StatelessWidget {
   const EditableTile({Key key, this.icon, this.text}) : super(key: key);
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 8, bottom: 8),
-      margin: EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.only(top: 8.toHeight, bottom: 8.toHeight),
+      margin: EdgeInsets.only(bottom: 8.toHeight),
       child: TextField(
         controller: text,
         keyboardType: TextInputType.text,

@@ -2,6 +2,7 @@ import 'package:app/src/config/image_constants.dart';
 import 'package:app/src/screens/templates/profile/widgets/tile.dart';
 import 'package:app/src/widgets/cache_image_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:app/src/utils/size_utils.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -10,13 +11,14 @@ class ProfileScreen extends StatelessWidget {
       body: Container(
         color: Colors.white,
         width: double.infinity,
-        padding: EdgeInsets.fromLTRB(15, 60, 15, 20),
+        padding: EdgeInsets.fromLTRB(
+            15.toWidth, 60.toHeight, 15.toWidth, 20.toHeight),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.20,
+              height: (MediaQuery.of(context).size.height * 0.20).toHeight,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,8 +52,8 @@ class ProfileScreen extends StatelessWidget {
                       errorWidget: Image.network(
                         AllImages().kDefaultImage,
                       ),
-                      width: 120,
-                      height: 120,
+                      width: 120.toWidth,
+                      height: 120.toHeight,
                       placeholder: CircularProgressIndicator(),
                     ),
                   ),
@@ -59,10 +61,10 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.55,
+              height: (MediaQuery.of(context).size.height * 0.55).toHeight,
               child: Column(
                 children: [
-                  SizedBox(height: 30),
+                  SizedBox(height: 30.toHeight),
                   Tile(icon: Icons.public, text: "Eat, sleep, create"),
                   Tile(icon: Icons.phone, text: "9999945123"),
                   Tile(icon: Icons.event, text: "22/01/1995"),
@@ -76,7 +78,8 @@ class ProfileScreen extends StatelessWidget {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Theme.of(context).primaryColorDark,
-                    padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 60.toWidth, vertical: 15.toHeight),
                   ),
                   onPressed: () {
                     Navigator.pushNamed(context, '/edit-profile');
