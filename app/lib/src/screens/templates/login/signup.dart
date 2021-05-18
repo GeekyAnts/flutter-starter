@@ -27,6 +27,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.dark,
         backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: IconThemeData(

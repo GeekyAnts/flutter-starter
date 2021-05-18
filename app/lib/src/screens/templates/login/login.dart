@@ -15,7 +15,14 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.dark,
         elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.west),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: LayoutBuilder(
         builder: (context, constraint) {

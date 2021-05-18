@@ -1,6 +1,8 @@
 import 'package:app/src/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app/src/utils/size_utils.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class Bag extends StatefulWidget {
   final int id;
@@ -22,6 +24,59 @@ class _BagState extends State<Bag> {
         count += x;
         value = count * 1.21;
       });
+  }
+
+  //RazorPay Integration
+  Razorpay _razorpay;
+  void initState() {
+    super.initState();
+    _razorpay = Razorpay();
+    _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
+    _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
+    _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _razorpay.clear();
+  }
+
+  void openCheckout() async {
+    var options = {
+      'key': 'rzp_test_87KtddIT9mTM6P',
+      'amount': 20 * 100,
+      'name': 'Flutter Starter',
+      'description': 'Delivery App',
+      'prefill': {'contact': '8888888888', 'email': 'test@razorpay.com'},
+      'external': {
+        'wallets': ['paytm']
+      }
+    };
+
+    try {
+      _razorpay.open(options);
+    } catch (e) {
+      debugPrint(e);
+    }
+  }
+
+  void _handlePaymentSuccess(PaymentSuccessResponse response) {
+    Navigator.pushNamed(context, '/delivery');
+    // print("Paymnent Success: " + response.paymentId);
+  }
+
+  void _handlePaymentError(PaymentFailureResponse response) {
+    // Fluttertoast.showToast(
+    //     msg: "ERROR: " + response.code.toString() + " - " + response.message,
+    //     timeInSecForIos: 4);
+    print("Paymnent Failed: " + response.code.toString());
+  }
+
+  void _handleExternalWallet(ExternalWalletResponse response) {
+    // Fluttertoast.showToast(
+    //     msg: "EXTERNAL_WALLET: " + response.walletName, timeInSecForIos: 4);
+    print("Wallet Failure: " + response.walletName);
   }
 
   @override
@@ -174,7 +229,9 @@ class _BagState extends State<Bag> {
               child: CustomButton(
                 isSecondary: false,
                 text: "Continue to Payment",
-                onTap: () {},
+                onTap: () {
+                  openCheckout();
+                },
               ),
             ),
           ],
