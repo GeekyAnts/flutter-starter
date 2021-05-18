@@ -2,8 +2,6 @@
 
 import 'package:app/src/screens/home/index.dart';
 import 'package:app/src/screens/onboarding/authentication_screen.dart';
-import 'package:app/src/screens/templates/cards/add_card.dart';
-import 'package:app/src/screens/templates/cards/show_cards.dart';
 import 'package:app/src/screens/templates/chat/chats.dart';
 import 'package:app/src/screens/templates/chat/messages.dart';
 import 'package:app/src/screens/templates/delivery/bag.dart';
@@ -17,6 +15,8 @@ import 'package:app/src/screens/templates/login/signup.dart';
 import 'package:app/src/screens/templates/login/welcome.dart';
 import 'package:app/src/screens/templates/news/newsletter.dart';
 import 'package:app/src/screens/templates/news/view_newsletter.dart';
+import 'package:app/src/screens/templates/payment/add_card.dart';
+import 'package:app/src/screens/templates/payment/show_cards.dart';
 import 'package:app/src/screens/templates/profile/edit_profile.dart';
 import 'package:app/src/screens/templates/profile/profile.dart';
 import 'package:app/src/splash_screen.dart';
@@ -87,8 +87,8 @@ Route routes(RouteSettings settings) {
         ),
       );
 
-    //Cards
-    case '/show-cards':
+    //Payment
+    case '/payment':
       return MaterialPageRoute(builder: (_) => ShowCards());
     case '/add-card':
       return MaterialPageRoute(builder: (_) => AddCard());
