@@ -1,4 +1,5 @@
 import 'package:app/src/screens/templates/profile/widgets/editable_tile.dart';
+import 'package:app/src/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app/src/utils/size_utils.dart';
 
@@ -31,12 +32,13 @@ class EditProfile extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding:
-            EdgeInsets.symmetric(horizontal: 12.toWidth, vertical: 12.toHeight),
+        padding: EdgeInsets.fromLTRB(
+            25.toWidth, 60.toHeight, 25.toWidth, 20.toHeight),
         width: double.infinity,
         color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Stack(
               children: [
@@ -49,15 +51,15 @@ class EditProfile extends StatelessWidget {
                     ),
                     child: Image.network(
                       'https://cultivatedculture.com/wp-content/uploads/2019/12/LinkedIn-Profile-Picture-Example-Tynan-Allan.jpeg',
-                      height: 120.toHeight,
-                      width: 120.toWidth,
+                      height: 120,
+                      width: 120,
                     ),
                   ),
                 ),
                 Positioned(
                   child: Container(
-                    height: 25.toHeight,
-                    width: 25.toWidth,
+                    height: 25,
+                    width: 25,
                     decoration: BoxDecoration(
                       color: Colors.green,
                       shape: BoxShape.circle,
@@ -88,20 +90,11 @@ class EditProfile extends StatelessWidget {
               icon: Icons.email,
               text: email,
             ),
-            SizedBox(height: 10.toHeight),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).primaryColorDark,
-                padding: EdgeInsets.symmetric(
-                    horizontal: 60.toWidth, vertical: 15.toHeight),
-              ),
-              onPressed: () {
-                // Navigator.pushNamed(context, '/edit-profile');
-              },
-              child: Text(
-                "Update",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
+            SizedBox(height: 30.toHeight),
+            CustomButton(
+              isSecondary: false,
+              onTap: () {},
+              text: "Update",
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:app/src/config/image_constants.dart';
 import 'package:app/src/screens/templates/profile/widgets/tile.dart';
 import 'package:app/src/widgets/cache_image_widget.dart';
+import 'package:app/src/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app/src/utils/size_utils.dart';
 
@@ -12,13 +13,13 @@ class ProfileScreen extends StatelessWidget {
         color: Colors.white,
         width: double.infinity,
         padding: EdgeInsets.fromLTRB(
-            15.toWidth, 60.toHeight, 15.toWidth, 20.toHeight),
+            25.toWidth, 60.toHeight, 25.toWidth, 20.toHeight),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: (MediaQuery.of(context).size.height * 0.20).toHeight,
+              height: (MediaQuery.of(context).size.height * 0.20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,8 +53,8 @@ class ProfileScreen extends StatelessWidget {
                       errorWidget: Image.network(
                         AllImages().kDefaultImage,
                       ),
-                      width: 120.toWidth,
-                      height: 120.toHeight,
+                      width: 120,
+                      height: 120,
                       placeholder: CircularProgressIndicator(),
                     ),
                   ),
@@ -72,24 +73,12 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              child:
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Theme.of(context).primaryColorDark,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 60.toWidth, vertical: 15.toHeight),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/edit-profile');
-                  },
-                  child: Text(
-                    "Edit Profile",
-                    style: Theme.of(context).textTheme.bodyText1,
-                  ),
-                ),
-              ]),
+            Center(
+              child: CustomButton(
+                isSecondary: false,
+                onTap: () => Navigator.pushNamed(context, '/edit-profile'),
+                text: "Edit Profile",
+              ),
             ),
           ],
         ),

@@ -66,7 +66,7 @@ Route routes(RouteSettings settings) {
       );
 
     //Shopping Screens
-    case '/delivery-dashboard':
+    case '/delivery':
       return MaterialPageRoute(builder: (_) => Dashboard());
     case '/product':
       Map<String, dynamic> params = settings.arguments as Map<String, dynamic>;

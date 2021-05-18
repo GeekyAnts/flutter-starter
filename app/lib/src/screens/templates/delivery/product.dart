@@ -1,3 +1,4 @@
+import 'package:app/src/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app/src/utils/size_utils.dart';
 
@@ -61,13 +62,13 @@ class _ProductState extends State<Product> {
             children: [
               Container(
                 width: double.infinity,
-                height: (MediaQuery.of(context).size.height * 0.3).toHeight,
+                height: MediaQuery.of(context).size.height * 0.3,
                 child: Image.network(
                   widget.image,
                   fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(height: 10.toHeight),
+              SizedBox(height: 15.toHeight),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.toWidth),
                 child: Text(
@@ -89,37 +90,21 @@ class _ProductState extends State<Product> {
                       .copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
-              SizedBox(height: 20.toHeight),
+              SizedBox(height: 50.toHeight),
+              Center(
+                child: CustomButton(
+                  text: "Order This",
+                  onTap: () {
+                    Navigator.pushNamed(context, '/bag', arguments: {
+                      'id': widget.id,
+                      'name': widget.name,
+                      'image': widget.image,
+                    });
+                  },
+                  isSecondary: false,
+                ),
+              )
             ],
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Container(
-        height: 50.toHeight,
-        width: (MediaQuery.of(context).size.width / 2).toWidth,
-        child: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/bag', arguments: {
-              'id': widget.id,
-              'name': widget.name,
-              'image': widget.image,
-            });
-          },
-          backgroundColor: Theme.of(context).primaryColorDark,
-          child: Text(
-            'Order this',
-            style: Theme.of(context)
-                .textTheme
-                .bodyText1
-                .copyWith(fontSize: 16.toFont),
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(
-                8.0,
-              ),
-            ),
           ),
         ),
       ),

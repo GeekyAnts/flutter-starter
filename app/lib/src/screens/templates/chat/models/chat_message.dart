@@ -14,7 +14,8 @@ class ChatMessage {
 
 List chatMessages = [
   ChatMessage(
-    text: "Hi Buddy,",
+    text:
+        "Hi Buddy, dsvdskbvdskvbdskjvbsdkjvdbvksdjbvdkjsdbsvdjkbvsdjkdbvkjvdsbkjvsdbsdkjvbv",
     messageStatus: MessageStatus.viewed,
     isSender: false,
   ),

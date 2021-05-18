@@ -119,7 +119,7 @@ class Messages extends StatelessWidget {
                     SizedBox(width: 20.toWidth),
                     Expanded(
                       child: TextFormField(
-                        keyboardType: TextInputType.multiline,
+                        keyboardType: TextInputType.text,
                         maxLines: null,
                         autocorrect: false,
                         autofocus: false,

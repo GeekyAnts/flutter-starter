@@ -14,8 +14,11 @@ class ChatMessageLayout extends StatelessWidget {
           : MainAxisAlignment.start,
       children: [
         Container(
+          constraints: BoxConstraints(
+            maxWidth: MediaQuery.of(context).size.width / 2.3,
+          ),
           padding: EdgeInsets.symmetric(
-            horizontal: 20.toWidth,
+            horizontal: 25.toWidth,
             vertical: 15.toHeight,
           ),
           decoration: BoxDecoration(
