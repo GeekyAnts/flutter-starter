@@ -37,6 +37,7 @@ dependencies:
   cached_network_image: ^2.3.3
   flutter_staggered_grid_view: ^0.4.0
   otp_text_field: ^1.1.0
+  razorpay_flutter: ^1.2.5
   shared:
     path: ../shared
 dev_dependencies:
@@ -60,6 +61,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/fslogo.png
     - assets/images/logo.png
     - assets/images/2.0x/logo.png
     - assets/images/3.0x/logo.png

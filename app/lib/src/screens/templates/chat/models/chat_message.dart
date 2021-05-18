@@ -20,7 +20,7 @@ List chatMessages = [
     isSender: false,
   ),
   ChatMessage(
-    text: "Hello, How are you?",
+    text: "Hello, How are you? sdkjbvdskjbvsdkbv",
     messageStatus: MessageStatus.viewed,
     isSender: true,
   ),
@@ -30,7 +30,91 @@ List chatMessages = [
     isSender: false,
   ),
   ChatMessage(
-    text: "Glad to hear it.",
+    text: "Glad to hear it. daklbfajlbaslbaslafalkfbaldf",
+    messageStatus: MessageStatus.not_viewed,
+    isSender: true,
+  ),
+  ChatMessage(
+    text:
+        "Hi Buddy, dsvdskbvdskvbdskjvbsdkjvdbvksdjbvdkjsdbsvdjkbvsdjkdbvkjvdsbkjvsdbsdkjvbv",
+    messageStatus: MessageStatus.viewed,
+    isSender: false,
+  ),
+  ChatMessage(
+    text: "Hello, How are you? sdkjbvdskjbvsdkbv",
+    messageStatus: MessageStatus.viewed,
+    isSender: true,
+  ),
+  ChatMessage(
+    text: "I am good.",
+    messageStatus: MessageStatus.viewed,
+    isSender: false,
+  ),
+  ChatMessage(
+    text: "Glad to hear it. daklbfajlbaslbaslafalkfbaldf",
+    messageStatus: MessageStatus.not_viewed,
+    isSender: true,
+  ),
+  ChatMessage(
+    text:
+        "Hi Buddy, dsvdskbvdskvbdskjvbsdkjvdbvksdjbvdkjsdbsvdjkbvsdjkdbvkjvdsbkjvsdbsdkjvbv",
+    messageStatus: MessageStatus.viewed,
+    isSender: false,
+  ),
+  ChatMessage(
+    text: "Hello, How are you? sdkjbvdskjbvsdkbv",
+    messageStatus: MessageStatus.viewed,
+    isSender: true,
+  ),
+  ChatMessage(
+    text: "I am good.",
+    messageStatus: MessageStatus.viewed,
+    isSender: false,
+  ),
+  ChatMessage(
+    text: "Glad to hear it. daklbfajlbaslbaslafalkfbaldf",
+    messageStatus: MessageStatus.not_viewed,
+    isSender: true,
+  ),
+  ChatMessage(
+    text:
+        "Hi Buddy, dsvdskbvdskvbdskjvbsdkjvdbvksdjbvdkjsdbsvdjkbvsdjkdbvkjvdsbkjvsdbsdkjvbv",
+    messageStatus: MessageStatus.viewed,
+    isSender: false,
+  ),
+  ChatMessage(
+    text: "Hello, How are you? sdkjbvdskjbvsdkbv",
+    messageStatus: MessageStatus.viewed,
+    isSender: true,
+  ),
+  ChatMessage(
+    text: "I am good.",
+    messageStatus: MessageStatus.viewed,
+    isSender: false,
+  ),
+  ChatMessage(
+    text: "Glad to hear it. daklbfajlbaslbaslafalkfbaldf",
+    messageStatus: MessageStatus.not_viewed,
+    isSender: true,
+  ),
+  ChatMessage(
+    text:
+        "Hi Buddy, dsvdskbvdskvbdskjvbsdkjvdbvksdjbvdkjsdbsvdjkbvsdjkdbvkjvdsbkjvsdbsdkjvbv",
+    messageStatus: MessageStatus.viewed,
+    isSender: false,
+  ),
+  ChatMessage(
+    text: "Hello, How are you? sdkjbvdskjbvsdkbv",
+    messageStatus: MessageStatus.viewed,
+    isSender: true,
+  ),
+  ChatMessage(
+    text: "I am good.",
+    messageStatus: MessageStatus.viewed,
+    isSender: false,
+  ),
+  ChatMessage(
+    text: "Glad to hear it. daklbfajlbaslbaslafalkfbaldf",
     messageStatus: MessageStatus.not_viewed,
     isSender: true,
   ),

@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
         cubit: authenticationBloc,
         listener: (BuildContext context, AuthenticationState state) {
           if (state is AppAutheticated) {
-            Navigator.popAndPushNamed(context, '/chats');
+            Navigator.popAndPushNamed(context, '/delivery');
           }
           if (state is AuthenticationStart) {
             Navigator.pushNamed(context, '/auth');
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
           cubit: authenticationBloc,
           builder: (BuildContext context, AuthenticationState state) {
-            return Center(child: Image.asset(AllImages().logo));
+            return Center(child: Image.asset(AllImages().fslogo));
           },
         ),
       ),

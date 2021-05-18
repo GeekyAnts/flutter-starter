@@ -15,7 +15,7 @@ class ChatMessageLayout extends StatelessWidget {
       children: [
         Container(
           constraints: BoxConstraints(
-            maxWidth: MediaQuery.of(context).size.width / 2.3,
+            maxWidth: MediaQuery.of(context).size.width * 0.66,
           ),
           padding: EdgeInsets.symmetric(
             horizontal: 25.toWidth,
@@ -23,7 +23,7 @@ class ChatMessageLayout extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(10),
           ),
           child: Text(
             chatMessage.text,

@@ -79,13 +79,17 @@ class Messages extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding:
-            EdgeInsets.symmetric(horizontal: 15.toWidth, vertical: 20.toHeight),
-        child: ListView.builder(
-          itemCount: chatMessages.length,
-          itemBuilder: (context, index) {
-            return ChatMessageLayout(chatMessage: chatMessages[index]);
-          },
-        ),
+            EdgeInsets.symmetric(horizontal: 15.toWidth, vertical: 15.toHeight),
+        child: ListView.separated(
+            itemCount: chatMessages.length,
+            itemBuilder: (context, index) {
+              return ChatMessageLayout(chatMessage: chatMessages[index]);
+            },
+            separatorBuilder: (context, index) {
+              return SizedBox(
+                height: 18.toHeight,
+              );
+            }),
       ),
     );
   }

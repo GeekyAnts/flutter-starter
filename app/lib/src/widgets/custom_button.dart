@@ -11,26 +11,22 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width / 2,
+      width: MediaQuery.of(context).size.width * 0.75,
       child: ElevatedButton(
-        style: ButtonStyle(
-          enableFeedback: true,
-          backgroundColor: isSecondary
-              ? MaterialStateProperty.all<Color>(
-                  Theme.of(context).canvasColor,
-                )
-              : MaterialStateProperty.all<Color>(
-                  Theme.of(context).primaryColorDark,
-                ),
-          padding: MaterialStateProperty.all(
-            EdgeInsets.symmetric(vertical: 25.toHeight),
-          ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
+        style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.symmetric(vertical: 25.toHeight),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
             ),
-          ),
-        ),
+            primary: isSecondary
+                ? Theme.of(context).canvasColor
+                : Theme.of(context).accentColor,
+            side: !isSecondary
+                ? BorderSide(
+                    width: 1.0,
+                    color: Colors.white,
+                  )
+                : BorderSide()),
         onPressed: onTap,
         child: Text(
           text,

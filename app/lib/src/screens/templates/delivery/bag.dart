@@ -180,29 +180,6 @@ class _BagState extends State<Bag> {
           ],
         ),
       ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      // floatingActionButton: Container(
-      //   height: 50.toHeight,
-      //   width: (MediaQuery.of(context).size.width / 1.5).toWidth,
-      //   child: FloatingActionButton(
-      //     onPressed: () {},
-      //     backgroundColor: Theme.of(context).primaryColorDark,
-      //     child: Text(
-      //       'Continue to payment',
-      //       style: Theme.of(context)
-      //           .textTheme
-      //           .bodyText1
-      //           .copyWith(fontSize: 16.toFont),
-      //     ),
-      //     shape: RoundedRectangleBorder(
-      //       borderRadius: BorderRadius.all(
-      //         Radius.circular(
-      //           8.0,
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-      // ),
     );
   }
 }

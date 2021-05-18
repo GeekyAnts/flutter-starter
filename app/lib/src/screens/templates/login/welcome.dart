@@ -1,5 +1,3 @@
-import 'package:app/src/config/image_constants.dart';
-import 'package:app/src/widgets/cache_image_widget.dart';
 import 'package:app/src/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:app/src/utils/size_utils.dart';
@@ -10,51 +8,43 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        color: Colors.white,
+        color: Theme.of(context).primaryColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CachedImage(
-              imageUrl: "https://theuniqueacademy.co.in/assets/images/test.png",
-              fit: BoxFit.fitWidth,
-              errorWidget: Image.network(
-                AllImages().kDefaultImage,
-              ),
-              width: 500,
-              height: 250,
-              placeholder: CircularProgressIndicator(),
+            Spacer(flex: 2),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.network(
+                  'https://flutter-starter.geekyants.com/img/fs-logo.png',
+                  width: 70,
+                ),
+                Text(
+                  "Flutter Starter",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline2
+                      .copyWith(color: Colors.white),
+                )
+              ],
             ),
-            SizedBox(
-              height: 20.toHeight,
-            ),
-            Text(
-              "Welcome to Flutter Starter",
-              style: Theme.of(context).textTheme.headline2,
-            ),
-            SizedBox(
-              height: 20.toHeight,
-            ),
-            Text(
-              "A Flutter starter-kit for production-level apps",
-              style: TextStyle(fontWeight: FontWeight.w300),
-            ),
-            SizedBox(
-              height: 30.toHeight,
-            ),
+            Spacer(flex: 1),
             CustomButton(
-              onTap: () => Navigator.pushNamed(context, '/login'),
-              text: "Login Now",
+              onTap: () => Navigator.pushNamed(context, '/signup'),
+              text: "Sign Up",
               isSecondary: false,
             ),
             SizedBox(
-              height: 14.toHeight,
+              height: 20.toHeight,
             ),
             CustomButton(
-              onTap: () => Navigator.pushNamed(context, '/signup'),
-              text: "Create Account",
+              onTap: () => Navigator.pushNamed(context, '/login'),
+              text: "Login",
               isSecondary: true,
             ),
+            Spacer(flex: 2),
           ],
         ),
       ),

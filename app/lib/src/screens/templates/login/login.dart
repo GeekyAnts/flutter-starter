@@ -1,4 +1,5 @@
 import 'package:app/src/widgets/custom_button.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:app/src/utils/size_utils.dart';
 
@@ -14,178 +15,179 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
-        ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(
-              horizontal: 30.toWidth, vertical: 15.toHeight),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Keep Connected",
-                style: Theme.of(context).textTheme.headline2.copyWith(),
-              ),
-              SizedBox(
-                height: 13.toHeight,
-              ),
-              Text(
-                "Enter your email address and password to login into your account.",
-                style: TextStyle(fontWeight: FontWeight.w300),
-              ),
-              SizedBox(
-                height: 40.toHeight,
-              ),
-              Column(
-                children: [
-                  TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    autofocus: true,
-                    autocorrect: false,
-                    textAlign: TextAlign.left,
-                    style: Theme.of(context).textTheme.headline5.copyWith(
-                          fontWeight: FontWeight.w500,
-                        ),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      labelText: 'Email Address',
-                      prefixIcon: Icon(
-                        Icons.email_outlined,
-                        size: 25,
-                      ),
-                      filled: false,
-                    ),
-                  ),
-                  SizedBox(height: 25.toHeight),
-                  TextField(
-                    keyboardType: TextInputType.text,
-                    obscureText: true,
-                    autofocus: true,
-                    autocorrect: false,
-                    textAlign: TextAlign.left,
-                    style: Theme.of(context).textTheme.headline5.copyWith(
-                          fontWeight: FontWeight.w500,
-                        ),
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      labelText: 'Password',
-                      prefixIcon: Icon(
-                        Icons.lock_outline,
-                        size: 25,
-                      ),
-                      filled: false,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 25.toHeight),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Theme(
-                      data: ThemeData(
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            _value = !_value;
-                          });
-                        },
-                        child: Row(
-                          children: [
-                            _value
-                                ? Icon(Icons.check_box, color: Colors.grey)
-                                : Icon(Icons.check_box_outline_blank,
-                                    color: Colors.grey),
-                            SizedBox(width: 5.toWidth),
-                            Text(
-                              'Remember Me',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6
-                                  .copyWith(
-                                    color: Colors.grey,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Theme(
-                      data: ThemeData(
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/forgot-password');
-                        },
-                        child: Text(
-                          'Forgot Password?',
-                          style: Theme.of(context).textTheme.headline6.copyWith(
-                                color: Colors.grey,
-                              ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 25.toHeight),
-              Align(
-                alignment: Alignment.centerRight,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, "/enter-number");
-                  },
-                  child: Text(
-                    "Login With Number",
-                    style: Theme.of(context).textTheme.headline6.copyWith(
-                          color: Colors.grey,
-                        ),
-                  ),
-                ),
-              ),
-              SizedBox(height: 40.toHeight),
-              Container(
-                width: double.infinity,
+      body: LayoutBuilder(
+        builder: (context, constraint) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraint.maxHeight),
+              child: IntrinsicHeight(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    CustomButton(
-                      isSecondary: false,
-                      onTap: () {},
-                      text: "Login Now",
+                  children: <Widget>[
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.15,
+                      width: double.infinity,
+                      color: Theme.of(context).accentColor,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 30.toWidth,
+                        vertical: 30.toHeight,
+                      ),
+                      child: Text(
+                        "Sign in",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            .copyWith(fontSize: 31.toFont),
+                      ),
                     ),
-                    SizedBox(
-                      height: 14.toHeight,
-                    ),
-                    CustomButton(
-                      isSecondary: true,
-                      onTap: () => Navigator.pushNamed(context, '/signup'),
-                      text: "Create Account",
+                    Expanded(
+                      child: Stack(
+                        children: [
+                          Container(
+                            color: Theme.of(context).accentColor,
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 30.toWidth,
+                              vertical: 40.toHeight,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Welcome Back",
+                                  style: Theme.of(context).textTheme.headline4,
+                                ),
+                                SizedBox(
+                                  height: 13.toHeight,
+                                ),
+                                Text(
+                                  "Signin to continue !",
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                                SizedBox(
+                                  height: 40.toHeight,
+                                ),
+                                TextField(
+                                  keyboardType: TextInputType.emailAddress,
+                                  autofocus: true,
+                                  autocorrect: false,
+                                  textAlign: TextAlign.left,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline5
+                                      .copyWith(
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    labelText: 'Email ID',
+                                    filled: false,
+                                  ),
+                                ),
+                                SizedBox(height: 25.toHeight),
+                                TextField(
+                                  keyboardType: TextInputType.text,
+                                  obscureText: true,
+                                  autofocus: true,
+                                  autocorrect: false,
+                                  textAlign: TextAlign.left,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline5
+                                      .copyWith(
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    labelText: 'Password',
+                                    filled: false,
+                                  ),
+                                ),
+                                SizedBox(height: 25.toHeight),
+                                InkWell(
+                                  onTap: () => Navigator.pushNamed(
+                                      context, '/forgot-password'),
+                                  child: Text(
+                                    "Forgot Password?",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText2
+                                        .copyWith(
+                                            color:
+                                                Theme.of(context).accentColor,
+                                            fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                                SizedBox(height: 40.toHeight),
+                                Center(
+                                  child: CustomButton(
+                                    isSecondary: false,
+                                    onTap: () {},
+                                    text: "Sign in",
+                                  ),
+                                ),
+                                Spacer(
+                                  flex: 2,
+                                ),
+                                SizedBox(height: 10.toHeight),
+                                Center(
+                                  child: RichText(
+                                    text: TextSpan(
+                                      text: 'Do not have an account ? ',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyText2
+                                          .copyWith(
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      children: [
+                                        TextSpan(
+                                          recognizer: TapGestureRecognizer()
+                                            ..onTap = () {
+                                              Navigator.pushNamed(
+                                                  context, '/signup');
+                                            },
+                                          text: "Sign up",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText2
+                                              .copyWith(
+                                                fontWeight: FontWeight.w700,
+                                                color: Theme.of(context)
+                                                    .primaryColor,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Spacer(),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
-              )
-            ],
-          ),
-        ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
