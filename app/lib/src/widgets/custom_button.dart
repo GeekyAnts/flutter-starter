@@ -14,6 +14,7 @@ class CustomButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.75,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+            elevation: 0,
             padding: EdgeInsets.symmetric(vertical: 25.toHeight),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),

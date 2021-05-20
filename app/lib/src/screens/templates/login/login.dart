@@ -9,8 +9,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _value = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,8 +60,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15),
                               ),
                             ),
                             child: Column(
