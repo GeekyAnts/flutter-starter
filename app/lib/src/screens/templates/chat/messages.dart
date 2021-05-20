@@ -32,10 +32,13 @@ class Messages extends StatelessWidget {
 
   AppBar chatAppBar(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
+      brightness: Brightness.dark,
       elevation: 0,
-      iconTheme: IconThemeData(
-        color: Colors.black,
+      leading: IconButton(
+        icon: Icon(Icons.west),
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
       title: Row(
         children: [
@@ -50,7 +53,7 @@ class Messages extends StatelessWidget {
             children: [
               Text(
                 chat.name,
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
+                style: Theme.of(context).textTheme.bodyText1.copyWith(
                       fontSize: 28.toFont,
                       fontWeight: FontWeight.w500,
                     ),
@@ -59,7 +62,7 @@ class Messages extends StatelessWidget {
               if (chat.isActive)
                 Text(
                   'Active now',
-                  style: Theme.of(context).textTheme.bodyText2.copyWith(
+                  style: Theme.of(context).textTheme.bodyText1.copyWith(
                         fontSize: 18.toFont,
                         fontWeight: FontWeight.w300,
                       ),
@@ -167,7 +170,7 @@ class Messages extends StatelessWidget {
               width: 100.toWidth,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: Theme.of(context).primaryColorDark,
+                color: Theme.of(context).primaryColor,
               ),
               child: Center(
                 child: Icon(

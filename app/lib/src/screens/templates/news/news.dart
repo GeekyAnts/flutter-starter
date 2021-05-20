@@ -47,7 +47,7 @@ List<Widget> _listTile = <Widget>[
 ];
 
 // ignore: must_be_immutable
-class Newsletter extends StatelessWidget {
+class News extends StatelessWidget {
   List<Map> news = [
     {
       'title': 'Weekly Newsletter #101',
@@ -89,7 +89,7 @@ class BackGroundTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/view-newsletter',
+        Navigator.pushNamed(context, '/view-news',
             arguments: {'id': id, 'title': data});
       },
       child: Card(

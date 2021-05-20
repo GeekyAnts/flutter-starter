@@ -1,5 +1,6 @@
 import 'package:app/src/screens/templates/chat/models/chat.dart';
 import 'package:app/src/screens/templates/chat/widgets/chat_tile.dart';
+import 'package:app/src/utils/size_utils.dart';
 import 'package:flutter/material.dart';
 
 class Chats extends StatelessWidget {
@@ -7,15 +8,16 @@ class Chats extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: Colors.black,
-        ),
+        brightness: Brightness.dark,
         elevation: 0,
-        backgroundColor: Colors.white,
-        title: Text(
-          "ChatApp",
-          style: Theme.of(context).textTheme.headline4,
+        leading: IconButton(
+          icon: Icon(Icons.west),
+          onPressed: () {
+            // Navigator.pop(context);
+          },
         ),
+        title: Text('ChatApp'),
+        centerTitle: false,
         actions: [
           IconButton(icon: Icon(Icons.search), onPressed: () {}),
         ],
@@ -32,8 +34,11 @@ class Chats extends StatelessWidget {
           );
         },
         separatorBuilder: (context, index) {
-          return Divider(
-            color: Colors.white,
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30.toWidth),
+            child: Divider(
+              color: Theme.of(context).primaryColor,
+            ),
           );
         },
       ),

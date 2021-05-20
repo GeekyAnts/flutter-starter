@@ -105,7 +105,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                 TextField(
                                   keyboardType: TextInputType.text,
                                   obscureText: true,
-                                  autofocus: true,
                                   autocorrect: false,
                                   textAlign: TextAlign.left,
                                   style: Theme.of(context)
@@ -123,19 +122,39 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                                 SizedBox(height: 25.toHeight),
-                                InkWell(
-                                  onTap: () => Navigator.pushNamed(
-                                      context, '/forgot-password'),
-                                  child: Text(
-                                    "Forgot Password?",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText2
-                                        .copyWith(
-                                            color:
-                                                Theme.of(context).accentColor,
-                                            fontWeight: FontWeight.w600),
-                                  ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    InkWell(
+                                      onTap: () => Navigator.pushNamed(
+                                          context, '/forgot-password'),
+                                      child: Text(
+                                        "Forgot Password?",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2
+                                            .copyWith(
+                                                color: Theme.of(context)
+                                                    .accentColor,
+                                                fontWeight: FontWeight.w600),
+                                      ),
+                                    ),
+                                    InkWell(
+                                      onTap: () => Navigator.pushNamed(
+                                          context, '/enter-number'),
+                                      child: Text(
+                                        "Login with Mobile?",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2
+                                            .copyWith(
+                                                color: Theme.of(context)
+                                                    .accentColor,
+                                                fontWeight: FontWeight.w600),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 SizedBox(height: 40.toHeight),
                                 Center(

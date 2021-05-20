@@ -13,11 +13,12 @@ import 'package:app/src/screens/templates/login/login.dart';
 import 'package:app/src/screens/templates/login/otp.dart';
 import 'package:app/src/screens/templates/login/signup.dart';
 import 'package:app/src/screens/templates/login/welcome.dart';
-import 'package:app/src/screens/templates/news/newsletter.dart';
-import 'package:app/src/screens/templates/news/view_newsletter.dart';
-import 'package:app/src/screens/templates/payment/show_cards.dart';
+import 'package:app/src/screens/templates/news/news.dart';
+import 'package:app/src/screens/templates/news/view_news.dart';
+import 'package:app/src/screens/templates/payment/payments.dart';
 import 'package:app/src/screens/templates/profile/edit_profile.dart';
 import 'package:app/src/screens/templates/profile/profile.dart';
+import 'package:app/src/screens/templates/templates_home.dart';
 import 'package:app/src/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -31,6 +32,10 @@ Route routes(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => AuthenticationScreen());
 
     //Template Routes
+
+    //Template Home
+    case '/templates-home':
+      return MaterialPageRoute(builder: (_) => TemplatesHome());
 
     //Login
     case '/welcome':
@@ -53,9 +58,9 @@ Route routes(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => EditProfile());
 
     //News
-    case '/newsletter':
-      return MaterialPageRoute(builder: (_) => Newsletter());
-    case '/view-newsletter':
+    case '/news':
+      return MaterialPageRoute(builder: (_) => News());
+    case '/view-news':
       Map<String, dynamic> params = settings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(
         builder: (_) => ViewNews(
@@ -66,7 +71,7 @@ Route routes(RouteSettings settings) {
 
     //Shopping Screens
     case '/delivery':
-      return MaterialPageRoute(builder: (_) => Dashboard());
+      return MaterialPageRoute(builder: (_) => DeliveryDashboard());
     case '/product':
       Map<String, dynamic> params = settings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(
@@ -88,10 +93,10 @@ Route routes(RouteSettings settings) {
 
     //Payment
     case '/payment':
-      return MaterialPageRoute(builder: (_) => ShowCards());
+      return MaterialPageRoute(builder: (_) => Payments());
 
     //Chat App
-    case '/chats':
+    case '/chat':
       return MaterialPageRoute(builder: (_) => Chats());
     case '/messages':
       Map<String, dynamic> params = settings.arguments as Map<String, dynamic>;

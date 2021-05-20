@@ -2,12 +2,13 @@ import 'package:app/src/screens/templates/delivery/widgets/food_items_grid.dart'
 import 'package:flutter/material.dart';
 import 'package:app/src/utils/size_utils.dart';
 
-class Dashboard extends StatefulWidget {
+class DeliveryDashboard extends StatefulWidget {
   @override
-  _DashboardState createState() => _DashboardState();
+  _DeliveryDashboardState createState() => _DeliveryDashboardState();
 }
 
-class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
+class _DeliveryDashboardState extends State<DeliveryDashboard>
+    with TickerProviderStateMixin {
   List<Map> burgers = [
     {
       'id': 1,

@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:app/src/utils/size_utils.dart';
 import 'package:flutter/services.dart';
 
-class ShowCards extends StatefulWidget {
+class Payments extends StatefulWidget {
   @override
-  _ShowCardsState createState() => _ShowCardsState();
+  _PaymentsState createState() => _PaymentsState();
 }
 
-class _ShowCardsState extends State<ShowCards> {
+class _PaymentsState extends State<Payments> {
   bool showCreditDebitCard = false;
   List<Map> recents = [
     {
