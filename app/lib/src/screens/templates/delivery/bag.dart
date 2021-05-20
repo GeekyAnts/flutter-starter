@@ -83,15 +83,16 @@ class _BagState extends State<Bag> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Bag",
-          style: Theme.of(context).textTheme.headline4,
-        ),
-        iconTheme: IconThemeData(
-          color: Colors.black,
-        ),
+        brightness: Brightness.dark,
         elevation: 0,
-        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(Icons.west),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text('Bag'),
+        centerTitle: false,
       ),
       body: Container(
         padding:
@@ -148,7 +149,7 @@ class _BagState extends State<Bag> {
                                       enableFeedback: true,
                                       backgroundColor:
                                           MaterialStateProperty.all(
-                                        Theme.of(context).canvasColor,
+                                        Theme.of(context).primaryColor,
                                       ),
                                       shape: MaterialStateProperty.all<
                                           RoundedRectangleBorder>(
@@ -165,7 +166,7 @@ class _BagState extends State<Bag> {
                                       '+',
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyText2
+                                          .bodyText1
                                           .copyWith(
                                               fontWeight: FontWeight.w600),
                                     ),
@@ -184,7 +185,7 @@ class _BagState extends State<Bag> {
                                       enableFeedback: true,
                                       backgroundColor:
                                           MaterialStateProperty.all(
-                                        Theme.of(context).canvasColor,
+                                        Theme.of(context).primaryColor,
                                       ),
                                       shape: MaterialStateProperty.all<
                                           RoundedRectangleBorder>(
@@ -201,7 +202,7 @@ class _BagState extends State<Bag> {
                                       '-',
                                       style: Theme.of(context)
                                           .textTheme
-                                          .bodyText2
+                                          .bodyText1
                                           .copyWith(
                                               fontWeight: FontWeight.w600),
                                     ),
@@ -224,17 +225,19 @@ class _BagState extends State<Bag> {
                 ),
               ),
             ),
-            SizedBox(height: 30),
-            Center(
-              child: CustomButton(
-                isSecondary: false,
-                text: "Continue to Payment",
-                onTap: () {
-                  openCheckout();
-                },
-              ),
-            ),
           ],
+        ),
+      ),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.toWidth),
+          child: CustomButton(
+            text: "Continue to Payment",
+            onTap: () {
+              openCheckout();
+            },
+            isSecondary: false,
+          ),
         ),
       ),
     );

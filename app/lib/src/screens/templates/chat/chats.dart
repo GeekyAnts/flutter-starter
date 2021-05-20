@@ -13,7 +13,7 @@ class Chats extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.west),
           onPressed: () {
-            // Navigator.pop(context);
+            Navigator.pop(context);
           },
         ),
         title: Text('ChatApp'),

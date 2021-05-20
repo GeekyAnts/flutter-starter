@@ -13,7 +13,7 @@ class Tile extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: Theme.of(context).primaryColorLight,
+            color: Theme.of(context).primaryColor.withOpacity(0.65),
           ),
         ),
       ),

@@ -18,22 +18,20 @@ class EditProfile extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        brightness: Brightness.dark,
         elevation: 0,
-        iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+        leading: IconButton(
+          icon: Icon(Icons.west),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        title: Text(
-          'Edit Profile',
-          style: Theme.of(context)
-              .textTheme
-              .headline2
-              .copyWith(fontWeight: FontWeight.w500),
-        ),
+        title: Text('Edit Profile'),
+        centerTitle: false,
       ),
       body: Container(
         padding: EdgeInsets.fromLTRB(
-            25.toWidth, 60.toHeight, 25.toWidth, 20.toHeight),
+            25.toWidth, 40.toHeight, 25.toWidth, 20.toHeight),
         width: double.infinity,
         color: Colors.white,
         child: Column(
@@ -73,7 +71,7 @@ class EditProfile extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 50.toHeight),
+            Spacer(flex: 1),
             EditableTile(
               icon: Icons.public,
               text: bio,
@@ -90,12 +88,13 @@ class EditProfile extends StatelessWidget {
               icon: Icons.email,
               text: email,
             ),
-            SizedBox(height: 30.toHeight),
+            Spacer(flex: 2),
             CustomButton(
               isSecondary: false,
               onTap: () {},
               text: "Update",
             ),
+            Spacer(flex: 7),
           ],
         ),
       ),

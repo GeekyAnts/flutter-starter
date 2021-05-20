@@ -47,11 +47,22 @@ class _ProductState extends State<Product> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: Colors.black,
-        ),
+        brightness: Brightness.dark,
         elevation: 0,
-        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(Icons.west),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(widget.name),
+        centerTitle: false,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_bag_outlined),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -62,49 +73,41 @@ class _ProductState extends State<Product> {
             children: [
               Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: MediaQuery.of(context).size.height * 0.25,
                 child: Image.network(
                   widget.image,
                   fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(height: 15.toHeight),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.toWidth),
-                child: Text(
-                  widget.name,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline1
-                      .copyWith(fontWeight: FontWeight.w400),
-                ),
-              ),
-              SizedBox(height: 10.toHeight),
+              SizedBox(height: 25.toHeight),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.toWidth),
                 child: Text(
                   products[x]['desc'],
+                  textScaleFactor: 1.2,
                   style: Theme.of(context)
                       .textTheme
                       .headline5
                       .copyWith(fontWeight: FontWeight.w400),
                 ),
               ),
-              SizedBox(height: 50.toHeight),
-              Center(
-                child: CustomButton(
-                  text: "Order This",
-                  onTap: () {
-                    Navigator.pushNamed(context, '/bag', arguments: {
-                      'id': widget.id,
-                      'name': widget.name,
-                      'image': widget.image,
-                    });
-                  },
-                  isSecondary: false,
-                ),
-              )
             ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.toWidth),
+          child: CustomButton(
+            text: "Order This",
+            onTap: () {
+              Navigator.pushNamed(context, '/bag', arguments: {
+                'id': widget.id,
+                'name': widget.name,
+                'image': widget.image,
+              });
+            },
+            isSecondary: false,
           ),
         ),
       ),

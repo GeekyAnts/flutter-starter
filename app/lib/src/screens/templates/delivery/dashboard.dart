@@ -65,16 +65,20 @@ class _DeliveryDashboardState extends State<DeliveryDashboard>
         ),
       ),
       appBar: AppBar(
-        // title: Text("Delivery"),
-        iconTheme: IconThemeData(
-          color: Colors.black,
-        ),
+        brightness: Brightness.dark,
         elevation: 0,
-        backgroundColor: Colors.white,
+        title: Text('Delivery App'),
+        centerTitle: false,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_bag_outlined),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.only(top: 12.toHeight),
+        padding: EdgeInsets.only(top: 30.toHeight),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

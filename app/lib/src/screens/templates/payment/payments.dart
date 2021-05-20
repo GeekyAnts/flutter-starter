@@ -56,7 +56,7 @@ class _PaymentsState extends State<Payments> {
         leading: IconButton(
           icon: Icon(Icons.west),
           onPressed: () {
-            //Navigator.pop(context);
+            Navigator.pop(context);
           },
         ),
         title: Text('Payment Method'),

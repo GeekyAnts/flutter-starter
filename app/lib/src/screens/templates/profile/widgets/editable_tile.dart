@@ -8,7 +8,6 @@ class EditableTile extends StatelessWidget {
   const EditableTile({Key key, this.icon, this.text}) : super(key: key);
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 12.toHeight, bottom: 12.toHeight),
       margin: EdgeInsets.only(bottom: 12.toHeight),
       child: TextField(
         controller: text,
