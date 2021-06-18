@@ -18,6 +18,7 @@ import 'package:app/src/screens/templates/news/view_news.dart';
 import 'package:app/src/screens/templates/payment/payments.dart';
 import 'package:app/src/screens/templates/profile/edit_profile.dart';
 import 'package:app/src/screens/templates/profile/profile.dart';
+import 'package:app/src/screens/templates/side_drawer/side_drawer.dart';
 import 'package:app/src/screens/templates/templates_home.dart';
 import 'package:app/src/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,10 @@ Route routes(RouteSettings settings) {
     //Template Home
     case '/templates-home':
       return MaterialPageRoute(builder: (_) => TemplatesHome());
+
+    //Side Drawer
+    case '/side-drawer':
+      return MaterialPageRoute(builder: (_) => SideDrawer());
 
     //Login
     case '/welcome':
