@@ -15,12 +15,6 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
   // ignore: close_sinks
   AuthenticationBloc authenticationBloc;
   @override
-  void initState() {
-    authenticationBloc = AuthenticationBlocController().authenticationBloc;
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     void _showError(String error) async {
       await Fluttertoast.showToast(
@@ -84,14 +78,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                                       SizedBox(
                                         height: 8,
                                       ),
-                                      RaisedButton(
-                                          color: Theme.of(context).primaryColor,
-                                          textColor: Colors.white,
-                                          padding: const EdgeInsets.all(16),
-                                          shape: new RoundedRectangleBorder(
-                                              borderRadius:
-                                                  new BorderRadius.circular(
-                                                      8.0)),
+                                      ElevatedButton(
                                           child: Text(
                                             'Login',
                                             style: Theme.of(context)
@@ -132,5 +119,11 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
             }),
       ),
     ));
+  }
+
+  @override
+  void initState() {
+    authenticationBloc = AuthenticationBlocController().authenticationBloc;
+    super.initState();
   }
 }

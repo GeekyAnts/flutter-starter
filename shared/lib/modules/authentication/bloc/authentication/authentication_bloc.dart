@@ -1,17 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:shared/main.dart';
-import 'package:shared/modules/authentication/models/current_user_data.dart';
-
-import 'package:shared/modules/authentication/resources/authentication_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'authentication_bloc_public.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
-  AuthenticationBloc() : super(AuthenticationInitial());
   final AuthenticationRepository authenticationService =
       AuthenticationRepository();
+  AuthenticationBloc() : super(AuthenticationInitial());
   @override
   Stream<AuthenticationState> mapEventToState(
       AuthenticationEvent event) async* {
@@ -57,19 +52,17 @@ class AuthenticationBloc
     }
   }
 
-  Stream<AuthenticationState> _mapUserSignupToState(UserSignUp event) async* {
+  Stream<AuthenticationState> _mapUserLoginState(UserLogin event) async* {
     final SharedPreferences sharedPreferences = await prefs;
     yield AuthenticationLoading();
     try {
       await Future.delayed(Duration(milliseconds: 500)); // a simulated delay
-      final data = await authenticationService.signUpWithEmailAndPassword(
+      final data = await authenticationService.loginWithEmailAndPassword(
           event.email, event.password);
-
       if (data["error"] == null) {
-        final currentUser = UserData.fromJson(data);
+        final currentUser = Token.fromJson(data);
         if (currentUser != null) {
           sharedPreferences.setString('authtoken', currentUser.token);
-          sharedPreferences.setInt('userId', currentUser.id);
           yield AppAutheticated();
         } else {
           yield AuthenticationNotAuthenticated();
@@ -83,17 +76,19 @@ class AuthenticationBloc
     }
   }
 
-  Stream<AuthenticationState> _mapUserLoginState(UserLogin event) async* {
+  Stream<AuthenticationState> _mapUserSignupToState(UserSignUp event) async* {
     final SharedPreferences sharedPreferences = await prefs;
     yield AuthenticationLoading();
     try {
       await Future.delayed(Duration(milliseconds: 500)); // a simulated delay
-      final data = await authenticationService.loginWithEmailAndPassword(
+      final data = await authenticationService.signUpWithEmailAndPassword(
           event.email, event.password);
+
       if (data["error"] == null) {
-        final currentUser = Token.fromJson(data);
+        final currentUser = UserData.fromJson(data);
         if (currentUser != null) {
           sharedPreferences.setString('authtoken', currentUser.token);
+          sharedPreferences.setInt('userId', currentUser.id);
           yield AppAutheticated();
         } else {
           yield AuthenticationNotAuthenticated();
