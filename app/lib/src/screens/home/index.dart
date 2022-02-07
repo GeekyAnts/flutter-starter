@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
     return WillPopScope(
         onWillPop: () async => false,
         child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-            cubit: authenticationBloc,
+            bloc: authenticationBloc,
             builder: (BuildContext context, AuthenticationState state) {
               if (state is SetUserData) {
                 return Scaffold(

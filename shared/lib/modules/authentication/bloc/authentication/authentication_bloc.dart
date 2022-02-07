@@ -6,55 +6,45 @@ class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   final AuthenticationRepository authenticationService =
       AuthenticationRepository();
-  AuthenticationBloc() : super(AuthenticationInitial());
-  @override
-  Stream<AuthenticationState> mapEventToState(
-      AuthenticationEvent event) async* {
-    final SharedPreferences sharedPreferences = await prefs;
-    if (event is AppLoadedup) {
-      yield* _mapAppSignUpLoadedState(event);
-    }
-
-    if (event is UserSignUp) {
-      yield* _mapUserSignupToState(event);
-    }
-
-    if (event is UserLogin) {
-      yield* _mapUserLoginState(event);
-    }
-    if (event is UserLogOut) {
-      sharedPreferences.setString('authtoken', null);
-      sharedPreferences.setInt('userId', null);
-      yield UserLogoutState();
-    }
-    if (event is GetUserData) {
+  AuthenticationBloc() : super(AuthenticationInitial()) {
+    on<AppLoadedup>(_mapAppSignUpLoadedState);
+    on<UserSignUp>(_mapUserSignupToState);
+    on<UserLogin>(_mapUserLoginState);
+    on<UserLogOut>((event, emit) async {
+      final SharedPreferences sharedPreferences = await prefs;
+      sharedPreferences.clear();
+      emit(UserLogoutState());
+    });
+    on<GetUserData>((event, emit) async {
+      final SharedPreferences sharedPreferences = await prefs;
       int currentUserId = sharedPreferences.getInt('userId');
       final data = await authenticationService.getUserData(currentUserId ?? 4);
       final currentUserData = CurrentUserData.fromJson(data);
-      yield SetUserData(currentUserData: currentUserData);
-    }
+      emit(SetUserData(currentUserData: currentUserData));
+    });
   }
 
-  Stream<AuthenticationState> _mapAppSignUpLoadedState(
-      AppLoadedup event) async* {
-    yield AuthenticationLoading();
+  void _mapAppSignUpLoadedState(
+      AppLoadedup event, Emitter<AuthenticationState> emit) async {
+    AuthenticationLoading();
     try {
       await Future.delayed(Duration(milliseconds: 500)); // a simulated delay
       final SharedPreferences sharedPreferences = await prefs;
       if (sharedPreferences.getString('authtoken') != null) {
-        yield AppAutheticated();
+        emit(AppAutheticated());
       } else {
-        yield AuthenticationStart();
+        emit(AuthenticationStart());
       }
     } catch (e) {
-      yield AuthenticationFailure(
-          message: e.message ?? 'An unknown error occurred');
+      emit(AuthenticationFailure(
+          message: e.message ?? 'An unknown error occurred'));
     }
   }
 
-  Stream<AuthenticationState> _mapUserLoginState(UserLogin event) async* {
+  void _mapUserLoginState(
+      UserLogin event, Emitter<AuthenticationState> emit) async {
     final SharedPreferences sharedPreferences = await prefs;
-    yield AuthenticationLoading();
+    emit(AuthenticationLoading());
     try {
       await Future.delayed(Duration(milliseconds: 500)); // a simulated delay
       final data = await authenticationService.loginWithEmailAndPassword(
@@ -63,22 +53,23 @@ class AuthenticationBloc
         final currentUser = Token.fromJson(data);
         if (currentUser != null) {
           sharedPreferences.setString('authtoken', currentUser.token);
-          yield AppAutheticated();
+          emit(AppAutheticated());
         } else {
-          yield AuthenticationNotAuthenticated();
+          emit(AuthenticationNotAuthenticated());
         }
       } else {
-        yield AuthenticationFailure(message: data["error"]);
+        emit(AuthenticationFailure(message: data["error"]));
       }
     } catch (e) {
-      yield AuthenticationFailure(
-          message: e.toString() ?? 'An unknown error occurred');
+      emit(AuthenticationFailure(
+          message: e.toString() ?? 'An unknown error occurred'));
     }
   }
 
-  Stream<AuthenticationState> _mapUserSignupToState(UserSignUp event) async* {
+  void _mapUserSignupToState(
+      UserSignUp event, Emitter<AuthenticationState> emit) async {
     final SharedPreferences sharedPreferences = await prefs;
-    yield AuthenticationLoading();
+    emit(AuthenticationLoading());
     try {
       await Future.delayed(Duration(milliseconds: 500)); // a simulated delay
       final data = await authenticationService.signUpWithEmailAndPassword(
@@ -89,16 +80,16 @@ class AuthenticationBloc
         if (currentUser != null) {
           sharedPreferences.setString('authtoken', currentUser.token);
           sharedPreferences.setInt('userId', currentUser.id);
-          yield AppAutheticated();
+          emit(AppAutheticated());
         } else {
-          yield AuthenticationNotAuthenticated();
+          emit(AuthenticationNotAuthenticated());
         }
       } else {
-        yield AuthenticationFailure(message: data["error"]);
+        emit(AuthenticationFailure(message: data["error"]));
       }
     } catch (e) {
-      yield AuthenticationFailure(
-          message: e.toString() ?? 'An unknown error occurred');
+      emit(AuthenticationFailure(
+          message: e.toString() ?? 'An unknown error occurred'));
     }
   }
 }

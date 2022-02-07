@@ -205,7 +205,8 @@ class ThemeConfig {
           fontWeight: FontWeight.w500,
         ),
       ),
-      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: accentColor),
+      colorScheme: ColorScheme.fromSwatch()
+          .copyWith(secondary: accentColor, brightness: brightness),
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: accentColor,
         selectionColor: accentColor,
