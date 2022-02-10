@@ -1,9 +1,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'color_constants.dart';
 
 class ThemeConfig {
+  static ThemeData get darkTheme => createTheme(
+        brightness: Brightness.dark,
+        background: ColorConstants.darkScaffoldBackgroundColor,
+        cardBackground: ColorConstants.secondaryDarkAppColor,
+        primaryText: Colors.white,
+        secondaryText: Colors.black,
+        accentColor: ColorConstants.secondaryDarkAppColor,
+        divider: Colors.black45,
+        buttonBackground: Colors.white,
+        buttonText: ColorConstants.secondaryDarkAppColor,
+        disabled: ColorConstants.secondaryDarkAppColor,
+        error: Colors.red,
+      );
+
+  static ThemeData get lightTheme => createTheme(
+        brightness: Brightness.light,
+        background: ColorConstants.lightScaffoldBackgroundColor,
+        cardBackground: ColorConstants.secondaryAppColor,
+        primaryText: Colors.black,
+        secondaryText: Colors.white,
+        accentColor: ColorConstants.secondaryAppColor,
+        divider: ColorConstants.secondaryAppColor,
+        buttonBackground: Colors.black38,
+        buttonText: ColorConstants.secondaryAppColor,
+        disabled: ColorConstants.secondaryAppColor,
+        error: Colors.red,
+      );
+
   static ThemeData createTheme({
     Brightness brightness,
     Color background,
@@ -23,7 +52,6 @@ class ThemeConfig {
 
     return ThemeData(
       brightness: brightness,
-      buttonColor: buttonBackground,
       canvasColor: background,
       cardColor: background,
       dividerColor: divider,
@@ -37,25 +65,36 @@ class ThemeConfig {
         margin: EdgeInsets.zero,
         clipBehavior: Clip.antiAliasWithSaveLayer,
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: BorderSide(color: Colors.red))),
+              padding: MaterialStateProperty.all<EdgeInsets>(
+                  const EdgeInsets.all(16)))),
       backgroundColor: background,
       primaryColor: accentColor,
-      accentColor: accentColor,
-      textSelectionColor: accentColor,
-      textSelectionHandleColor: accentColor,
-      cursorColor: accentColor,
       toggleableActiveColor: accentColor,
       appBarTheme: AppBarTheme(
-        brightness: brightness,
+        systemOverlayStyle:
+            SystemUiOverlayStyle(statusBarBrightness: brightness),
         color: cardBackground,
-        textTheme: TextTheme(
+        iconTheme: IconThemeData(
+          color: secondaryText,
+        ),
+        toolbarTextStyle: TextTheme(
           bodyText1: baseTextTheme.bodyText1.copyWith(
             color: secondaryText,
             fontSize: 18,
           ),
-        ),
-        iconTheme: IconThemeData(
-          color: secondaryText,
-        ),
+        ).bodyText2,
+        titleTextStyle: TextTheme(
+          bodyText1: baseTextTheme.bodyText1.copyWith(
+            color: secondaryText,
+            fontSize: 18,
+          ),
+        ).headline6,
       ),
       iconTheme: IconThemeData(
         color: secondaryText,
@@ -166,34 +205,13 @@ class ThemeConfig {
           fontWeight: FontWeight.w500,
         ),
       ),
+      colorScheme: ColorScheme.fromSwatch()
+          .copyWith(secondary: accentColor, brightness: brightness),
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: accentColor,
+        selectionColor: accentColor,
+        selectionHandleColor: accentColor,
+      ),
     );
   }
-
-  static ThemeData get lightTheme => createTheme(
-        brightness: Brightness.light,
-        background: ColorConstants.lightScaffoldBackgroundColor,
-        cardBackground: ColorConstants.secondaryAppColor,
-        primaryText: Colors.black,
-        secondaryText: Colors.white,
-        accentColor: ColorConstants.secondaryAppColor,
-        divider: ColorConstants.secondaryAppColor,
-        buttonBackground: Colors.black38,
-        buttonText: ColorConstants.secondaryAppColor,
-        disabled: ColorConstants.secondaryAppColor,
-        error: Colors.red,
-      );
-
-  static ThemeData get darkTheme => createTheme(
-        brightness: Brightness.dark,
-        background: ColorConstants.darkScaffoldBackgroundColor,
-        cardBackground: ColorConstants.secondaryDarkAppColor,
-        primaryText: Colors.white,
-        secondaryText: Colors.black,
-        accentColor: ColorConstants.secondaryDarkAppColor,
-        divider: Colors.black45,
-        buttonBackground: Colors.white,
-        buttonText: ColorConstants.secondaryDarkAppColor,
-        disabled: ColorConstants.secondaryDarkAppColor,
-        error: Colors.red,
-      );
 }

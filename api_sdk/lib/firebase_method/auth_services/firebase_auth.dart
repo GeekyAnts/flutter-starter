@@ -6,46 +6,12 @@ class AuthService {
   String errorMessage;
 
   //Create User Object from Firebase User
-  UserFromFirebaseUser _userFromFirebaseUser(FirebaseUser user, token) {
-    return user != null
-        ? UserFromFirebaseUser(uid: user.uid, email: user.email, token: token)
-        : null;
-  }
-
-  //Signin With email and password
-  Future signInWithEmailAndPassword(String email, String password) async {
-    try {
-      AuthResult userCredential = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
-      final res = await userCredential.user.getIdToken();
-      return _userFromFirebaseUser(userCredential.user, res.token);
-    } catch (err) {
-      errorMessage = getMessageFromErrorCode(err.code);
-      print(errorMessage);
-      return Future.error(errorMessage);
-    }
-  }
-
-  //Register with email and password
-  Future registerWithEmailAndPassword(String email, String password) async {
-    try {
-      AuthResult userCredential = await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      final res = await userCredential.user.getIdToken();
-      return _userFromFirebaseUser(userCredential.user, res.token);
-    } catch (err) {
-      errorMessage = getMessageFromErrorCode(err.code);
-      print(errorMessage);
-      return Future.error(errorMessage);
-    }
-  }
-
   Future getCurrentUser() async {
     try {
-      final FirebaseUser user = await _auth.currentUser();
+      final User user = _auth.currentUser;
       if (user != null) {
-        final res = await user.getIdToken();
-        return _userFromFirebaseUser(user, res.token);
+        String token = await user.getIdToken();
+        return _userFromFirebaseUser(user, token);
       } else {
         return null;
       }
@@ -56,12 +22,7 @@ class AuthService {
     }
   }
 
-  //signout
-  Future<void> signOut() async {
-    return await _auth.signOut();
-  }
-
-  //getMessageFromErrorCode
+  //Signin With email and password
   String getMessageFromErrorCode(errorCode) {
     switch (errorCode) {
       case "ERROR_EMAIL_ALREADY_IN_USE":
@@ -101,5 +62,44 @@ class AuthService {
         return "Login failed. Please try again.";
         break;
     }
+  }
+
+  //Register with email and password
+  Future registerWithEmailAndPassword(String email, String password) async {
+    try {
+      UserCredential userCredential = await _auth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      String token = await userCredential.user.getIdToken();
+      return _userFromFirebaseUser(userCredential.user, token);
+    } catch (err) {
+      errorMessage = getMessageFromErrorCode(err.code);
+      print(errorMessage);
+      return Future.error(errorMessage);
+    }
+  }
+
+  Future signInWithEmailAndPassword(String email, String password) async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      String token = await userCredential.user.getIdToken();
+      return _userFromFirebaseUser(userCredential.user, token);
+    } catch (err) {
+      errorMessage = getMessageFromErrorCode(err.code);
+      print(errorMessage);
+      return Future.error(errorMessage);
+    }
+  }
+
+  //signout
+  Future<void> signOut() async {
+    return await _auth.signOut();
+  }
+
+  //getMessageFromErrorCode
+  UserFromFirebaseUser _userFromFirebaseUser(User user, token) {
+    return user != null
+        ? UserFromFirebaseUser(uid: user.uid, email: user.email, token: token)
+        : null;
   }
 }
