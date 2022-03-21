@@ -1,15 +1,17 @@
 import 'package:bloc/bloc.dart';
-import 'package:shared/main.dart';
+import 'package:shared/modules/github_repo/bloc/github_repo_bloc/github_repo_public.dart';
 
 class GithubRepoBloc extends Bloc<GithubRepoEvent, GithubRepoState> {
-  GithubRepoBloc() : super(GithubRepoStateInitial());
+  GithubRepoBloc() : super(GithubRepoStateInitial()) {
+    on<GithubRepoDataLoadingEvent>(onGithubRepoDataLoadingEvent);
+  }
 
-  @override
-  Stream<GithubRepoState> mapEventToState(GithubRepoEvent event) async* {
+  onGithubRepoDataLoadingEvent(
+      GithubRepoDataLoadingEvent event, Emitter<GithubRepoState> emit) async {
     if (event is GithubRepoDataLoadingEvent) {
-      yield GithubRepoStateLoading();
+      emit(GithubRepoStateLoading());
       var fetchedData = await GithubRepoResources.getData();
-      yield GithubRepoDataLoadedState(repositoryData: fetchedData);
+      emit(GithubRepoDataLoadedState(repositoryData: fetchedData));
     }
   }
 }

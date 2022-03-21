@@ -10,16 +10,9 @@ class GithubRepoListScreen extends StatefulWidget {
 class _GithubRepoListScreenState extends State<GithubRepoListScreen> {
   GithubRepoBloc githubRepoBloc;
   @override
-  void initState() {
-    githubRepoBloc = GithubRepoBlocController().authenticationBloc;
-    githubRepoBloc.add(GithubRepoDataLoadingEvent());
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocBuilder<GithubRepoBloc, GithubRepoState>(
-        cubit: githubRepoBloc,
+        bloc: githubRepoBloc,
         builder: (BuildContext context, GithubRepoState state) {
           if (state is GithubRepoStateLoading) {
             return Center(
@@ -52,5 +45,12 @@ class _GithubRepoListScreenState extends State<GithubRepoListScreen> {
           }
           return SizedBox();
         });
+  }
+
+  @override
+  void initState() {
+    githubRepoBloc = GithubRepoBlocController().authenticationBloc;
+    githubRepoBloc.add(GithubRepoDataLoadingEvent());
+    super.initState();
   }
 }

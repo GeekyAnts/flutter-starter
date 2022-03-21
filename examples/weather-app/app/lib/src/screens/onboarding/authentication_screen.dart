@@ -15,12 +15,6 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
   // ignore: close_sinks
   AuthenticationBloc authenticationBloc;
   @override
-  void initState() {
-    authenticationBloc = AuthenticationBlocController().authenticationBloc;
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     void _showError(String error) async {
       await Fluttertoast.showToast(
@@ -37,14 +31,14 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
         body: WillPopScope(
       onWillPop: () async => false,
       child: BlocListener<AuthenticationBloc, AuthenticationState>(
-        cubit: authenticationBloc,
+        bloc: authenticationBloc,
         listener: (context, state) {
           if (state is AuthenticationFailure) {
             _showError(state.message);
           }
         },
         child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-            cubit: authenticationBloc,
+            bloc: authenticationBloc,
             builder: (BuildContext context, AuthenticationState state) {
               return SafeArea(
                 child: Stack(
@@ -132,5 +126,11 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
             }),
       ),
     ));
+  }
+
+  @override
+  void initState() {
+    authenticationBloc = AuthenticationBlocController().authenticationBloc;
+    super.initState();
   }
 }

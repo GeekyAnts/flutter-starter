@@ -1,6 +1,7 @@
 import 'package:app/src/screens/news_screens/news_details.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/main.dart';
+
 import '../widgets/loading_container.dart';
 
 class NewsListTile extends StatelessWidget {
@@ -59,7 +60,7 @@ class NewsListTile extends StatelessWidget {
               Icon(
                 Icons.comment,
                 size: 24,
-                color: Theme.of(context).buttonColor,
+                color: Theme.of(context).colorScheme.primary,
               ),
               Text(
                 '${item.descendants}',

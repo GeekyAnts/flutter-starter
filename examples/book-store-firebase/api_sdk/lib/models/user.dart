@@ -1,10 +1,10 @@
-class User {
+class MyUser {
   final String uid;
   final String email;
   final String token;
   final String avatar;
 
-  User({
+  MyUser({
     this.uid,
     this.email,
     this.token,

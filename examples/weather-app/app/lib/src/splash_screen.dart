@@ -13,19 +13,12 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   AuthenticationBloc authenticationBloc;
   @override
-  void initState() {
-    authenticationBloc = AuthenticationBlocController().authenticationBloc;
-    authenticationBloc.add(AppLoadedup());
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
         backgroundColor: ColorConstants.secondaryAppColor,
         body: BlocListener<AuthenticationBloc, AuthenticationState>(
-          cubit: authenticationBloc,
+          bloc: authenticationBloc,
           listener: (BuildContext context, AuthenticationState state) {
             if (state is AppAutheticated) {
               Navigator.pushNamed(context, '/home');
@@ -38,10 +31,17 @@ class _SplashScreenState extends State<SplashScreen> {
             }
           },
           child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-              cubit: authenticationBloc,
+              bloc: authenticationBloc,
               builder: (BuildContext context, AuthenticationState state) {
                 return Center(child: Image.asset(AllImages().logo));
               }),
         ));
+  }
+
+  @override
+  void initState() {
+    authenticationBloc = AuthenticationBlocController().authenticationBloc;
+    authenticationBloc.add(AppLoadedup());
+    super.initState();
   }
 }

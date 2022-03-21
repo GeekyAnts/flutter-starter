@@ -29,16 +29,16 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
   http:
-  cloud_firestore: ^0.12.9
-  firebase_core: ^0.4.0+8
+  cloud_firestore: ^3.1.10
+  firebase_core: ^1.13.1
   firebase_auth:
-  get_it: ^1.0.3+2
-  graphql: ^3.0.0
-  graphql_flutter: ^3.0.0
-  gql: ^0.12.4-alpha
-  freezed_annotation: 0.12.0
+  get_it: ^7.2.0
+  graphql: ^5.0.1
+  graphql_flutter: ^5.0.1
+  gql: ^0.13.0
+  freezed_annotation: ^1.1.0
 
-  equatable: ^1.0.2
+  equatable: ^2.0.3
 
 dev_dependencies:
   flutter_test:
