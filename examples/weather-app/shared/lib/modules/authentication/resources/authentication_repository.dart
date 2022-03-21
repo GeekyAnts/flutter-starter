@@ -21,6 +21,7 @@ class AuthenticationRepository {
 
   Future<dynamic> getUserData(int id) async {
     final response = await ApiSdk.getUserData(id);
+
     return response;
   }
 }

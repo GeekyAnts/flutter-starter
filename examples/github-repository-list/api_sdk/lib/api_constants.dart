@@ -1,12 +1,22 @@
 //For the graphql.
 import 'package:graphql/client.dart';
 
-OptimisticCache cache = OptimisticCache(
-  dataIdFromObject: typenameDataIdFromObject,
+Map<String, String> apiConstants = {"auth": "https://reqres.in/api"};
+GraphQLCache cache = GraphQLCache(
+  dataIdFromObject: (object) {
+    if (object is Map<String, Object> &&
+        object.containsKey('__typename') &&
+        object.containsKey('id')) {
+      return "${object['__typename']}/${object['id']}";
+    }
+    return null;
+  },
 );
+
+//For the rest.
 GraphQLClient client() {
   final HttpLink _httpLink = HttpLink(
-    uri: 'https://api.github.com/graphql',
+    'https://api.github.com/graphql',
   );
 
   final AuthLink _authLink = AuthLink(
@@ -20,6 +30,3 @@ GraphQLClient client() {
     link: _link,
   );
 }
-
-//For the Rest
-Map<String, String> apiConstants = {"auth": "https://reqres.in/api"};

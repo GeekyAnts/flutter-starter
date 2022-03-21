@@ -17,28 +17,6 @@ class _NewsDetailState extends State<NewsDetail>
   bool isWebview = false;
   AnimationController _animationController;
 
-  @override
-  void initState() {
-    super.initState();
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 450));
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _animationController.dispose();
-  }
-
-  void _handleOnPressed() {
-    setState(() {
-      isWebview = !isWebview;
-      isWebview
-          ? _animationController.forward()
-          : _animationController.reverse();
-    });
-  }
-
   Widget build(BuildContext context) {
     final commentsBloc = CommentsProvider.of(context);
     commentsBloc.fetchItemWithComments(widget.itemId);
@@ -47,7 +25,7 @@ class _NewsDetailState extends State<NewsDetail>
       appBar: AppBar(
         title: Text(
           'Detail',
-          style: Theme.of(context).appBarTheme.textTheme.bodyText2,
+          style: Theme.of(context).appBarTheme.toolbarTextStyle,
         ),
         actions: [
           IconButton(
@@ -117,5 +95,27 @@ class _NewsDetailState extends State<NewsDetail>
         style: Theme.of(context).textTheme.bodyText2,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _animationController.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 450));
+  }
+
+  void _handleOnPressed() {
+    setState(() {
+      isWebview = !isWebview;
+      isWebview
+          ? _animationController.forward()
+          : _animationController.reverse();
+    });
   }
 }

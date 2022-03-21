@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:core';
 
 import 'package:rxdart/rxdart.dart';
@@ -11,16 +10,21 @@ class CommentsBloc {
   final _commentsFetcher = PublishSubject<int>();
   final _commentsOutput = BehaviorSubject<Map<int, Future<NewsItemModel>>>();
 
-  //Streams
-  get itemWithComments => _commentsOutput.stream;
-
-  //Sinks
-  Function(int) get fetchItemWithComments => _commentsFetcher.sink.add;
-
   CommentsBloc() {
     _commentsFetcher.stream
         .transform(_commentsTransformer())
         .pipe(_commentsOutput);
+  }
+
+  //Sinks
+  Function(int) get fetchItemWithComments => _commentsFetcher.sink.add;
+
+  //Streams
+  get itemWithComments => _commentsOutput.stream;
+
+  disponse() {
+    _commentsFetcher.close();
+    _commentsOutput.close();
   }
 
   _commentsTransformer() {
@@ -36,10 +40,5 @@ class CommentsBloc {
       },
       <int, Future<NewsItemModel>>{},
     );
-  }
-
-  disponse() {
-    _commentsFetcher.close();
-    _commentsOutput.close();
   }
 }

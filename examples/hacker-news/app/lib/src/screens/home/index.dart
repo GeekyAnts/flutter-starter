@@ -1,5 +1,6 @@
 // home screen contents
 import 'package:app/src/config/image_constants.dart';
+import 'package:app/src/config/string_constants.dart' as string_constants;
 import 'package:app/src/screens/news_screens/news_list.dart';
 import 'package:app/src/utils/app_state_notifier.dart';
 import 'package:app/src/widgets/cache_image_widget.dart';
@@ -7,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:shared/main.dart';
-import 'package:app/src/config/string_constants.dart' as string_constants;
 
 class HomeScreen extends StatelessWidget {
   // ignore: close_sinks
@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
     return WillPopScope(
         onWillPop: () async => false,
         child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-            cubit: authenticationBloc,
+            bloc: authenticationBloc,
             builder: (BuildContext context, AuthenticationState state) {
               if (state is SetUserData) {
                 return Scaffold(
@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                     centerTitle: true,
                     title: Text(
                       string_constants.app_bar_title,
-                      style: Theme.of(context).appBarTheme.textTheme.bodyText1,
+                      style: Theme.of(context).appBarTheme.toolbarTextStyle,
                     ),
                     actions: [
                       IconButton(

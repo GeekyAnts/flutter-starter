@@ -1,4 +1,3 @@
-import 'package:app/src/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/main.dart';
 
@@ -14,6 +13,7 @@ class _LoginFormState extends State<LoginForm> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
   final _emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -30,7 +30,12 @@ class _LoginFormState extends State<LoginForm> {
             controller: _emailController,
             keyboardType: TextInputType.emailAddress,
             autocorrect: false,
-            validator: (value) => Validations.isEmail(value),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Email is required.';
+              }
+              return null;
+            },
           ),
           SizedBox(
             height: 12,
@@ -43,17 +48,17 @@ class _LoginFormState extends State<LoginForm> {
             ),
             obscureText: true,
             controller: _passwordController,
-            validator: (value) => Validations.checkPassword(value),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Password is required.';
+              }
+              return null;
+            },
           ),
           const SizedBox(
             height: 16,
           ),
-          RaisedButton(
-              color: Theme.of(context).primaryColor,
-              textColor: Colors.white,
-              padding: const EdgeInsets.all(16),
-              shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(8.0)),
+          ElevatedButton(
               child: widget.state is AuthenticationLoading
                   ? CircularProgressIndicator(
                       backgroundColor:
@@ -65,7 +70,7 @@ class _LoginFormState extends State<LoginForm> {
                   widget.authenticationBloc.add(UserLogin(
                       email: _emailController.text,
                       password: _passwordController.text));
-                }
+                } else {}
               })
         ],
       ),
