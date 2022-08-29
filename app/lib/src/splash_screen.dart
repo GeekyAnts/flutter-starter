@@ -2,7 +2,7 @@ import 'package:app/src/config/color_constants.dart';
 import 'package:app/src/config/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared/main.dart';
+import 'package:shared/shared.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -10,7 +10,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  AuthenticationBloc authenticationBloc;
+  late AuthenticationBloc authenticationBloc;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class FirebaseApi {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   final String path;
-  CollectionReference ref;
+  late CollectionReference ref;
 
   FirebaseApi(this.path) {
     ref = _db.collection(path);
@@ -29,7 +29,7 @@ class FirebaseApi {
     return ref.snapshots();
   }
 
-  Future<void> updateDocument(Map data, String id) {
+  Future<void> updateDocument(Map<String, dynamic> data, String id) {
     return ref.doc(id).update(data);
   }
 }

@@ -11,7 +11,7 @@ import 'package:graphql/client.dart';
 class GraphqlQlHandler {
   final GraphQLClient client;
 
-  GraphqlQlHandler({@required this.client}) : assert(client != null);
+  GraphqlQlHandler({required this.client}) : assert(client != null);
 
   Future<QueryResult> getRepositories(int numOfRepositories) async {
     final WatchQueryOptions _options = WatchQueryOptions(

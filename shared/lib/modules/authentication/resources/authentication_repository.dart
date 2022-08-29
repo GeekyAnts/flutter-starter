@@ -1,4 +1,4 @@
-import 'package:api_sdk/main.dart';
+import 'package:api_sdk/api_sdk.dart';
 
 class AuthenticationRepository {
   Future<dynamic> signUpWithEmailAndPassword(

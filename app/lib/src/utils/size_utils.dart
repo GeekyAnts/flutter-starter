@@ -5,18 +5,18 @@ class SizeConfig {
   static SizeConfig _instance = SizeConfig._();
   factory SizeConfig() => _instance;
 
-  MediaQueryData _mediaQueryData;
-  double screenWidth;
-  double screenHeight;
-  double blockSizeHorizontal;
-  double blockSizeVertical;
-  double _safeAreaHorizontal;
-  double _safeAreaVertical;
-  double safeBlockHorizontal;
-  double safeBlockVertical;
-  double profileDrawerWidth;
-  double refHeight;
-  double refWidth;
+  late MediaQueryData _mediaQueryData;
+  late double screenWidth;
+  late double screenHeight;
+  late double blockSizeHorizontal;
+  late double blockSizeVertical;
+  late double _safeAreaHorizontal;
+  late double _safeAreaVertical;
+  late double safeBlockHorizontal;
+  late double safeBlockVertical;
+  late double profileDrawerWidth;
+  late double refHeight;
+  late double refWidth;
 
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);

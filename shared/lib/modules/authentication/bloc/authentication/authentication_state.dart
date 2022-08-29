@@ -21,7 +21,7 @@ class UserLogoutState extends AuthenticationState {}
 
 class SetUserData extends AuthenticationState {
   final CurrentUserData currentUserData;
-  SetUserData({this.currentUserData});
+  SetUserData({required this.currentUserData});
   @override
   List<Object> get props => [currentUserData];
 }
@@ -31,7 +31,7 @@ class AuthenticationNotAuthenticated extends AuthenticationState {}
 class AuthenticationFailure extends AuthenticationState {
   final String message;
 
-  AuthenticationFailure({@required this.message});
+  AuthenticationFailure({required this.message});
 
   @override
   List<Object> get props => [message];

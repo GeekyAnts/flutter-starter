@@ -5,9 +5,9 @@ class UserFromFirebaseUser {
   final String avatar;
 
   UserFromFirebaseUser({
-    this.uid,
-    this.email,
-    this.token,
+    required this.uid,
+    required this.email,
+    required this.token,
     this.avatar =
         "https://i.pinimg.com/736x/89/90/48/899048ab0cc455154006fdb9676964b3.jpg",
   });

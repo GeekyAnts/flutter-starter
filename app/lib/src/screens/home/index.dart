@@ -6,7 +6,7 @@ import 'package:app/src/widgets/cache_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:shared/main.dart';
+import 'package:shared/shared.dart';
 
 class HomeScreen extends StatelessWidget {
   // ignore: close_sinks
@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
                                         color: Colors.white),
                                     child: CachedImage(
                                       imageUrl:
-                                          state.currentUserData.data.avatar,
+                                          state.currentUserData.data!.avatar,
                                       fit: BoxFit.fitWidth,
                                       errorWidget: Image.network(
                                         AllImages().kDefaultImage,
@@ -89,15 +89,15 @@ class HomeScreen extends StatelessWidget {
                         ),
                         ListTile(
                           title: Text(
-                              '${state.currentUserData.data.firstName} ${state.currentUserData.data.lastName}',
+                              '${state.currentUserData.data!.firstName} ${state.currentUserData.data!.lastName}',
                               style: Theme.of(context).textTheme.bodyText2),
                         ),
                         ListTile(
-                          title: Text(state.currentUserData.data.email,
+                          title: Text(state.currentUserData.data!.email,
                               style: Theme.of(context).textTheme.bodyText2),
                         ),
                         ListTile(
-                          title: Text(state.currentUserData.ad.company,
+                          title: Text(state.currentUserData.ad!.company,
                               style: Theme.of(context).textTheme.bodyText2),
                         ),
                       ],

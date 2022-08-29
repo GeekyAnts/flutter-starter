@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shared/main.dart';
+import 'package:shared/shared.dart';
 
 class LoginForm extends StatefulWidget {
   final AuthenticationBloc authenticationBloc;
   final AuthenticationState state;
-  LoginForm({this.authenticationBloc, this.state});
+  LoginForm({required this.authenticationBloc, required this.state});
   @override
   _LoginFormState createState() => _LoginFormState();
 }
@@ -31,7 +31,7 @@ class _LoginFormState extends State<LoginForm> {
             keyboardType: TextInputType.emailAddress,
             autocorrect: false,
             validator: (value) {
-              if (value.isEmpty) {
+              if (value!.isEmpty) {
                 return 'Email is required.';
               }
               return null;
@@ -49,7 +49,7 @@ class _LoginFormState extends State<LoginForm> {
             obscureText: true,
             controller: _passwordController,
             validator: (value) {
-              if (value.isEmpty) {
+              if (value!.isEmpty) {
                 return 'Password is required.';
               }
               return null;
@@ -62,11 +62,11 @@ class _LoginFormState extends State<LoginForm> {
               child: widget.state is AuthenticationLoading
                   ? CircularProgressIndicator(
                       backgroundColor:
-                          Theme.of(context).textTheme.bodyText1.color,
+                          Theme.of(context).textTheme.bodyText1?.color,
                     )
                   : Text('Login', style: Theme.of(context).textTheme.bodyText1),
               onPressed: () {
-                if (_key.currentState.validate()) {
+                if (_key.currentState!.validate()) {
                   widget.authenticationBloc.add(UserLogin(
                       email: _emailController.text,
                       password: _passwordController.text));

@@ -1,6 +1,6 @@
 class CurrentUserData {
-  Data data;
-  Ad ad;
+  Data? data;
+  Ad? ad;
 
   CurrentUserData({this.data, this.ad});
 
@@ -12,21 +12,21 @@ class CurrentUserData {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.data != null) {
-      data['data'] = this.data.toJson();
+      data['data'] = this.data!.toJson();
     }
     if (this.ad != null) {
-      data['ad'] = this.ad.toJson();
+      data['ad'] = this.ad!.toJson();
     }
     return data;
   }
 }
 
 class Data {
-  int id;
-  String email;
-  String firstName;
-  String lastName;
-  String avatar;
+  late int? id;
+  late String email;
+  late String firstName;
+  late String lastName;
+  late String avatar;
 
   Data(
       {this.id,
@@ -55,9 +55,9 @@ class Data {
 }
 
 class Ad {
-  String company;
-  String url;
-  String text;
+  late String company;
+  late String url;
+  late String text;
 
   Ad({this.company = '', this.url = '', this.text = ''});
 

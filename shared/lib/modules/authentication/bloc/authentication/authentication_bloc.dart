@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:shared/main.dart';
+import 'package:shared/shared.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthenticationBloc
@@ -17,7 +17,7 @@ class AuthenticationBloc
     });
     on<GetUserData>((event, emit) async {
       final SharedPreferences sharedPreferences = await prefs;
-      int currentUserId = sharedPreferences.getInt('userId');
+      final currentUserId = sharedPreferences.getInt('userId');
       final data = await authenticationService.getUserData(currentUserId ?? 4);
       final currentUserData = CurrentUserData.fromJson(data);
       emit(SetUserData(currentUserData: currentUserData));
@@ -36,8 +36,7 @@ class AuthenticationBloc
         emit(AuthenticationStart());
       }
     } catch (e) {
-      emit(AuthenticationFailure(
-          message: e.message ?? 'An unknown error occurred'));
+      emit(AuthenticationFailure(message: 'An unknown error occurred'));
     }
   }
 
@@ -48,7 +47,7 @@ class AuthenticationBloc
     try {
       await Future.delayed(Duration(milliseconds: 500)); // a simulated delay
       final data = await authenticationService.loginWithEmailAndPassword(
-          event.email, event.password);
+          event.email, event.password!);
       if (data["error"] == null) {
         final currentUser = Token.fromJson(data);
         if (currentUser != null) {
@@ -73,7 +72,7 @@ class AuthenticationBloc
     try {
       await Future.delayed(Duration(milliseconds: 500)); // a simulated delay
       final data = await authenticationService.signUpWithEmailAndPassword(
-          event.email, event.password);
+          event.email, event.password!);
 
       if (data["error"] == null) {
         final currentUser = UserData.fromJson(data);

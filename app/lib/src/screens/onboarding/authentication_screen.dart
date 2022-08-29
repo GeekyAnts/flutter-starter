@@ -3,7 +3,7 @@ import 'package:app/src/screens/onboarding/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:shared/main.dart';
+import 'package:shared/shared.dart';
 
 class AuthenticationScreen extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class AuthenticationScreen extends StatefulWidget {
 class _AuthenticationScreenState extends State<AuthenticationScreen> {
   bool showLoginForm = false;
   // ignore: close_sinks
-  AuthenticationBloc authenticationBloc;
+  late AuthenticationBloc authenticationBloc;
   @override
   Widget build(BuildContext context) {
     void _showError(String error) async {

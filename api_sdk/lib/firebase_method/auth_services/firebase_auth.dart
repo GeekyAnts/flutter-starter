@@ -1,14 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shared/main.dart';
+import 'package:shared/shared.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  String errorMessage;
+  late String errorMessage;
 
   //Create User Object from Firebase User
   Future getCurrentUser() async {
     try {
-      final User user = _auth.currentUser;
+      final User? user = _auth.currentUser;
       if (user != null) {
         String token = await user.getIdToken();
         return _userFromFirebaseUser(user, token);
@@ -16,9 +16,9 @@ class AuthService {
         return null;
       }
     } catch (err) {
-      errorMessage = getMessageFromErrorCode(err.code);
-      print(errorMessage);
-      return Future.error(errorMessage);
+      // errorMessage = getMessageFromErrorCode(err.code);
+      // print(errorMessage);
+      // return Future.error(errorMessage);
     }
   }
 
@@ -69,9 +69,9 @@ class AuthService {
     try {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
-      String token = await userCredential.user.getIdToken();
+      String token = await userCredential.user!.getIdToken();
       return _userFromFirebaseUser(userCredential.user, token);
-    } catch (err) {
+    } on FirebaseAuthException catch (err) {
       errorMessage = getMessageFromErrorCode(err.code);
       print(errorMessage);
       return Future.error(errorMessage);
@@ -82,9 +82,9 @@ class AuthService {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      String token = await userCredential.user.getIdToken();
+      String token = await userCredential.user!.getIdToken();
       return _userFromFirebaseUser(userCredential.user, token);
-    } catch (err) {
+    } on FirebaseAuthException catch (err) {
       errorMessage = getMessageFromErrorCode(err.code);
       print(errorMessage);
       return Future.error(errorMessage);
@@ -97,7 +97,7 @@ class AuthService {
   }
 
   //getMessageFromErrorCode
-  UserFromFirebaseUser _userFromFirebaseUser(User user, token) {
+  UserFromFirebaseUser _userFromFirebaseUser(User? user, token) {
     return user != null
         ? UserFromFirebaseUser(uid: user.uid, email: user.email, token: token)
         : null;
