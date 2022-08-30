@@ -97,9 +97,9 @@ class AuthService {
   }
 
   //getMessageFromErrorCode
-  UserFromFirebaseUser _userFromFirebaseUser(User? user, token) {
+  UserFromFirebaseUser? _userFromFirebaseUser(User? user, token) {
     return user != null
-        ? UserFromFirebaseUser(uid: user.uid, email: user.email, token: token)
+        ? UserFromFirebaseUser(uid: user.uid, email: user.email!, token: token)
         : null;
   }
 }

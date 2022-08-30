@@ -1,0 +1,33 @@
+{
+  "name": "webview_flutter_wkwebview",
+  "version": "0.0.1",
+  "summary": "A WebView Plugin for Flutter.",
+  "description": "A Flutter plugin that provides a WebView widget.\nDownloaded by pub (not CocoaPods).",
+  "homepage": "https://github.com/flutter/plugins",
+  "license": {
+    "type": "BSD",
+    "file": "../LICENSE"
+  },
+  "authors": {
+    "Flutter Dev Team": "flutter-dev@googlegroups.com"
+  },
+  "source": {
+    "http": "https://github.com/flutter/plugins/tree/main/packages/webview_flutter/webview_flutter_wkwebview"
+  },
+  "documentation_url": "https://pub.dev/packages/webview_flutter",
+  "source_files": "Classes/**/*.{h,m}",
+  "public_header_files": "Classes/**/*.h",
+  "module_map": "Classes/FlutterWebView.modulemap",
+  "dependencies": {
+    "Flutter": [
+
+    ]
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "i386"
+  }
+}
