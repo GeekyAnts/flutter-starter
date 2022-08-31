@@ -61,10 +61,12 @@ class _LoginFormState extends State<LoginForm> {
           ElevatedButton(
               child: widget.state is AuthenticationLoading
                   ? CircularProgressIndicator(
-                      backgroundColor:
-                          Theme.of(context).textTheme.bodyText1?.color,
+                      backgroundColor: Theme.of(context).backgroundColor,
                     )
                   : Text('Login', style: Theme.of(context).textTheme.bodyText1),
+              style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).primaryColor,
+              ),
               onPressed: () {
                 if (_key.currentState!.validate()) {
                   widget.authenticationBloc.add(UserLogin(

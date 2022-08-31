@@ -22,7 +22,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           timeInSecForIosWeb: 3,
-          backgroundColor: Colors.red,
+          backgroundColor: Theme.of(context).errorColor,
           textColor: Colors.white,
           fontSize: 16.0);
     }
@@ -79,6 +79,10 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                                         height: 8,
                                       ),
                                       ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            primary:
+                                                Theme.of(context).primaryColor,
+                                          ),
                                           child: Text(
                                             'Login',
                                             style: Theme.of(context)
@@ -104,7 +108,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                               icon: Icon(
                                 Icons.arrow_back_ios,
                                 size: 32,
-                                color: Theme.of(context).primaryColor,
+                                color: Theme.of(context).backgroundColor,
                               ),
                               onPressed: () {
                                 setState(() {

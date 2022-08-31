@@ -6,30 +6,32 @@ import 'color_constants.dart';
 
 class ThemeConfig {
   static ThemeData get darkTheme => createTheme(
-        brightness: Brightness.dark,
-        background: ColorConstants.darkScaffoldBackgroundColor,
-        cardBackground: ColorConstants.secondaryDarkAppColor,
+        brightness: Brightness.light,
+        background: ColorConstants().darkBackgroundColor,
+        primaryColor: ColorConstants().primaryColor,
+        cardBackground: ColorConstants().darkBackgroundColor,
         primaryText: Colors.white,
         secondaryText: Colors.black,
-        accentColor: ColorConstants.secondaryDarkAppColor,
+        accentColor: ColorConstants().darkBackgroundColor,
         divider: Colors.black45,
         buttonBackground: Colors.white,
-        buttonText: ColorConstants.secondaryDarkAppColor,
-        disabled: ColorConstants.secondaryDarkAppColor,
+        buttonText: ColorConstants().darkBackgroundColor,
+        disabled: ColorConstants().darkBackgroundColor,
         error: Colors.red,
       );
 
   static ThemeData get lightTheme => createTheme(
         brightness: Brightness.light,
-        background: ColorConstants.lightScaffoldBackgroundColor,
-        cardBackground: ColorConstants.secondaryAppColor,
+        background: ColorConstants().lightBackgroundColor,
+        primaryColor: ColorConstants().primaryColor,
+        cardBackground: ColorConstants().lightBackgroundColor,
         primaryText: Colors.black,
         secondaryText: Colors.white,
-        accentColor: ColorConstants.secondaryAppColor,
-        divider: ColorConstants.secondaryAppColor,
+        accentColor: ColorConstants().lightBackgroundColor,
+        divider: ColorConstants().lightBackgroundColor,
         buttonBackground: Colors.black38,
-        buttonText: ColorConstants.secondaryAppColor,
-        disabled: ColorConstants.secondaryAppColor,
+        buttonText: ColorConstants().lightBackgroundColor,
+        disabled: ColorConstants().lightBackgroundColor,
         error: Colors.red,
       );
 
@@ -45,6 +47,7 @@ class ThemeConfig {
     required Color cardBackground,
     required Color disabled,
     required Color error,
+    required Color primaryColor,
   }) {
     final baseTextTheme = brightness == Brightness.dark
         ? Typography.blackMountainView
@@ -69,12 +72,12 @@ class ThemeConfig {
           style: ButtonStyle(
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                      side: BorderSide(color: Colors.red))),
+                borderRadius: BorderRadius.circular(12.0),
+              )),
               padding: MaterialStateProperty.all<EdgeInsets>(
                   const EdgeInsets.all(16)))),
       backgroundColor: background,
-      primaryColor: accentColor,
+      primaryColor: primaryColor,
       toggleableActiveColor: accentColor,
       appBarTheme: AppBarTheme(
         systemOverlayStyle:
