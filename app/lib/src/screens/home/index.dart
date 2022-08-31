@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
               if (state is SetUserData) {
                 return Scaffold(
                   appBar: AppBar(
+                    backgroundColor: Theme.of(context).primaryColor,
                     centerTitle: true,
                     title: Text(
                       string_constants.app_bar_title,
@@ -37,10 +38,12 @@ class HomeScreen extends StatelessWidget {
                           }),
                     ],
                   ),
+                  backgroundColor: Theme.of(context).backgroundColor,
                   body: Center(
                     child: Text('/home'),
                   ),
                   drawer: Drawer(
+                    backgroundColor: Theme.of(context).backgroundColor,
                     child: ListView(
                       padding: EdgeInsets.zero,
                       children: <Widget>[
@@ -56,7 +59,7 @@ class HomeScreen extends StatelessWidget {
                                   Container(
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
-                                        color: Colors.white),
+                                        color: Theme.of(context).primaryColor),
                                     child: CachedImage(
                                       imageUrl:
                                           state.currentUserData.data!.avatar,
@@ -84,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).dividerColor,
+                            color: Theme.of(context).primaryColor,
                           ),
                         ),
                         ListTile(
@@ -107,7 +110,9 @@ class HomeScreen extends StatelessWidget {
               }
               return Scaffold(
                 body: Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).primaryColor,
+                  ),
                 ),
               );
             }));
