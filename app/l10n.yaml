@@ -1,0 +1,6 @@
+# This file is used to generate AppLocalisations from the
+# .arb files inside lib/utils/assets/l10n folder
+
+arb-dir: lib/src/utils/l10n
+template-arb-file: app_en.arb
+output-localisation-file: app_localizations.dart

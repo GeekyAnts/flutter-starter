@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:shared/shared.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatelessWidget {
   // ignore: close_sinks
@@ -27,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                     backgroundColor: Theme.of(context).primaryColor,
                     centerTitle: true,
                     title: Text(
-                      string_constants.app_bar_title,
+                      AppLocalizations.of(context)!.flutterStarter,
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                     actions: [
@@ -40,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   backgroundColor: Theme.of(context).backgroundColor,
                   body: Center(
-                    child: Text('/home'),
+                    child: Text(AppLocalizations.of(context)!.home),
                   ),
                   drawer: Drawer(
                     backgroundColor: Theme.of(context).backgroundColor,
