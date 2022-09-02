@@ -4,10 +4,14 @@ class ColorConstants {
   ColorConstants._();
   static ColorConstants _instance = ColorConstants._();
   factory ColorConstants() => _instance;
-  Color primaryColor = const Color(0xFF8B46A6); // grey primary color
-  Color primaryDarkColor = const Color(0xFF2b2a2b);
+  Color primaryColor = const Color(0xFF6b5dd3);
+  // Color primaryColor = Colors.deepPurple;
+  Color primaryDarkColor = const Color(0xffA39BDB);
   Color lightBackgroundColor = Colors.white;
   Color darkBackgroundColor = const Color(0xff313131);
+  Color primaryTextLight = Colors.black;
+  Color primaryTextDark = Colors.white;
+  Color accentColor = const Color(0xffA39BDB);
 }
 
 // import 'package:flutter/material.dart';

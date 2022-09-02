@@ -8,6 +8,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AppStateNotifier>(builder: (context, appState, child) {
       return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'News!',
         theme: ThemeConfig.lightTheme,
         darkTheme: ThemeConfig.darkTheme,

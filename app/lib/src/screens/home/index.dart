@@ -73,6 +73,8 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   ),
                                   Switch(
+                                    activeColor:
+                                        Theme.of(context).backgroundColor,
                                     value:
                                         Provider.of<AppStateNotifier>(context)
                                             .isDarkMode,

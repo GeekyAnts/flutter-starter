@@ -22,6 +22,7 @@ class _SignUpFormState extends State<SignUpForm> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           TextFormField(
+            cursorColor: Theme.of(context).textTheme.headline1!.color,
             decoration: const InputDecoration(
               labelText: 'Email address',
               filled: true,
@@ -41,6 +42,7 @@ class _SignUpFormState extends State<SignUpForm> {
             height: 12,
           ),
           TextFormField(
+            cursorColor: Theme.of(context).textTheme.headline1!.color,
             decoration: InputDecoration(
               labelText: 'Password',
               filled: true,
