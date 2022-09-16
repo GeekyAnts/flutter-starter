@@ -29,6 +29,8 @@ For the initial release flutter starter provides:
 - **Sign Up :** A user can register himself/ herself here. [here](flutter_starter/lib/screens/signup/signup_screen.dart)
 - **Home :** It will contain a drawer which will have basic user information who has logged in and a switch to change between light and dark theme. [here](flutter_starter/lib/screens/home/home.dart)
 
+![demo gif](./flutter_starter.gif)
+
 ## What will Flutter Starter provide in later releases :
 
 For second release we are planning to introduce one more api-service and command line interface.
