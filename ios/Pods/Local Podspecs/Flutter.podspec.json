@@ -1,10 +1,10 @@
 {
   "name": "Flutter",
   "version": "1.0.0",
-  "summary": "A UI toolkit for beautiful and fast apps.",
-  "homepage": "https://flutter.dev",
+  "summary": "High-performance, high-fidelity mobile apps.",
+  "homepage": "https://flutter.io",
   "license": {
-    "type": "BSD"
+    "type": "MIT"
   },
   "authors": {
     "Flutter Dev Team": "flutter-dev@googlegroups.com"
@@ -14,7 +14,7 @@
     "tag": "1.0.0"
   },
   "platforms": {
-    "ios": "11.0"
+    "ios": "9.0"
   },
   "vendored_frameworks": "path/to/nothing"
 }

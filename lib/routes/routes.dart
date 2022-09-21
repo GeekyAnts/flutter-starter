@@ -8,25 +8,25 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const SplashScreen();
+        return const SplashProviderScreen();
       },
     ),
     GoRoute(
       path: '/home',
       builder: (BuildContext context, GoRouterState state) {
-        return const HomeScreen();
+        return const HomeProviderScreen();
       },
     ),
     GoRoute(
       path: '/login',
       builder: (BuildContext context, GoRouterState state) {
-        return const LoginScreen();
+        return const LoginProviderScreen();
       },
     ),
     GoRoute(
       path: '/signup',
       builder: (BuildContext context, GoRouterState state) {
-        return const SignUpScreen();
+        return const SignUpProviderScreen();
       },
     ),
   ],

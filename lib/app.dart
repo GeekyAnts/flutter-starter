@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_starter/flutter_starter.dart';
+import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateThemeBloc, UpdateThemeState>(
-      builder: (context, state) {
+    return Consumer<ThemeProvider>(
+      builder: (context, provider, child) {
         /// Without go_router we should return MaterialApp() with
         /// {onGenerateRoute: routes}
         /// routes from routes.dart
@@ -19,12 +19,10 @@ class App extends StatelessWidget {
           title: 'Hello World!',
           theme: ThemeConfig.lightTheme,
           darkTheme: ThemeConfig.darkTheme,
-          themeMode: state is SetTheme
-              ? state.isLightTheme
-                  ? ThemeMode.light
-                  : ThemeMode.dark
-              : ThemeMode.light,
-          // onGenerateRoute: routes,
+          themeMode: provider.appTheme == AppTheme.light
+              ? ThemeMode.light
+              : ThemeMode.dark,
+
           routeInformationParser: router.routeInformationParser,
           routerDelegate: router.routerDelegate,
           routeInformationProvider: router.routeInformationProvider,

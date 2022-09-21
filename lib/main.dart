@@ -1,16 +1,16 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_starter/flutter_starter.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    MultiBlocProvider(
+    MultiProvider(
       providers: [
-        BlocProvider<AuthenticationBloc>(
-          create: (BuildContext context) => AuthenticationBloc(),
+        ChangeNotifierProvider(
+          create: (context) => ThemeProvider(),
         ),
-        BlocProvider<UpdateThemeBloc>(
-          create: (BuildContext context) => UpdateThemeBloc(),
+        ChangeNotifierProvider(
+          create: (context) => AuthenticationProvider(),
         ),
       ],
       child: const App(),
