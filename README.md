@@ -1,4 +1,4 @@
-# Flutter Starter
+s# Flutter Starter
 
 We wanted to take Flutter a step further and accelerate the process of building production-level apps. Presenting our solution- Flutter Starter!
 
@@ -45,6 +45,12 @@ For second release we are planning to introduce one more api-service and command
 
 3.  **Command Line Interface** : We are aiming to provide a command line interface, so that a user can easily create a project using flutter starter as the base template by just writing a command in the terminal.
 4.  **Example Templates** : We will creating multiple apps template on how to use this boilerplate.
+
+## How to use flutter starter:
+
+To get started with flutter starter:
+
+[Steps to get started](./use_flutter_starter.md)
 
 ## How to Contribute
 
