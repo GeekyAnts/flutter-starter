@@ -28,6 +28,8 @@ class _SignUpProviderScreenState extends State<SignUpProviderScreen> {
   Widget build(BuildContext context) {
     AuthenticationProvider provider =
         Provider.of<AuthenticationProvider>(context);
+
+    /// Here we are checking the user sign up status and redirecting user to a specific screen.
     if (provider.status[provider.userSignupStatus] == Status.error) {
       _showError(
           provider.error[provider.userSignupStatus] ?? "Something went wrong");

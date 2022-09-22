@@ -19,6 +19,8 @@ class App extends StatelessWidget {
           title: 'Hello World!',
           theme: ThemeConfig.lightTheme,
           darkTheme: ThemeConfig.darkTheme,
+
+          /// Theme will be changed based on theme provider
           themeMode: provider.appTheme == AppTheme.light
               ? ThemeMode.light
               : ThemeMode.dark,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// All providers can extend BaseProvider so as to inherit the
+/// methods that will set status of the tasks.
 class BaseProvider with ChangeNotifier {
   Map<String, dynamic> data = <String, dynamic>{};
   Map<String, Status> status = {"main": Status.idle};

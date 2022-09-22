@@ -22,10 +22,8 @@ class _HomeProviderScreenState extends State<HomeProviderScreen> {
     super.initState();
     switchValue =
         context.read<ThemeProvider>().appTheme == AppTheme.light ? false : true;
-    // authenticationBloc.add(GetUserData());
-    // BlocProvider.of<UpdateThemeBloc>(context).stream.listen((event) {
-    //   switchValue = event.props.first;
-    // });
+
+    /// To fetch the user details.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AuthenticationProvider>().getUserData();
     });
@@ -35,6 +33,8 @@ class _HomeProviderScreenState extends State<HomeProviderScreen> {
   Widget build(BuildContext context) {
     AuthenticationProvider provider =
         Provider.of<AuthenticationProvider>(context);
+
+    /// Here we are checking the user log out status and redirecting user to the intial screen.
     if (provider.status[provider.userLogoutStatus] == Status.done &&
         provider.currentUserData == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -110,6 +110,7 @@ class _HomeProviderScreenState extends State<HomeProviderScreen> {
                               activeColor: Theme.of(context).backgroundColor,
                               value: switchValue,
                               onChanged: (value) {
+                                /// Updates theme of the application.
                                 setState(() {
                                   switchValue = value;
                                 });

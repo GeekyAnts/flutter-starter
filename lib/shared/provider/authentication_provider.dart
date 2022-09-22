@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../flutter_starter.dart';
 
+/// AuthenticationProvider is responsible for user login,
+/// sign up, log out and fetching user data.
 class AuthenticationProvider extends BaseProvider {
   String userSignupStatus = "user_signup_status";
   String userLoginStatus = "user_login_status";

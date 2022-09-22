@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
+/// This is the first screen where user will be redirected to.
 class LoginProviderScreen extends StatefulWidget {
   const LoginProviderScreen({Key? key}) : super(key: key);
 
@@ -28,6 +29,8 @@ class _LoginProviderScreenState extends State<LoginProviderScreen> {
   Widget build(BuildContext context) {
     AuthenticationProvider provider =
         Provider.of<AuthenticationProvider>(context);
+
+    /// Here we are checking the user log in status and redirecting user to a specific screen.
     if (provider.status[provider.userLoginStatus] == Status.error) {
       _showError(
           provider.error[provider.userLoginStatus] ?? "Something went wrong");
