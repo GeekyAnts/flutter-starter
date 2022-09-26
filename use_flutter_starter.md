@@ -507,8 +507,86 @@ return  response;
 
 - Finally get rid of the dio folder under api_sdk.
 
-7.  You can add n amount of colours, font sizes, text theme, etc to maintain the theme of your application.
+7.  For state management in the application, BLoC has been set up for basic authentication and updating themes in the app. Below are the snippets for updating theme of the application through BLoC state management.
 
-8.  You can remove the default UI screens and do a start fresh too and integrate UI as per your requirement.
+```
+abstract  class  UpdateThemeState  extends  Equatable {
 
-9.  Run command `flutter run` to get started 🥳
+const  UpdateThemeState();
+
+@override
+
+List<bool> get  props => [];
+
+}
+
+
+
+class  SetTheme  extends  UpdateThemeState {
+
+final  bool  isLightTheme;
+
+const  SetTheme({required  this.isLightTheme});
+
+@override
+
+List<bool> get  props => [isLightTheme];
+
+}
+```
+
+```
+abstract  class  UpdateThemeEvent  extends  Equatable {
+
+const  UpdateThemeEvent();
+
+
+
+@override
+
+List<bool> get  props => [];
+
+}
+
+
+
+class  UpdateTheme  extends  UpdateThemeEvent {
+
+final  bool  isLightTheme;
+
+const  UpdateTheme({required  this.isLightTheme});
+
+
+
+@override
+
+List<bool> get  props => [isLightTheme];
+
+}
+```
+
+```
+class  UpdateThemeBloc  extends  Bloc<UpdateThemeEvent, UpdateThemeState> {
+
+UpdateThemeBloc() :  super(const  SetTheme(isLightTheme:  true)) {
+
+on<UpdateThemeEvent>((event, emit) {
+
+if (event  is  UpdateTheme) {
+
+emit(SetTheme(isLightTheme:  event.isLightTheme));
+
+}
+
+});
+
+}
+
+}
+```
+
+8.  You can add n amount of colours, font sizes, text theme, etc to maintain the theme of your application.
+
+9.  You can remove the default UI screens and do a start fresh too and integrate UI as per your requirement.
+
+10. Run command `flutter run` to get started 🥳
