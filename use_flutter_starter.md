@@ -2,15 +2,15 @@
 
 To get started with flutter starter:
 
-- Clone the flutter-starter repository from GitHub or click on the use-template button to create an initial template for your project.
+1. Clone the flutter-starter repository from GitHub or click on the use-template button to create an initial template for your project.
 
-- Below is the folder structure of the template that will be created
+2. Below is the folder structure of the template that will be created
 
 [**Folder Structure :**](./folder_structure.md)
 
-1.  To add an image or any asset there is a folder named **assets** in the app folder at root location, you can add images under **assets/ images/** and if you want to add google fonts or custom fonts you can create a folder named **fonts** under **assets/**
+3.  To add an image or any asset there is a folder named **assets** in the app folder at root location, you can add images under **assets/ images/** and if you want to add google fonts or custom fonts you can create a folder named **fonts** under **assets/**
 
-2.  We have added localisation as a basic set up. Right now, 3 languages have been added in our localisation folder but you can add more according to your use case: English, Spanish, French. [here](lib/l10n)
+4.  We have added localisation as a basic set up. Right now, 3 languages have been added in our localisation folder but you can add more according to your use case: English, Spanish, French. [here](lib/l10n)
 
 ```
 
@@ -38,7 +38,7 @@ locale: const Locale('fr'),
 
 ```
 
-3.  We have added **go_router** as a dependency for routing so that same application can be run on flutter_web too, but if you want you can use basic routing as well by just uncommenting the code and using it as per requirements. [here](lib/routes)
+5.  We have added **go_router** as a dependency for routing so that same application can be run on flutter_web too, but if you want you can use basic routing as well by just uncommenting the code and using it as per requirements. [here](lib/routes)
 
 ```
 final GoRouter router = GoRouter(
@@ -101,7 +101,7 @@ return const SignUpScreen();
 
 ```
 
-4. There are two api-services **dio** and **http** that have been set up if you want to provide any network method calls.
+6. There are two api-services **dio** and **http** that have been set up if you want to provide any network method calls.
 
 - **http** : We have set up an example of http in the application for signup/ login purposes but you can choose whatever you are comfortable with. You can add more network calls in the respective files as per your use case. Below is the snippet of how you can create an http client and use it to call network methods.
 
@@ -507,8 +507,8 @@ return  response;
 
 - Finally get rid of the dio folder under api_sdk.
 
-5.  You can add n amount of colours, font sizes, text theme, etc to maintain the theme of your application.
+7.  You can add n amount of colours, font sizes, text theme, etc to maintain the theme of your application.
 
-6.  You can remove the default UI screens and do a start fresh too and integrate UI as per your requirement.
+8.  You can remove the default UI screens and do a start fresh too and integrate UI as per your requirement.
 
-7.  Run command `flutter run` to get started 🥳
+9.  Run command `flutter run` to get started 🥳
