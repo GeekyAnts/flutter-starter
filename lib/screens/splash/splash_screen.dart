@@ -41,8 +41,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    authenticationBloc = AuthenticationBlocController().authenticationBloc;
-    authenticationBloc.add(AppLoadedup());
+    authenticationBloc = BlocProvider.of<AuthenticationBloc>(context);
+    authenticationBloc.add(const AppLoadedup());
     super.initState();
   }
 }

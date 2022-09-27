@@ -14,13 +14,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final AuthenticationBloc authenticationBloc =
-      AuthenticationBlocController().authenticationBloc;
+  late final AuthenticationBloc authenticationBloc;
   bool switchValue = true;
   @override
   void initState() {
     super.initState();
-    authenticationBloc.add(GetUserData());
+    authenticationBloc = BlocProvider.of<AuthenticationBloc>(context);
+    authenticationBloc.add(const GetUserData());
     BlocProvider.of<UpdateThemeBloc>(context).stream.listen((event) {
       switchValue = event.props.first;
     });
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       IconButton(
                           icon: const Icon(Icons.logout),
                           onPressed: () {
-                            authenticationBloc.add(UserLogOut());
+                            authenticationBloc.add(const UserLogOut());
                           }),
                     ],
                   ),

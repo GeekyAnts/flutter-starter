@@ -12,7 +12,14 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  AuthenticationBloc authenticationBloc = AuthenticationBloc();
+  late final AuthenticationBloc authenticationBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    authenticationBloc = BlocProvider.of<AuthenticationBloc>(context);
+  }
+
   void _showError(String error) async {
     await Fluttertoast.showToast(
         msg: error,
