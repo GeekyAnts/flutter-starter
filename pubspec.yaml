@@ -55,6 +55,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  integration_test:
+    sdk: flutter
   flutter_native_splash: ^2.0.2
   retrofit_generator: ^4.0.3+1
   build_runner: ^2.2.0

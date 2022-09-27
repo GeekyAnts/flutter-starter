@@ -107,6 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                   Switch(
+                                    key: const Key('themeSwitch'),
                                     activeColor:
                                         Theme.of(context).backgroundColor,
                                     value: switchValue,
