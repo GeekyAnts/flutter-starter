@@ -1,14 +1,16 @@
 import 'package:equatable/equatable.dart';
 
+import '../../../flutter_starter.dart';
+
 abstract class UpdateThemeState extends Equatable {
   const UpdateThemeState();
   @override
-  List<bool> get props => [];
+  List<AppTheme> get props => [];
 }
 
 class SetTheme extends UpdateThemeState {
-  final bool isLightTheme;
-  const SetTheme({required this.isLightTheme});
+  final AppTheme appTheme;
+  const SetTheme({required this.appTheme});
   @override
-  List<bool> get props => [isLightTheme];
+  List<AppTheme> get props => [appTheme];
 }

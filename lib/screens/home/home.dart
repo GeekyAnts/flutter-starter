@@ -16,14 +16,15 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final AuthenticationBloc authenticationBloc =
       AuthenticationBlocController().authenticationBloc;
-  bool switchValue = true;
+  bool switchValue = false;
   @override
   void initState() {
     super.initState();
     authenticationBloc.add(GetUserData());
-    BlocProvider.of<UpdateThemeBloc>(context).stream.listen((event) {
-      switchValue = event.props.first;
-    });
+    switchValue = BlocProvider.of<UpdateThemeBloc>(context).state.props.first ==
+            AppTheme.light
+        ? false
+        : true;
   }
 
   @override
@@ -108,9 +109,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Theme.of(context).backgroundColor,
                                     value: switchValue,
                                     onChanged: (value) {
+                                      setState(() {
+                                        switchValue = value;
+                                      });
+
                                       BlocProvider.of<UpdateThemeBloc>(context)
-                                          .add(
-                                              UpdateTheme(isLightTheme: value));
+                                          .add(UpdateTheme(
+                                              appTheme: value
+                                                  ? AppTheme.dark
+                                                  : AppTheme.light));
                                     },
                                   )
                                 ],
