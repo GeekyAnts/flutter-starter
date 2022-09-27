@@ -60,7 +60,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 child: _authenticationForm(context, state)),
                           ),
                         )
-                      : _authenticationForm(context, state),
+                      : SingleChildScrollView(
+                          child: _authenticationForm(context, state),
+                        ),
                 );
               }),
         ),

@@ -46,7 +46,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     backgroundColor: Theme.of(context).primaryColor,
                     centerTitle: true,
                     title: Text(
-                      AppLocalizations.of(context)!.flutterStarterText,
+                      AppLocalizations.of(context)?.flutterStarterText ??
+                          'Flutter Starter',
                       style: Theme.of(context)
                           .textTheme
                           .headline3!
@@ -54,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     actions: [
                       IconButton(
+                          key: const Key('logoutButton'),
                           icon: const Icon(Icons.logout),
                           onPressed: () {
                             authenticationBloc.add(const UserLogOut());
@@ -62,7 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   backgroundColor: Theme.of(context).backgroundColor,
                   body: Center(
-                    child: Text(AppLocalizations.of(context)!.homeText,
+                    child: Text(
+                        AppLocalizations.of(context)?.homeText ?? 'Home',
                         style: Theme.of(context).textTheme.headline6),
                   ),
                   drawer: Drawer(

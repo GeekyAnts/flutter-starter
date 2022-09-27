@@ -62,7 +62,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 child: _authenticationForm(context, state)),
                           ),
                         )
-                      : _authenticationForm(context, state),
+                      : SingleChildScrollView(
+                          child: _authenticationForm(context, state),
+                        ),
                   Positioned(
                     left: 6,
                     child: IconButton(
