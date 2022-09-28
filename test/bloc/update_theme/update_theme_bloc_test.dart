@@ -17,14 +17,14 @@ void main() {
     blocTest<UpdateThemeBloc, UpdateThemeState>(
       'test initial state of the theme bloc',
       build: () => updateThemeBloc,
-      verify: (bloc) => bloc.state == const SetTheme(isLightTheme: true),
+      verify: (bloc) => bloc.state == const SetTheme(appTheme: AppTheme.light),
     );
 
     blocTest<UpdateThemeBloc, UpdateThemeState>(
       'test when theme is changed',
       build: () => updateThemeBloc,
-      act: (bloc) => bloc.add(const UpdateTheme(isLightTheme: false)),
-      expect: () => [const SetTheme(isLightTheme: false)],
+      act: (bloc) => bloc.add(const UpdateTheme(appTheme: AppTheme.dark)),
+      expect: () => [const SetTheme(appTheme: AppTheme.dark)],
     );
   });
 }

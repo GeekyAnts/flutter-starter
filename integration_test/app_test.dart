@@ -94,7 +94,7 @@ void main() {
       state.closeDrawer();
       await tester.pumpAndSettle();
 
-      expect(updateThemeBloc.state, const SetTheme(isLightTheme: false));
+      expect(updateThemeBloc.state, const SetTheme(appTheme: AppTheme.dark));
 
       /// Logout
       await tester.tap(logout);

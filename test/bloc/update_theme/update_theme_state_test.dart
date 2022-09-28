@@ -7,15 +7,15 @@ void main() {
   group('SetTheme', () {
     test('test value comparisons during light theme', () {
       expect(
-        SetTheme(isLightTheme: true),
-        SetTheme(isLightTheme: true),
+        SetTheme(appTheme: AppTheme.light),
+        SetTheme(appTheme: AppTheme.light),
       );
     });
 
     test('test value comparisons during dark theme', () {
       expect(
-        SetTheme(isLightTheme: false),
-        SetTheme(isLightTheme: false),
+        SetTheme(appTheme: AppTheme.dark),
+        SetTheme(appTheme: AppTheme.dark),
       );
     });
   });

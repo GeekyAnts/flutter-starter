@@ -52,6 +52,9 @@ void main() {
           ),
         ),
       );
+      when(() => updateThemeBloc.state).thenReturn(
+        const SetTheme(appTheme: AppTheme.light),
+      );
 
       await tester.pumpWidget(createWidget(const HomeScreen()));
       final Finder logout = find.byKey(const Key('logoutButton'));
