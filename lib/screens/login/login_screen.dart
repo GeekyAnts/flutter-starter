@@ -12,7 +12,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  AuthenticationBloc authenticationBloc = AuthenticationBloc();
+  late final AuthenticationBloc authenticationBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    authenticationBloc = BlocProvider.of<AuthenticationBloc>(context);
+  }
+
   void _showError(String error) async {
     await Fluttertoast.showToast(
         msg: error,
@@ -53,7 +60,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 child: _authenticationForm(context, state)),
                           ),
                         )
-                      : _authenticationForm(context, state),
+                      : SingleChildScrollView(
+                          child: _authenticationForm(context, state),
+                        ),
                 );
               }),
         ),

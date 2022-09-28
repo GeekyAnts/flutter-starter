@@ -14,13 +14,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final AuthenticationBloc authenticationBloc =
-      AuthenticationBlocController().authenticationBloc;
+  late final AuthenticationBloc authenticationBloc;
   bool switchValue = false;
+
   @override
   void initState() {
     super.initState();
-    authenticationBloc.add(GetUserData());
+    authenticationBloc = BlocProvider.of<AuthenticationBloc>(context);
+    authenticationBloc.add(const GetUserData());
     switchValue = BlocProvider.of<UpdateThemeBloc>(context).state.props.first ==
             AppTheme.light
         ? false
@@ -47,7 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     backgroundColor: Theme.of(context).primaryColor,
                     centerTitle: true,
                     title: Text(
-                      AppLocalizations.of(context)!.flutterStarterText,
+                      AppLocalizations.of(context)?.flutterStarterText ??
+                          'Flutter Starter',
                       style: Theme.of(context)
                           .textTheme
                           .headline3!
@@ -55,15 +57,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     actions: [
                       IconButton(
+                          key: const Key('logoutButton'),
                           icon: const Icon(Icons.logout),
                           onPressed: () {
-                            authenticationBloc.add(UserLogOut());
+                            authenticationBloc.add(const UserLogOut());
                           }),
                     ],
                   ),
                   backgroundColor: Theme.of(context).backgroundColor,
                   body: Center(
-                    child: Text(AppLocalizations.of(context)!.homeText,
+                    child: Text(
+                        AppLocalizations.of(context)?.homeText ?? 'Home',
                         style: Theme.of(context).textTheme.headline6),
                   ),
                   drawer: Drawer(
@@ -105,6 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                   Switch(
+                                    key: const Key('themeSwitch'),
                                     activeColor:
                                         Theme.of(context).backgroundColor,
                                     value: switchValue,

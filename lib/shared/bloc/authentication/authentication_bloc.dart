@@ -1,40 +1,36 @@
-import 'package:bloc/bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_starter/flutter_starter.dart';
+
+part 'authentication_event.dart';
+part 'authentication_state.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
-  final AuthenticationRepository authenticationService =
-      AuthenticationRepository();
-  AuthenticationBloc() : super(AuthenticationInitial()) {
+  final SharedPrefs prefs = SharedPrefs.instance;
+  final AuthenticationRepository _authenticationService;
+
+  AuthenticationBloc({
+    required AuthenticationRepository authenticationService,
+  })  : _authenticationService = authenticationService,
+        super(const AuthenticationInitial()) {
     on<AppLoadedup>(_mapAppSignUpLoadedState);
     on<UserSignUp>(_mapUserSignupToState);
     on<UserLogin>(_mapUserLoginState);
-    on<UserLogOut>((event, emit) async {
-      final SharedPreferences sharedPreferences = await prefs;
-      sharedPreferences.clear();
-      emit(UserLogoutState());
-    });
-    on<GetUserData>((event, emit) async {
-      final SharedPreferences sharedPreferences = await prefs;
-      final currentUserId = sharedPreferences.getInt('userId');
-      final data = await authenticationService.getUserData(currentUserId ?? 4);
-      final currentUserData = CurrentUserData.fromJson(data);
-      emit(SetUserData(currentUserData: currentUserData));
-    });
+    on<UserLogOut>(_mapUserLogoutState);
+    on<GetUserData>(_mapUserDataState);
   }
 
   void _mapAppSignUpLoadedState(
       AppLoadedup event, Emitter<AuthenticationState> emit) async {
-    AuthenticationLoading();
+    emit(const AuthenticationLoading());
     try {
       await Future.delayed(
           const Duration(milliseconds: 500)); // a simulated delay
-      final SharedPreferences sharedPreferences = await prefs;
-      if (sharedPreferences.getString('authtoken') != null) {
-        emit(AppAutheticated());
+      if (prefs.getToken() != null) {
+        emit(const AppAutheticated());
       } else {
-        emit(AuthenticationStart());
+        emit(const AuthenticationStart());
       }
     } catch (e) {
       emit(const AuthenticationFailure(message: 'An unknown error occurred'));
@@ -43,18 +39,17 @@ class AuthenticationBloc
 
   void _mapUserLoginState(
       UserLogin event, Emitter<AuthenticationState> emit) async {
-    final SharedPreferences sharedPreferences = await prefs;
-    emit(AuthenticationLoading());
+    emit(const AuthenticationLoading());
     try {
       await Future.delayed(
           const Duration(milliseconds: 500)); // a simulated delay
-      final data = await authenticationService.loginWithEmailAndPassword(
+      final data = await _authenticationService.loginWithEmailAndPassword(
           event.email, event.password!);
       if (data["error"] == null) {
         final currentUser = Token.fromJson(data);
         if (currentUser != null) {
-          sharedPreferences.setString('authtoken', currentUser.token);
-          emit(AppAutheticated());
+          prefs.setToken(currentUser.token);
+          emit(const AppAutheticated());
         } else {
           emit(AuthenticationNotAuthenticated());
         }
@@ -68,20 +63,19 @@ class AuthenticationBloc
 
   void _mapUserSignupToState(
       UserSignUp event, Emitter<AuthenticationState> emit) async {
-    final SharedPreferences sharedPreferences = await prefs;
-    emit(AuthenticationLoading());
+    emit(const AuthenticationLoading());
     try {
       await Future.delayed(
           const Duration(milliseconds: 500)); // a simulated delay
-      final data = await authenticationService.signUpWithEmailAndPassword(
+      final data = await _authenticationService.signUpWithEmailAndPassword(
           event.email, event.password!);
 
       if (data["error"] == null) {
         final currentUser = UserData.fromJson(data);
         if (currentUser != null) {
-          sharedPreferences.setString('authtoken', currentUser.token);
-          sharedPreferences.setInt('userId', currentUser.id);
-          emit(AppAutheticated());
+          prefs.setToken(currentUser.token);
+          prefs.setUserId(currentUser.id);
+          emit(const AppAutheticated());
         } else {
           emit(AuthenticationNotAuthenticated());
         }
@@ -91,5 +85,21 @@ class AuthenticationBloc
     } catch (e) {
       emit(AuthenticationFailure(message: e.toString()));
     }
+  }
+
+  void _mapUserLogoutState(
+      UserLogOut event, Emitter<AuthenticationState> emit) async {
+    emit(const AuthenticationLoading());
+    prefs.clear();
+    emit(const UserLogoutState());
+  }
+
+  void _mapUserDataState(
+      GetUserData event, Emitter<AuthenticationState> emit) async {
+    emit(const AuthenticationLoading());
+    final currentUserId = prefs.getUserId();
+    final data = await _authenticationService.getUserData(currentUserId ?? 4);
+    final currentUserData = CurrentUserData.fromJson(data);
+    emit(SetUserData(currentUserData: currentUserData));
   }
 }

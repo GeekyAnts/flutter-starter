@@ -25,6 +25,7 @@ class _SignUpFormState extends State<SignUpForm> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           TextFormField(
+            key: const Key('nameField'),
             cursorColor: Theme.of(context).textTheme.headline1!.color,
             decoration: InputDecoration(
               labelText: 'Name',
@@ -46,6 +47,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           SizedBox(height: 15.toResponsiveHeight),
           TextFormField(
+            key: const Key('emailField'),
             cursorColor: Theme.of(context).textTheme.headline1!.color,
             decoration: InputDecoration(
               labelText: 'Email address',
@@ -67,6 +69,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           SizedBox(height: 15.toResponsiveHeight),
           TextFormField(
+            key: const Key('passwordField'),
             cursorColor: Theme.of(context).textTheme.headline1!.color,
             decoration: InputDecoration(
                 labelText: 'Password',
@@ -86,6 +89,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           SizedBox(height: 18.toResponsiveHeight),
           ElevatedButton(
+            key: const Key('signupButton'),
             style: ElevatedButton.styleFrom(
               primary: Theme.of(context).primaryColor,
             ),

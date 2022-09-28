@@ -12,8 +12,6 @@ export 'shared/models/user_data.dart';
 export 'shared/models/current_user_data.dart';
 export 'shared/shared.dart';
 export 'shared/bloc/authentication/authentication_bloc.dart';
-export 'shared/bloc/authentication/authentication_state.dart';
-export 'shared/bloc/authentication/authentication_event.dart';
 export 'shared/models/current_user_data.dart';
 export 'app.dart';
 export 'themes/color_constants.dart';

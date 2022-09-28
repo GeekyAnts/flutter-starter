@@ -33,6 +33,7 @@ class _LoginFormState extends State<LoginForm> {
         children: [
           TextFormField(
             // initialValue: "eve.holt@reqres.in",
+            key: const Key('emailField'),
             cursorColor: Theme.of(context).textTheme.headline1!.color,
             decoration: InputDecoration(
               labelText: 'Email address',
@@ -55,6 +56,7 @@ class _LoginFormState extends State<LoginForm> {
           SizedBox(height: 15.toResponsiveHeight),
           TextFormField(
             // initialValue: R"pistol",
+            key: const Key('passwordField'),
             cursorColor: Theme.of(context).textTheme.headline1!.color,
             decoration: InputDecoration(
                 labelText: 'Password',
@@ -74,6 +76,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
           SizedBox(height: 18.toResponsiveHeight),
           ElevatedButton(
+            key: const Key('loginButton'),
             style: ElevatedButton.styleFrom(
               primary: Theme.of(context).primaryColor,
             ),

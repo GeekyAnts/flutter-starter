@@ -1,5 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:flutter_starter/flutter_starter.dart';
+part of 'authentication_bloc.dart';
 
 abstract class AuthenticationState extends Equatable {
   const AuthenticationState();
@@ -8,15 +7,25 @@ abstract class AuthenticationState extends Equatable {
   List<Object> get props => [];
 }
 
-class AppAutheticated extends AuthenticationState {}
+class AuthenticationInitial extends AuthenticationState {
+  const AuthenticationInitial();
+}
 
-class AuthenticationInitial extends AuthenticationState {}
+class AppAutheticated extends AuthenticationState {
+  const AppAutheticated();
+}
 
-class AuthenticationLoading extends AuthenticationState {}
+class AuthenticationLoading extends AuthenticationState {
+  const AuthenticationLoading();
+}
 
-class AuthenticationStart extends AuthenticationState {}
+class AuthenticationStart extends AuthenticationState {
+  const AuthenticationStart();
+}
 
-class UserLogoutState extends AuthenticationState {}
+class UserLogoutState extends AuthenticationState {
+  const UserLogoutState();
+}
 
 class SetUserData extends AuthenticationState {
   final CurrentUserData currentUserData;
