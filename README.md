@@ -30,6 +30,8 @@ For the initial release flutter starter provides:
 
 - **Themes** : Theme of the whole application will be derived from here. A basic theme set up including interchanging of light and dark theme will be there. You can add n amount of colours, font sizes, text theme, etc to maintain the theme of your application. [here](lib/themes)
 
+- **Test Cases** : We have also introduced test cases in the base setup so that you can validate your UI, business logic, functionality, etc. [here](./integration_test/app_test.dart)
+
 4.  **UI Screens**
 
 - **Sign In :** This will be the landing page of our application, for someone who already has an account registered can login directly. [here](lib/screens/login/login_screen.dart)
