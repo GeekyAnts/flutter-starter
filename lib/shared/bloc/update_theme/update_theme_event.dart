@@ -1,16 +1,18 @@
 import 'package:equatable/equatable.dart';
 
+enum AppTheme { light, dark }
+
 abstract class UpdateThemeEvent extends Equatable {
   const UpdateThemeEvent();
 
   @override
-  List<bool> get props => [];
+  List<AppTheme> get props => [];
 }
 
 class UpdateTheme extends UpdateThemeEvent {
-  final bool isLightTheme;
-  const UpdateTheme({required this.isLightTheme});
+  final AppTheme appTheme;
+  const UpdateTheme({required this.appTheme});
 
   @override
-  List<bool> get props => [isLightTheme];
+  List<AppTheme> get props => [appTheme];
 }

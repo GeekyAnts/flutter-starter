@@ -20,7 +20,7 @@ class App extends StatelessWidget {
           theme: ThemeConfig.lightTheme,
           darkTheme: ThemeConfig.darkTheme,
           themeMode: state is SetTheme
-              ? state.isLightTheme
+              ? state.appTheme == AppTheme.light
                   ? ThemeMode.light
                   : ThemeMode.dark
               : ThemeMode.light,
