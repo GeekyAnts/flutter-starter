@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late final AuthenticationBloc authenticationBloc;
-  bool switchValue = true;
+  bool switchValue = false;
 
   @override
   void initState() {
