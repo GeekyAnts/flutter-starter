@@ -10,8 +10,7 @@ To get started with flutter starter:
 
 3.  To add an image or any asset there is a folder named **assets** in the app folder at root location, you can add images under **assets/ images/** and if you want to add google fonts or custom fonts you can create a folder named **fonts** under **assets/**
 
-4.  We have added localisation as a basic set up. Right now, 3 languages have been added in our localisation folder but you can add more according to your use case: English, Spanish, French. [here](lib/l10n)
-    And if you want to change the language as per your choice you can provide a constant value to the locale parameter inside the MaterialApp widget.
+4.  We have added localisation as a basic set up. Right now, 3 languages have been added in our localisation folder but you can add more according to your use case: English, Spanish, French. [here](lib/l10n). And if you want to change the language as per your choice you can provide a constant value to the locale parameter inside the MaterialApp widget.
 
 ```
 
