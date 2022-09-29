@@ -11,54 +11,21 @@ To get started with flutter starter:
 3.  To add an image or any asset there is a folder named **assets** in the app folder at root location, you can add images under **assets/ images/** and if you want to add google fonts or custom fonts you can create a folder named **fonts** under **assets/**
 
 4.  We have added localisation as a basic set up. Right now, 3 languages have been added in our localisation folder but you can add more according to your use case: English, Spanish, French. [here](lib/l10n)
+    And if you want to change the language as per your choice you can provide a constant value to the locale parameter inside the MaterialApp widget.
 
 ```
 
 return MaterialApp.router(
-
 ...
-
-localizationsDelegates: const [
-
-AppLocalizations.delegate,
-
-GlobalMaterialLocalizations.delegate,
-
-GlobalCupertinoLocalizations.delegate,
-
-GlobalWidgetsLocalizations.delegate,
-
-],
-
-supportedLocales: AppLocalizations.supportedLocales,
-
 locale: const Locale('fr'),
-
 );
 
 ```
 
-5.  We have added **go_router** as a dependency for routing so that same application can be run on flutter_web too, but if you want you can use basic routing as well by just uncommenting the code and using it as per requirements. [here](lib/routes)
+5. We have added **go_router** as a dependency for routing so that same application can be run on flutter_web too, but if you want you can use basic routing as well by just uncommenting the code and using it as per requirements. You can add routes that you are planning to use in your application in this file. [here](lib/routes)
+   Below is an example on how you can add a route and return the respective screen.
 
 ```
-final GoRouter router = GoRouter(
-
-initialLocation: '/',
-
-routes: <GoRoute>[
-
-GoRoute(
-
-path: '/',
-
-builder: (BuildContext context, GoRouterState state) {
-
-return const SplashScreen();
-
-},
-
-),
-
 GoRoute(
 
 path: '/home',
@@ -71,33 +38,6 @@ return const HomeScreen();
 
 ),
 
-GoRoute(
-
-path: '/login',
-
-builder: (BuildContext context, GoRouterState state) {
-
-return const LoginScreen();
-
-},
-
-),
-
-GoRoute(
-
-path: '/signup',
-
-builder: (BuildContext context, GoRouterState state) {
-
-return const SignUpScreen();
-
-},
-
-),
-
-],
-
-);
 
 ```
 
