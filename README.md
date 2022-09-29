@@ -10,7 +10,6 @@ Flutter Starter, a starter kit for Flutter that helps you bootstrap projects wit
 
 ### Tech Stack
 
-```markdown
 | Library              | Category             | Version | Description                                                                                                   |
 | -------------------- | -------------------- | ------- | ------------------------------------------------------------------------------------------------------------- |
 | Flutter              | Mobile Framework     | 3.0.1   | A framework for building multi-platform applications from a single codebase.                                  |
@@ -25,7 +24,6 @@ Flutter Starter, a starter kit for Flutter that helps you bootstrap projects wit
 | Go Router            | Routing              | 4.4.1   | A declarative router for Flutter based on Navigation 2 supporting deep linking.                               |
 | Bloc Test            | Testing              | 9.1.0   | A testing library which makes it easy to test blocs.                                                          |
 | Mocktail             | Testing              | 0.3.0   | A Dart mock library which simplifies mocking with null safety support and no manual mocks or code generation. |
-```
 
 ## What does Flutter Starter provide :
 
@@ -59,7 +57,7 @@ For the initial release flutter starter provides:
 
 5.  **Test Cases**
 
-We have also introduced test cases in the base setup so that you can validate your UI, business logic, functionality, etc. We have set up :
+    We have also introduced test cases in the base setup so that you can validate your UI, business logic, functionality, etc. We have set up :
 
 - **Unit Test Cases :** Unit tests are handy for verifying the behaviour of a single function, method, or class. [here](./test/bloc/)
 - **Integration Test Cases :** They test how individual pieces work together as a whole, or capture the performance of an application running on a real device. [here](./integration_test/app_test.dart)
