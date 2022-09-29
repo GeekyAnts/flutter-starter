@@ -8,6 +8,25 @@ We wanted to take Flutter a step further and accelerate the process of building 
 
 Flutter Starter, a starter kit for Flutter that helps you bootstrap projects with all the essential modules like **State Management, API calls, Style Guide, Localisation, Routes** etc. It helps you build production ready apps in a jiffy. It handles everything at one place so you don't have to rewrite code.
 
+### Tech Stack
+
+```markdown
+| Library              | Category             | Version | Description                                                                                                   |
+| -------------------- | -------------------- | ------- | ------------------------------------------------------------------------------------------------------------- |
+| Flutter              | Mobile Framework     | 3.0.1   | A framework for building multi-platform applications from a single codebase.                                  |
+| Flutter Localization | Internationalization | 0.17.0  | Localizations for the Flutter library.                                                                        |
+| BLoC                 | State Management     | 8.1.0   | This design pattern helps to separate presentation from business logic                                        |
+| Flutter Bloc         | State Management     | 8.1.1   | Makes it easy to implement the BLoC design pattern                                                            |
+| Http                 | Api Service          | 0.13.5  | A composable, multi-platform, Future-based API for HTTP requests.                                             |
+| Http Interceptor     | Intercepting         | 1.0.2   | A simple plugin that allows you to intercept request and response objects and modify them if desired.         |
+| Shared Preferences   | Storage              | 2.0.12  | Wraps platform-specific persistent storage for simple data.                                                   |
+| Dio                  | State Management     | 4.0.6   | A powerful Http client for Dart.                                                                              |
+| Retrofit             | Dio client Generator | 3.0.1+1 | A dio client generator using source_gen.                                                                      |
+| Go Router            | Routing              | 4.4.1   | A declarative router for Flutter based on Navigation 2 supporting deep linking.                               |
+| Bloc Test            | Testing              | 9.1.0   | A testing library which makes it easy to test blocs.                                                          |
+| Mocktail             | Testing              | 0.3.0   | A Dart mock library which simplifies mocking with null safety support and no manual mocks or code generation. |
+```
+
 ## What does Flutter Starter provide :
 
 For the initial release flutter starter provides:
@@ -37,6 +56,14 @@ For the initial release flutter starter provides:
 - **Sign Up :** You can register yourself here. [here](lib/screens/signup/signup_screen.dart)
 
 - **Home :** It will contain a drawer which will have basic user information who has logged in and a switch to change between light and dark theme. [here](lib/screens/home/home.dart)
+
+5.  **Test Cases**
+
+We have also introduced test cases in the base setup so that you can validate your UI, business logic, functionality, etc. We have set up :
+
+- **Unit Test Cases :** Unit tests are handy for verifying the behaviour of a single function, method, or class. [here](./test/bloc/)
+- **Integration Test Cases :** They test how individual pieces work together as a whole, or capture the performance of an application running on a real device. [here](./integration_test/app_test.dart)
+- **Widget Test Cases :** They test the UI components. It is used to test a single widget. The main goal of widget testing is to check whether the widget works as expected. [here](./test/screens/)
 
 ## What will Flutter Starter provide in later releases :
 
