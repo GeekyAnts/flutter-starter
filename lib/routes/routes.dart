@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/flutter_starter.dart';
 import 'package:go_router/go_router.dart';
+
+import '../common_export.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/',
@@ -31,8 +32,6 @@ final GoRouter router = GoRouter(
     ),
   ],
 );
-
-
 
 /// routes for the app  Without go_router
 // import 'package:flutter_starter/flutter_starter.dart';

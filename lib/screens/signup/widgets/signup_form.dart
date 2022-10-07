@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/flutter_starter.dart';
+
+import '../../../common_export.dart';
 
 class SignUpForm extends StatefulWidget {
   final AuthenticationBloc authenticationBloc;

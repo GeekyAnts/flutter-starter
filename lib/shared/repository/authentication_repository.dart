@@ -1,4 +1,4 @@
-import '../../api_sdk/dio_api_sdk.dart';
+import '../../common_export.dart';
 
 class AuthenticationRepository {
   Future<dynamic> signUpWithEmailAndPassword(

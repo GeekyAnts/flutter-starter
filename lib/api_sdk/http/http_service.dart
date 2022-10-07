@@ -1,7 +1,8 @@
-import 'http_helpers/http_client.dart';
-import 'http_helpers/http_interceptor.dart';
 import 'package:http/http.dart';
 import 'package:http_interceptor/http/intercepted_client.dart';
+
+import 'http_helpers/http_client.dart';
+import 'http_helpers/http_interceptor.dart';
 
 class HttpApi {
   HttpApi._internal();

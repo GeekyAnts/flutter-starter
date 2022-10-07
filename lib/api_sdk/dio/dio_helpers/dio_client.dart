@@ -1,8 +1,9 @@
-import 'package:flutter_starter/config/config.dart';
-import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
+import 'package:retrofit/retrofit.dart';
 
+import '../../../config/config.dart';
 import 'dio_apis.dart';
+
 part 'dio_client.g.dart';
 
 @RestApi(baseUrl: baseUrl)

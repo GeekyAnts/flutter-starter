@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart';
-
-import '../../../flutter_starter.dart';
+part of 'update_theme_bloc.dart';
 
 abstract class UpdateThemeState extends Equatable {
   const UpdateThemeState();
