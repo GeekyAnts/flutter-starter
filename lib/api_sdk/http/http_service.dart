@@ -1,5 +1,5 @@
-import 'package:flutter_starter/config/config.dart';
-import 'package:flutter_starter/flutter_starter.dart';
+import 'http_helpers/http_client.dart';
+import 'http_helpers/http_interceptor.dart';
 import 'package:http/http.dart';
 import 'package:http_interceptor/http/intercepted_client.dart';
 

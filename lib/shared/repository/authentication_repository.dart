@@ -1,10 +1,9 @@
-import 'package:flutter_starter/flutter_starter.dart';
+import '../../api_sdk/dio_api_sdk.dart';
 
 class AuthenticationRepository {
   Future<dynamic> signUpWithEmailAndPassword(
       String email, String password) async {
-    await Future.delayed(
-        const Duration(seconds: 1)); // simulate a network delay
+    await Future.delayed(const Duration(seconds: 1));
     final response = await ApiSdk.signUpWithEmailAndPassword(
         {'email': email, 'password': password});
 
@@ -13,8 +12,7 @@ class AuthenticationRepository {
 
   Future<dynamic> loginWithEmailAndPassword(
       String email, String password) async {
-    await Future.delayed(
-        const Duration(seconds: 1)); // simulate a network delay
+    await Future.delayed(const Duration(seconds: 1));
     final response = await ApiSdk.loginWithEmailAndPassword(
         {'email': email, 'password': password});
 
