@@ -1,6 +1,0 @@
-framework module shared_preferences_ios {
-  umbrella header "shared_preferences_ios-umbrella.h"
-
-  export *
-  module * { export * }
-}
