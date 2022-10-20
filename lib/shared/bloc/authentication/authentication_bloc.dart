@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_starter/flutter_starter.dart';
+
+import '../../../common_export.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';

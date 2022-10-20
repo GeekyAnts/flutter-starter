@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_starter/api_sdk/dio/models/user_model.dart';
-import 'package:flutter_starter/flutter_starter.dart';
+
+import 'dio_helpers/dio_client.dart';
+import 'dio_helpers/dio_interceptor.dart';
 
 class DioApi {
   DioApi._internal();
@@ -30,9 +31,15 @@ class DioService {
     return response;
   }
 
-  static postUserData(dynamic body) async {
+  static loginUser(dynamic body) async {
     final client = DioClient(DioApi.createDio());
-    final response = await client.createPost(body);
+    final response = await client.loginUser(body);
+    return response;
+  }
+
+  static registerUser(dynamic body) async {
+    final client = DioClient(DioApi.createDio());
+    final response = await client.loginUser(body);
     return response;
   }
 }

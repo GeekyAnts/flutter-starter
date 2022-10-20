@@ -1,14 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter_starter/config/config.dart';
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 
+import '../../../config/config.dart';
 import 'http_exception.dart';
 
 class HttpClient {
-  final Client client;
+  final http.Client client;
   HttpClient({required this.client});
   Future<dynamic> get(
     String url, {

@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+part of 'update_theme_bloc.dart';
 
 enum AppTheme { light, dark }
 
