@@ -1,49 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../common_export.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
-  late AuthenticationBloc authenticationBloc;
+class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
-  Widget build(BuildContext context) {
-    UiSizeConfig().init(context);
-    return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: BlocListener<AuthenticationBloc, AuthenticationState>(
-        bloc: authenticationBloc,
-        listener: (BuildContext context, AuthenticationState state) {
-          if (state is AppAutheticated) {
-            context.go('/home');
-          }
-          if (state is AuthenticationStart) {
-            context.go('/login');
-          }
-          if (state is UserLogoutState) {
-            context.go('/login');
-          }
-        },
-        child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-            bloc: authenticationBloc,
-            builder: (BuildContext context, AuthenticationState state) {
-              return Center(child: Image.asset(AllImages().logo));
-            }),
-      ),
-    );
+  void initState() {
+    ref.read(authProvider.notifier).appLoadedup();
+    super.initState();
   }
 
   @override
-  void initState() {
-    authenticationBloc = BlocProvider.of<AuthenticationBloc>(context);
-    authenticationBloc.add(const AppLoadedup());
-    super.initState();
+  Widget build(BuildContext context) {
+    UiSizeConfig().init(context);
+
+    ref.listen<AuthMode>(authProvider, (previous, next) {
+      if (next == AuthMode.appAutheticated) {
+        context.go('/home');
+      }
+      if (next == AuthMode.authenticationStart) {
+        context.go('/login');
+      }
+      if (next == AuthMode.userLogoutState) {
+        context.go('/login');
+      }
+    });
+
+    return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: Center(
+        child: Image.asset(AllImages().logo),
+      ),
+    );
   }
 }

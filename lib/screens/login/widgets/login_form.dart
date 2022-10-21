@@ -1,29 +1,20 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../../common_export.dart';
 
-class LoginForm extends StatefulWidget {
-  final AuthenticationBloc authenticationBloc;
-  final AuthenticationState state;
-  const LoginForm(
-      {Key? key, required this.authenticationBloc, required this.state})
-      : super(key: key);
+class LoginForm extends ConsumerStatefulWidget {
+  const LoginForm({Key? key}) : super(key: key);
+
   @override
-  State<LoginForm> createState() => _LoginFormState();
+  ConsumerState<LoginForm> createState() => _LoginFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _LoginFormState extends ConsumerState<LoginForm> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
   final _emailController = TextEditingController();
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-
-  //   _emailController.text = "eve.holt@reqres.in";
-  //   _passwordController.text = "pistol";
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +24,6 @@ class _LoginFormState extends State<LoginForm> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           TextFormField(
-            // initialValue: "eve.holt@reqres.in",
             key: const Key('emailField'),
             cursorColor: Theme.of(context).textTheme.headline1!.color,
             decoration: InputDecoration(
@@ -56,7 +46,6 @@ class _LoginFormState extends State<LoginForm> {
           ),
           SizedBox(height: 15.toResponsiveHeight),
           TextFormField(
-            // initialValue: R"pistol",
             key: const Key('passwordField'),
             cursorColor: Theme.of(context).textTheme.headline1!.color,
             decoration: InputDecoration(
@@ -79,16 +68,16 @@ class _LoginFormState extends State<LoginForm> {
           ElevatedButton(
             key: const Key('loginButton'),
             style: ElevatedButton.styleFrom(
-              primary: Theme.of(context).primaryColor,
+              backgroundColor: Theme.of(context).primaryColor,
             ),
             onPressed: () {
               if (_key.currentState!.validate()) {
-                widget.authenticationBloc.add(UserLogin(
-                    email: _emailController.text,
-                    password: _passwordController.text));
-              } else {}
+                ref
+                    .read(authProvider.notifier)
+                    .userLogin(_emailController.text, _passwordController.text);
+              }
             },
-            child: widget.state is AuthenticationLoading
+            child: ref.watch(authProvider) == AuthMode.authenticationLoading
                 ? CircularProgressIndicator(
                     backgroundColor: Theme.of(context).backgroundColor,
                   )

@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../../common_export.dart';
 
-class SignUpForm extends StatefulWidget {
-  final AuthenticationBloc authenticationBloc;
-  final AuthenticationState state;
-  const SignUpForm(
-      {Key? key, required this.authenticationBloc, required this.state})
-      : super(key: key);
+class SignUpForm extends ConsumerStatefulWidget {
+  const SignUpForm({Key? key}) : super(key: key);
+
   @override
-  State<SignUpForm> createState() => _SignUpFormState();
+  ConsumerState<SignUpForm> createState() => _SignUpFormState();
 }
 
-class _SignUpFormState extends State<SignUpForm> {
+class _SignUpFormState extends ConsumerState<SignUpForm> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
   final _emailController = TextEditingController();
@@ -92,16 +91,15 @@ class _SignUpFormState extends State<SignUpForm> {
           ElevatedButton(
             key: const Key('signupButton'),
             style: ElevatedButton.styleFrom(
-              primary: Theme.of(context).primaryColor,
+              backgroundColor: Theme.of(context).primaryColor,
             ),
             onPressed: () {
               if (_key.currentState!.validate()) {
-                widget.authenticationBloc.add(UserSignUp(
-                    email: _emailController.text,
-                    password: _passwordController.text));
-              } else {}
+                ref.read(authProvider.notifier).userSignup(
+                    _emailController.text, _passwordController.text);
+              }
             },
-            child: widget.state is AuthenticationLoading
+            child: ref.watch(authProvider) == AuthMode.authenticationLoading
                 ? CircularProgressIndicator(
                     backgroundColor: Theme.of(context).backgroundColor,
                   )

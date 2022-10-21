@@ -1,26 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../common_export.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  late final AuthenticationBloc authenticationBloc;
-
-  @override
-  void initState() {
-    super.initState();
-    authenticationBloc = BlocProvider.of<AuthenticationBloc>(context);
-  }
-
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   void _showError(String error) async {
     await Fluttertoast.showToast(
         msg: error,
@@ -34,44 +27,38 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen<AuthMode>(authProvider, (previous, next) {
+      if (next == AuthMode.authenticationFailure) {
+        _showError('Failed to login');
+      }
+      if (next == AuthMode.appAutheticated) {
+        context.go('/home');
+      }
+    });
+
     return Scaffold(
       body: WillPopScope(
         onWillPop: () async => false,
-        child: BlocListener<AuthenticationBloc, AuthenticationState>(
-          bloc: authenticationBloc,
-          listener: (context, state) {
-            if (state is AuthenticationFailure) {
-              _showError(state.message);
-            }
-            if (state is AppAutheticated) {
-              context.go('/home');
-            }
-          },
-          child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-              bloc: authenticationBloc,
-              builder: (BuildContext context, AuthenticationState state) {
-                return SafeArea(
-                  child: Responsive.isDesktop(context)
-                      ? Center(
-                          child: Card(
-                            elevation: 15,
-                            child: SizedBox(
-                                width: 500.toResponsiveWidth,
-                                height: 650.toResponsiveHeight,
-                                child: _authenticationForm(context, state)),
-                          ),
-                        )
-                      : SingleChildScrollView(
-                          child: _authenticationForm(context, state),
-                        ),
-                );
-              }),
+        child: SafeArea(
+          child: Responsive.isDesktop(context)
+              ? Center(
+                  child: Card(
+                    elevation: 15,
+                    child: SizedBox(
+                        width: 500.toResponsiveWidth,
+                        height: 650.toResponsiveHeight,
+                        child: _authenticationForm(context)),
+                  ),
+                )
+              : SingleChildScrollView(
+                  child: _authenticationForm(context),
+                ),
         ),
       ),
     );
   }
 
-  Widget _authenticationForm(BuildContext context, AuthenticationState state) {
+  Widget _authenticationForm(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -89,10 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               Text('Login', style: Theme.of(context).textTheme.headline1),
               SizedBox(height: 15.toResponsiveHeight),
-              LoginForm(
-                authenticationBloc: authenticationBloc,
-                state: state,
-              ),
+              const LoginForm(),
             ],
           ),
         ),

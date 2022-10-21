@@ -35,8 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
-  flutter_bloc: ^8.1.1
-  equatable: ^2.0.3
+  flutter_riverpod: ^2.0.2
   fluttertoast: ^8.0.9
   cached_network_image: ^3.2.0
   http:
@@ -48,14 +47,11 @@ dependencies:
   json_annotation: ^4.6.0
   bloc: ^8.1.0
   go_router: ^4.4.1
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
 
 dev_dependencies:
   flutter_test:
-    sdk: flutter
-  integration_test:
     sdk: flutter
   flutter_native_splash: ^2.0.2
   retrofit_generator: ^4.0.3+1
@@ -68,8 +64,6 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  bloc_test: ^9.1.0
-  mocktail: ^0.3.0
 
 flutter_native_splash:
   image: assets/images/logo.png
