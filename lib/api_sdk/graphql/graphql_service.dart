@@ -1,5 +1,7 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 
+import 'graphql_helpers/graphql_config.dart';
+
 class GraphqlApi {
   GraphqlApi._internal();
 
@@ -8,13 +10,9 @@ class GraphqlApi {
   factory GraphqlApi() => _singleton;
 
   static GraphQLClient createClient() {
-    final HttpLink httpLink = HttpLink(
-      'http://localhost:4000/',
-    );
+    final HttpLink httpLink = HttpLink(baseUrl);
 
-    final AuthLink authLink = AuthLink(
-      getToken: () => 'Bearer ACCESS_TOKEN',
-    );
+    final AuthLink authLink = AuthLink(getToken: () => 'Bearer $accessToken');
 
     final Link link = authLink.concat(httpLink);
 
