@@ -151,32 +151,27 @@ class UiSizeConfig {
 }
 
 extension SizeUtils on num {
-  double get toWidth => UiSizeConfig.getWidthRatio(this.toDouble());
+  double get toWidth => UiSizeConfig.getWidthRatio(toDouble());
 
-  double get toHeight => UiSizeConfig.getHeightRatio(this.toDouble());
+  double get toHeight => UiSizeConfig.getHeightRatio(toDouble());
 
-  double get toFont => UiSizeConfig.getFontRatio(this.toDouble());
+  double get toFont => UiSizeConfig.getFontRatio(toDouble());
 
-  double get toTabletWidth => UiSizeConfig.getTabletWidthRatio(this.toDouble());
+  double get toTabletWidth => UiSizeConfig.getTabletWidthRatio(toDouble());
 
-  double get toTabletHeight =>
-      UiSizeConfig.getTabletHeightRatio(this.toDouble());
+  double get toTabletHeight => UiSizeConfig.getTabletHeightRatio(toDouble());
 
-  double get toTabletFont => UiSizeConfig.getTabletFontRatio(this.toDouble());
+  double get toTabletFont => UiSizeConfig.getTabletFontRatio(toDouble());
 
-  double get toMobileWidth => UiSizeConfig.getMobileWidthRatio(this.toDouble());
+  double get toMobileWidth => UiSizeConfig.getMobileWidthRatio(toDouble());
 
-  double get toMobileHeight =>
-      UiSizeConfig.getMobileHeightRatio(this.toDouble());
+  double get toMobileHeight => UiSizeConfig.getMobileHeightRatio(toDouble());
 
-  double get toMobileFont => UiSizeConfig.getMobileFontRatio(this.toDouble());
+  double get toMobileFont => UiSizeConfig.getMobileFontRatio(toDouble());
 
-  double get toResponsiveFont =>
-      UiSizeConfig.getResponsiveFont(this.toDouble());
+  double get toResponsiveFont => UiSizeConfig.getResponsiveFont(toDouble());
 
-  double get toResponsiveHeight =>
-      UiSizeConfig.getResponsiveHeight(this.toDouble());
+  double get toResponsiveHeight => UiSizeConfig.getResponsiveHeight(toDouble());
 
-  double get toResponsiveWidth =>
-      UiSizeConfig.getResponsiveWidth(this.toDouble());
+  double get toResponsiveWidth => UiSizeConfig.getResponsiveWidth(toDouble());
 }

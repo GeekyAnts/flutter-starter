@@ -11,8 +11,6 @@ export 'shared/bloc/authentication/authentication_bloc.dart';
 export 'shared/bloc/bloc_controller.dart';
 export 'shared/bloc/update_theme/update_theme_bloc.dart';
 export 'shared/models/current_user_data.dart';
-export 'shared/models/current_user_data.dart';
-export 'shared/models/firebase_user.dart';
 export 'shared/models/firebase_user.dart';
 export 'shared/models/token.dart';
 export 'shared/models/user.dart';

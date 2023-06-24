@@ -48,7 +48,7 @@ class AuthenticationBloc
           event.email, event.password!);
       if (data["error"] == null) {
         final currentUser = Token.fromJson(data);
-        if (currentUser != null) {
+        if (currentUser.token.isNotEmpty) {
           prefs.setToken(currentUser.token);
           emit(const AppAutheticated());
         } else {
@@ -73,7 +73,7 @@ class AuthenticationBloc
 
       if (data["error"] == null) {
         final currentUser = UserData.fromJson(data);
-        if (currentUser != null) {
+        if (currentUser.token.isNotEmpty) {
           prefs.setToken(currentUser.token);
           prefs.setUserId(currentUser.id);
           emit(const AppAutheticated());

@@ -27,7 +27,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 3,
-        backgroundColor: Theme.of(context).errorColor,
+        backgroundColor: Theme.of(context).colorScheme.error,
         textColor: Colors.white,
         fontSize: 16.0);
   }
@@ -72,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       icon: Icon(
                         Icons.arrow_back_ios,
                         size: 28,
-                        color: Theme.of(context).textTheme.headline1!.color,
+                        color: Theme.of(context).textTheme.displayLarge!.color,
                       ),
                       onPressed: () {
                         context.pop();
@@ -105,7 +105,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Sign Up', style: Theme.of(context).textTheme.headline1),
+              Text('Sign Up', style: Theme.of(context).textTheme.displayLarge),
               SizedBox(height: 15.toResponsiveHeight),
               SignUpForm(
                 authenticationBloc: authenticationBloc,
@@ -122,13 +122,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
               'Already have an account?',
               style: Theme.of(context)
                   .textTheme
-                  .bodyText2!
+                  .bodyMedium!
                   .copyWith(fontSize: 12.toResponsiveFont),
             ),
             InkWell(
                 child: Text(
                   ' Login',
-                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       fontSize: 13.toResponsiveFont,
                       color: Theme.of(context).primaryColor),
                 ),

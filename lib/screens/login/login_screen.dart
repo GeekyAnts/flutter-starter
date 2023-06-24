@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 3,
-        backgroundColor: Theme.of(context).errorColor,
+        backgroundColor: Theme.of(context).colorScheme.error,
         textColor: Colors.white,
         fontSize: 16.0);
   }
@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Login', style: Theme.of(context).textTheme.headline1),
+              Text('Login', style: Theme.of(context).textTheme.displayLarge),
               SizedBox(height: 15.toResponsiveHeight),
               LoginForm(
                 authenticationBloc: authenticationBloc,
@@ -104,13 +104,13 @@ class _LoginScreenState extends State<LoginScreen> {
               'New here?',
               style: Theme.of(context)
                   .textTheme
-                  .bodyText2!
+                  .bodyMedium!
                   .copyWith(fontSize: 12.toResponsiveFont),
             ),
             InkWell(
                 child: Text(
                   ' Sign Up',
-                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       fontSize: 13.toResponsiveFont,
                       color: Theme.of(context).primaryColor),
                 ),

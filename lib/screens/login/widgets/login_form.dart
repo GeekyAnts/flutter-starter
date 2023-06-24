@@ -35,7 +35,7 @@ class _LoginFormState extends State<LoginForm> {
           TextFormField(
             // initialValue: "eve.holt@reqres.in",
             key: const Key('emailField'),
-            cursorColor: Theme.of(context).textTheme.headline1!.color,
+            cursorColor: Theme.of(context).textTheme.displayLarge!.color,
             decoration: InputDecoration(
               labelText: 'Email address',
               isDense: true,
@@ -58,7 +58,7 @@ class _LoginFormState extends State<LoginForm> {
           TextFormField(
             // initialValue: R"pistol",
             key: const Key('passwordField'),
-            cursorColor: Theme.of(context).textTheme.headline1!.color,
+            cursorColor: Theme.of(context).textTheme.displayLarge!.color,
             decoration: InputDecoration(
                 labelText: 'Password',
                 isDense: true,
@@ -79,7 +79,7 @@ class _LoginFormState extends State<LoginForm> {
           ElevatedButton(
             key: const Key('loginButton'),
             style: ElevatedButton.styleFrom(
-              primary: Theme.of(context).primaryColor,
+              backgroundColor: Theme.of(context).primaryColor,
             ),
             onPressed: () {
               if (_key.currentState!.validate()) {
@@ -90,13 +90,13 @@ class _LoginFormState extends State<LoginForm> {
             },
             child: widget.state is AuthenticationLoading
                 ? CircularProgressIndicator(
-                    backgroundColor: Theme.of(context).backgroundColor,
+                    backgroundColor: Theme.of(context).colorScheme.background,
                   )
                 : Text(
                     'Login',
                     style: Theme.of(context)
                         .textTheme
-                        .bodyText1!
+                        .bodyLarge!
                         .copyWith(fontSize: 15.toResponsiveFont),
                   ),
           )

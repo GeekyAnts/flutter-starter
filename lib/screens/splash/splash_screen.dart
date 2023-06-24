@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     UiSizeConfig().init(context);
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: BlocListener<AuthenticationBloc, AuthenticationState>(
         bloc: authenticationBloc,
         listener: (BuildContext context, AuthenticationState state) {

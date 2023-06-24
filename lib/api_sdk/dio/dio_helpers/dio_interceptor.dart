@@ -16,19 +16,19 @@ class DioInterceptor extends Interceptor {
   }
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     // Do something with the response error.
     _handleError(err);
     super.onError(err, handler);
   }
 
-  _handleError(DioError err) {
+  _handleError(DioException err) {
     switch (err.type) {
-      case DioErrorType.connectTimeout:
-      case DioErrorType.receiveTimeout:
-      case DioErrorType.sendTimeout:
-        throw TimeOutException(err.message, err.requestOptions);
-      case DioErrorType.response:
+      case DioExceptionType.connectionTimeout:
+      case DioExceptionType.receiveTimeout:
+      case DioExceptionType.sendTimeout:
+        throw TimeOutException(err.message.toString(), err.requestOptions);
+      case DioExceptionType.badResponse:
         switch (err.response?.statusCode) {
           case 400:
             throw BadRequestException(
@@ -67,7 +67,7 @@ class DioInterceptor extends Interceptor {
             );
         }
         break;
-      case DioErrorType.other:
+      case DioExceptionType.unknown:
         throw ConnectionException(
           'Please check your network connection',
           err.requestOptions,

@@ -51,10 +51,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: Text(
                       AppLocalizations.of(context)?.flutterStarterText ??
                           'Flutter Starter',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline3!
-                          .copyWith(color: Theme.of(context).backgroundColor),
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          color: Theme.of(context).colorScheme.background),
                     ),
                     actions: [
                       IconButton(
@@ -65,14 +63,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           }),
                     ],
                   ),
-                  backgroundColor: Theme.of(context).backgroundColor,
+                  backgroundColor: Theme.of(context).colorScheme.background,
                   body: Center(
                     child: Text(
                         AppLocalizations.of(context)?.homeText ?? 'Home',
-                        style: Theme.of(context).textTheme.headline6),
+                        style: Theme.of(context).textTheme.titleLarge),
                   ),
                   drawer: Drawer(
-                    backgroundColor: Theme.of(context).backgroundColor,
+                    backgroundColor: Theme.of(context).colorScheme.background,
                     child: ListView(
                       padding: EdgeInsets.zero,
                       children: <Widget>[
@@ -111,8 +109,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   Switch(
                                     key: const Key('themeSwitch'),
-                                    activeColor:
-                                        Theme.of(context).backgroundColor,
+                                    activeColor: Theme.of(context)
+                                        .colorScheme
+                                        .background,
                                     value: switchValue,
                                     onChanged: (value) {
                                       setState(() {
@@ -134,31 +133,31 @@ class _HomeScreenState extends State<HomeScreen> {
                         ListTile(
                           dense: true,
                           leading: Text("Name",
-                              style: Theme.of(context).textTheme.headline6),
+                              style: Theme.of(context).textTheme.titleLarge),
                           title: Text(
                               '${state.currentUserData.data!.firstName} ${state.currentUserData.data!.lastName}',
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText2!
+                                  .bodyMedium!
                                   .copyWith(fontSize: 12.toResponsiveFont)),
                         ),
                         ListTile(
                           dense: true,
                           leading: Text("Email",
-                              style: Theme.of(context).textTheme.headline6),
+                              style: Theme.of(context).textTheme.titleLarge),
                           title: Text(state.currentUserData.data!.email,
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText2!
+                                  .bodyMedium!
                                   .copyWith(fontSize: 12.toResponsiveFont)),
                         ),
                         ListTile(
                           leading: Text("Text",
-                              style: Theme.of(context).textTheme.headline6),
+                              style: Theme.of(context).textTheme.titleLarge),
                           title: Text(state.currentUserData.support!.text,
                               style: Theme.of(context)
                                   .textTheme
-                                  .bodyText2!
+                                  .bodyMedium!
                                   .copyWith(fontSize: 12.toResponsiveFont)),
                         ),
                       ],

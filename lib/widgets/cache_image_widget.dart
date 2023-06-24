@@ -11,8 +11,7 @@ class CachedImage extends StatelessWidget {
     this.width,
     this.placeholder,
     this.errorWidget,
-  })  : assert(imageUrl != null),
-        super(key: key);
+  }) : super(key: key);
 
   final String imageUrl;
   final BoxFit fit;

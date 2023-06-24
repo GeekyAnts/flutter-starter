@@ -27,7 +27,7 @@ class _SignUpFormState extends State<SignUpForm> {
         children: [
           TextFormField(
             key: const Key('nameField'),
-            cursorColor: Theme.of(context).textTheme.headline1!.color,
+            cursorColor: Theme.of(context).textTheme.displayLarge!.color,
             decoration: InputDecoration(
               labelText: 'Name',
               isDense: true,
@@ -49,7 +49,7 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: 15.toResponsiveHeight),
           TextFormField(
             key: const Key('emailField'),
-            cursorColor: Theme.of(context).textTheme.headline1!.color,
+            cursorColor: Theme.of(context).textTheme.displayLarge!.color,
             decoration: InputDecoration(
               labelText: 'Email address',
               isDense: true,
@@ -71,7 +71,7 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: 15.toResponsiveHeight),
           TextFormField(
             key: const Key('passwordField'),
-            cursorColor: Theme.of(context).textTheme.headline1!.color,
+            cursorColor: Theme.of(context).textTheme.displayLarge!.color,
             decoration: InputDecoration(
                 labelText: 'Password',
                 isDense: true,
@@ -92,7 +92,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ElevatedButton(
             key: const Key('signupButton'),
             style: ElevatedButton.styleFrom(
-              primary: Theme.of(context).primaryColor,
+              backgroundColor: Theme.of(context).primaryColor,
             ),
             onPressed: () {
               if (_key.currentState!.validate()) {
@@ -103,13 +103,13 @@ class _SignUpFormState extends State<SignUpForm> {
             },
             child: widget.state is AuthenticationLoading
                 ? CircularProgressIndicator(
-                    backgroundColor: Theme.of(context).backgroundColor,
+                    backgroundColor: Theme.of(context).colorScheme.background,
                   )
                 : Text(
                     'Sign Up',
                     style: Theme.of(context)
                         .textTheme
-                        .bodyText1!
+                        .bodyLarge!
                         .copyWith(fontSize: 15.toResponsiveFont),
                   ),
           )
