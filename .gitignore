@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+migrate_working_dir/
 
 # IntelliJ related
 *.iml
@@ -31,19 +32,13 @@
 .pub/
 /build/
 
-# Web related
-lib/generated_plugin_registrant.dart
-
 # Symbolication related
 app.*.symbols
 
 # Obfuscation related
 app.*.map.json
 
-#android Firebase
-google-services.json
-
-#ios Firebase
-GoogleService-Info.plist
-Secrets
-Secrets.tar
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
