@@ -23,6 +23,19 @@ Flutter Starter is based on the **DRY principle. Don't Repeat Yourself** is a pr
 
 Why is this useful? Applying the DRY principle helps code maintainability, improves development efficiency and much more!
 
+
+## About Flutter Starter
+
+   A production-ready Flutter starter kit by [GeekyAnts](https://geekyants.com?utm_source=github&utm_medium=opensource&utm_campaign=flutter-starter).
+
+   ### Build Your Flutter App
+
+   Need to launch quickly? Check out our:
+   - [Flutter Development Services](https://geekyants.com/hire-flutter-developers?utm_source=github&utm_medium=opensource&utm_campaign=flutter-starter)
+   - [MVP Acceleration Program](https://geekyants.com/service/mvp-development-service?utm_source=github&utm_medium=opensource&utm_campaign=flutter-starter)
+
+   [Contact us](https://geekyants.com/hire?utm_source=github&utm_medium=opensource&utm_campaign=flutter-starter)
+
 ## Features
 
 * **Folder Structure:** Flutter Starter comes with a well-defined folder structure. Devs can easily navigate it and add files where necessary.
